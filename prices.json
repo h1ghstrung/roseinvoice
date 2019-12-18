@@ -1,0 +1,190 @@
+{
+  "bw":{
+    "bw01":{
+      "size": "8.5 x 11",
+      "price1": 0.12,
+      "price11": 0.12
+    },
+    "bw02":{
+      "size": "11 x 17",
+      "price1": 0.42,
+      "price11": 0.42
+    },
+    "bw03":{
+      "size": "12 x 18",
+      "price1": 0.95,
+      "price11": 0.95
+    },
+    "bw04":{
+      "size": "15 x 21",
+      "price1": 1.70,
+      "price11": 0.98
+    },
+    "bw05":{
+      "size": "18 x 24",
+      "price1": 1.70,
+      "price11": 1.15
+    },
+    "bw06":{
+      "size": "24 x 36",
+      "price1": 1.70,
+      "price11": 1.45
+    },
+    "bw07":{
+      "size": "30 x 42",
+      "price1": 2.30,
+      "price11": 1.75
+    },
+    "bw08":{
+      "size": "36 x 48",
+      "price1": 3.65,
+      "price11": 2.85
+    },
+    "bw09":{
+      "size": "Custom",
+      "price1": 0.29,
+      "price11": 0.29
+    }
+  },
+  "cline": {
+    "cline01":{
+      "size": "8.5 x 11",
+      "price1": 0.69,
+      "price11": 0.69
+    },
+    "cline02":{
+      "size": "11 x 17",
+      "price1": 1.49,
+      "price11": 1.49
+    },
+    "cline03":{
+      "size": "12 x 18",
+      "price1": 1.79,
+      "price11": 1.79
+    },
+    "cline04":{
+      "size": "15 x 21",
+      "price1": 4.95,
+      "price11": 4.95
+    },
+    "cline05":{
+      "size": "18 x 24",
+      "price1": 6.25,
+      "price11": 6.25
+    },
+    "cline06":{
+      "size": "24 x 36",
+      "price1": 9.90,
+      "price11": 9.90
+    },
+    "cline07":{
+      "size": "30 x 42",
+      "price1": 14.45,
+      "price11": 14.45
+    },
+    "cline08":{
+      "size": "36 x 48",
+      "price1": 19.80,
+      "price11": 19.80
+    },
+    "cline09":{
+      "size": "Custom",
+      "price1": 1.65,
+      "price11": 1.65
+    }
+  },
+  "cmid": {
+    "cmid01":{
+      "size": "8.5 x 11",
+      "price1": 0.69,
+      "price11": 0.69
+    },
+    "cmid02":{
+      "size": "11 x 17",
+      "price1": 1.49,
+      "price11": 1.49
+    },
+    "cmid03":{
+      "size": "12 x 18",
+      "price1": 1.79,
+      "price11": 1.79
+    },
+    "cmid04":{
+      "size": "15 x 21",
+      "price1": 12.50,
+      "price11": 12.50
+    },
+    "cmid05":{
+      "size": "18 x 24",
+      "price1": 15.50,
+      "price11": 15.50
+    },
+    "cmid06":{
+      "size": "24 x 36",
+      "price1": 27.00,
+      "price11": 27.00
+    },
+    "cmid07":{
+      "size": "30 x 42",
+      "price1": 42.00,
+      "price11": 42.00
+    },
+    "cmid08":{
+      "size": "36 x 48",
+      "price1": 54.00,
+      "price11": 54.00
+    },
+    "cmid09":{
+      "size": "Custom",
+      "price1": 4.50,
+      "price11": 4.50
+    }
+  },
+  "cfull": {
+    "cfull01":{
+      "size": "8.5 x 11",
+      "price1": 0.69,
+      "price11": 0.69
+    },
+    "cfull02":{
+      "size": "11 x 17",
+      "price1": 1.49,
+      "price11": 1.49
+    },
+    "cfull03":{
+      "size": "12 x 18",
+      "price1": 1.79,
+      "price11": 1.79
+    },
+    "cfull04":{
+      "size": "15 x 21",
+      "price1": 18.00,
+      "price11": 18.00
+    },
+    "cfull05":{
+      "size": "18 x 24",
+      "price1": 24.75,
+      "price11": 24.75
+    },
+    "cfull06":{
+      "size": "24 x 36",
+      "price1": 49.50,
+      "price11": 49.50
+    },
+    "cfull07":{
+      "size": "30 x 42",
+      "price1": 72.19,
+      "price11": 72.19
+    },
+    "cfull08":{
+      "size": "36 x 48",
+      "price1": 99.00,
+      "price11": 99.00
+    },
+    "cfull09":{
+      "size": "Custom",
+      "price1": 8.25,
+      "price11": 8.25
+    }
+  }
+}

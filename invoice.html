@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Form to create order tickets for internal use at Rose Reprographics." />
+  <meta name="author" content="Ring 42" />
+  <meta name="keywords" content="invoice, ticket, order, rose, reprographics, internal" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internal Order Ticket</title>
+  <link rel="stylesheet" href="invoice.css" media="screen" />
+  <link rel="stylesheet" href="printInvoice.css" media="print" />
+  <script async src="calcs.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <div class="pageContainer">
+    <div class="fcontainer">
+      <div class="childbox" id="branding">
+        <h1>Rose Reprographics</h1>
+        <p>Order Ticket</p>
+      </div>
+      <form class="childbox" name="orderForm" action="" method="">
+        <div class="fcontainer" id="customerInfo">
+          <div class="childbox" id="customerPreference">
+            <input type="checkbox" name="pickup" value="Pickup" /><label for="pickup">Pick up by customer</label><br />
+            <input type="checkbox" name="deliver" value="Deliver" /><label for="deliver">Deliver to customer</label><br />
+            <input type="checkbox" name="ship" value="Ship" /><label for="ship">Ship to customer</label><br />
+            <input type="checkbox" name="emailcust" value="EmailCust" /><label for="emailcust">E-mail to customer</label><br />
+            <input type="checkbox" name="callcust" value="CallCust" /><label for="callcust">Call when ready</label>
+          </div>
+          <div class="childbox">
+            <label for="custname">Customer name: </label><input type="text" name="custname" /><br />
+            <label for="custphone">Customer phone: </label><input type="text" name="custphone" />
+          </div>
+        </div>
+        </div>
+        <div class="fcontainer" id="billingInfo">
+          <div class="childbox sectionBorder">
+            <!-- Billing/Shipping Info -->
+            <label for="companyBillTo">
+              <span class="">Company</span>
+              <input type="text" name="companyBillTo" placeholder="Company Name" />
+            </label><br>
+            <label for="addressBillTo">
+              <span class="">Address</span>
+              <input type="text" name="addressBillTo" placeholder="Street Address" />
+            </label><br>
+            <label for="cityBillTo">
+              <span class="">City</span>
+              <input type="text" name="cityBillTo" placeholder="City" />
+            </label>
+            <label for="stateBillTo">
+              <span class="">State</span>
+              <input type="text" name="stateBillTo" size="4" placeholder="State" />
+            </label>
+            <label for="zipBillTo">
+              <span class="">Zip</span>
+              <input type="text" name="zipBillTo" size="5" placeholder="Zip" />
+            </label>                    
+          </div>
+          <div class="childbox sectionBorder">
+            <!-- Order Info Bar -->
+            <label for="companyShipTo">
+              <span class="">Company</span>
+              <input type="text" name="companyShipTo" placeholder="Company Name" />
+            </label><br>
+            <label for="addressShipTo">
+              <span class="">Address</span>
+              <input type="text" name="addressShipTo" placeholder="Street Address" />
+            </label><br>
+            <label for="cityShipTo">
+              <span class="">City</span>
+              <input type="text" name="cityShipTo" placeholder="City" />
+            </label>
+            <label for="stateShipTo">
+              <span class="">State</span>
+              <input type="text" name="stateShipTo" size="4" placeholder="State" />
+            </label>
+            <label for="zipShipTo">
+              <span class="">Zip</span>
+              <input type="text" name="zipShipTo" size="5" placeholder="Zip" />
+            </label>                    
+          </div>
+        </div>
+        <div class="fcontainer" id="orderProcessing">
+          <!-- Order Processing information -->
+          <div class="childbox processingLine">
+            <div class="sectionBorder">
+              <label for="poNumber">
+                <span class=""> P.O. Number </span><br />
+                <input type="text" name="poNumber" />
+              </label>
+            </div>
+            <div class="sectionBorder">
+              <label for="orderTaker">
+                <span class=""> Receiver</span><br />
+                <input type="text" name="orderTaker" size="8" />
+              </label>
+            </div>
+            <div class="sectionBorder">
+              <label for="orderProcessor">
+                <span class=""> Production</span><br />
+                <input type="text" name="orderProcessor" size="8" />
+              </label>
+            </div>
+            <div class="sectionBorder">
+              <label for="dateOrdered pa2">
+                <span class=""> Requested</span><br />
+                <input type="date" name="dateOrdered" />
+              </label>
+            </div>
+            <div class="sectionBorder">
+              <label for="dateFinished pa2">
+                <span class=""> Finished</span><br />
+                <input type="date" name="dateFinished" />
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="fcontainer" id="orderItems">
+          <div class="childbox">
+            <!-- Order Items -->
+              <table>
+                <tr>
+                  <th>Qty</th>
+                  <th>Job Type</th>
+                  <th>Media</th>
+                  <th>Size</th>
+                  <th>Price</th>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="Qty1" min="0">
+                      <span>
+                        <!-- Visible Label name here -->
+                      </span>
+                      <input type="number" name="Qty1" class="quantity clear"/ >
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Job1">
+                      <select name="Job1" class="jobs clear" id="">
+                        <option value="none"></option>
+                        <option value="BW" selected>B/W Print</option>
+                        <option value="CScan">Color Scan</option>
+                        <option value="BScan">B/W Scan</option>
+                        <option value="LineCol">Line Color Print</option>
+                        <option value="MedCol">Medium Color Print</option>
+                        <option value="FullCol">Full Color Print</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Media1">
+                      <select name="Media1" class="paper clear" id="">
+                        <option value="Bond" selected>Bond</option>
+                        <option value="Mylar">Mylar</option>
+                        <option value="Glossy">Glossy</option>
+                        <option value="Vellum">Vellum</option>
+                        <option value="ERVellum">Erasable Vellum</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Size1">
+                      <select name="Size1" class="sizes clear" id="">
+                        <option value="ANSIA">8.5 x 11</option>
+                        <option value="ANSIB">11 x 17</option>
+                        <option value="ARCHB">12 x 18</option>
+                        <option value="ARCHC">18 x 24</option>
+                        <option value="ARCHD" selected>24 x 36</option>
+                        <option value="ARCHE1">30 x 42</option>
+                        <option value="ARCHE">36 x 48</option>
+                        <option value="cust">Custom</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Price1">
+                      <div class="LinePrices clear" id="Price1"></div>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                      <label for="Qty2" min="0">
+                        <span>
+                          <!-- Visible Label name here -->
+                        </span>
+                        <input type="number" name="Qty2" class="quantity clear" />
+                      </label>
+                    </td>
+                    <td>
+                      <label for="Job2">
+                        <select name="Job2" class="jobs clear" id="">
+                          <option value="none"></option>
+                          <option value="BW">B/W Print</option>
+                          <option value="CScan">Color Scan</option>
+                          <option value="BScan">B/W Scan</option>
+                          <option value="LineCol">Line Color Print</option>
+                          <option value="MedCol">Medium Color Print</option>
+                          <option value="FullCol">Full Color Print</option>
+                          </select>
+                      </label>
+                    </td>
+                    <td>
+                      <label for="Media2">
+                        <select name="Media2" class="paper clear" id="">
+                          <option value="none"></option>
+                          <option value="Bond">Bond</option>
+                          <option value="Mylar">Mylar</option>
+                          <option value="Glossy">Glossy</option>
+                          <option value="Vellum">Vellum</option>
+                          <option value="ERVellum">Erasable Vellum</option>
+                        </select>
+                      </label>
+                    </td>
+                    <td>
+                      <label for="Size2">
+                        <select name="Size2" class="sizes clear" id="">
+                          <option value="none"></option>
+                          <option value="ANSIA">8.5 x 11</option>
+                          <option value="ANSIB">11 x 17</option>
+                          <option value="ARCHB">12 x 18</option>
+                          <option value="ARCHC">18 x 24</option>
+                          <option value="ARCHD">24 x 36</option>
+                          <option value="ARCHE1">30 x 42</option>
+                          <option value="ARCHE">36 x 48</option>
+                          <option value="cust">Custom</option>
+                        </select>
+                      </label>
+                    </td>
+                    <td>
+                      <label for="Price2">
+                        <div class="LinePrices clear" id="Price2"></div>
+                      </label>
+                    </td>    
+                </tr>
+                <tr>
+                  <td>
+                    <label for="Qty3" min="0">
+                      <span>
+                        <!-- Visible Label name here -->
+                      </span>
+                      <input type="number" name="Qty3" class="quantity clear" />
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Job3">
+                      <select name="Job3" class="jobs clear" id="">
+                        <option value="none"></option>
+                        <option value="BW">B/W Print</option>
+                        <option value="CScan">Color Scan</option>
+                        <option value="BScan">B/W Scan</option>
+                        <option value="LineCol">Line Color Print</option>
+                        <option value="MedCol">Medium Color Print</option>
+                        <option value="FullCol">Full Color Print</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Media3">
+                      <select name="Media3" class="paper clear" id="">
+                        <option value="none"></option>
+                        <option value="Bond">Bond</option>
+                        <option value="Mylar">Mylar</option>
+                        <option value="Glossy">Glossy</option>
+                        <option value="Vellum">Vellum</option>
+                        <option value="ERVellum">Erasable Vellum</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Size3">
+                      <select name="Size3" class="sizes clear" id="">
+                        <option value="none"></option>
+                        <option value="ANSIA">8.5 x 11</option>
+                        <option value="ANSIB">11 x 17</option>
+                        <option value="ARCHB">12 x 18</option>
+                        <option value="ARCHC">18 x 24</option>
+                        <option value="ARCHD">24 x 36</option>
+                        <option value="ARCHE1">30 x 42</option>
+                        <option value="ARCHE">36 x 48</option>
+                        <option value="cust">Custom</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Price3">
+                      <div class="LinePrices clear" id="Price3"></div>
+                    </label>
+                  </td>  
+                </tr>
+                <tr>
+                  <td>
+                    <label for="Qty4" min="0">
+                      <span>
+                        <!-- Visible Label name here -->
+                      </span>
+                      <input type="number" name="Qty4" class="quantity clear" />
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Job4">
+                      <select name="Job4" class="jobs clear" id="">
+                        <option value="none"></option>
+                        <option value="BW">B/W Print</option>
+                        <option value="CScan">Color Scan</option>
+                        <option value="BScan">B/W Scan</option>
+                        <option value="LineCol">Line Color Print</option>
+                        <option value="MedCol">Medium Color Print</option>
+                        <option value="FullCol">Full Color Print</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Media4">
+                      <select name="Media4" class="paper clear" id="">
+                        <option value="none"></option>
+                        <option value="Bond">Bond</option>
+                        <option value="Mylar">Mylar</option>
+                        <option value="Glossy">Glossy</option>
+                        <option value="Vellum">Vellum</option>
+                        <option value="ERVellum">Erasable Vellum</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Size4">
+                      <select name="Size4" class="sizes clear" id="">
+                        <option value="none"></option>
+                        <option value="ANSIA">8.5 x 11</option>
+                        <option value="ANSIB">11 x 17</option>
+                        <option value="ARCHB">12 x 18</option>
+                        <option value="ARCHC">18 x 24</option>
+                        <option value="ARCHD">24 x 36</option>
+                        <option value="ARCHE1">30 x 42</option>
+                        <option value="ARCHE">36 x 48</option>
+                        <option value="cust">Custom</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                      <label for="Price4">
+                        <div class="LinePrices clear" id="Price4"></div>
+                      </label>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="Qty5" min="0">
+                      <span>
+                        <!-- Visible Label name here -->
+                      </span>
+                      <input type="number" name="Qty5" class="quantity clear" />
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Job5">
+                      <select name="Job5" class="jobs clear" id="">
+                        <option value="none"></option>
+                        <option value="BW">B/W Print</option>
+                        <option value="CScan">Color Scan</option>
+                        <option value="BScan">B/W Scan</option>
+                        <option value="LineCol">Line Color Print</option>
+                        <option value="MedCol">Medium Color Print</option>
+                        <option value="FullCol">Full Color Print</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Media5">
+                      <select name="Media5" class="paper clear" id="">
+                        <option value="none"></option>
+                        <option value="Bond">Bond</option>
+                        <option value="Mylar">Mylar</option>
+                        <option value="Glossy">Glossy</option>
+                        <option value="Vellum">Vellum</option>
+                        <option value="ERVellum">Erasable Vellum</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Size5">
+                      <select name="Size5" class="sizes clear" id="">
+                        <option value="none"></option>
+                        <option value="ANSIA">8.5 x 11</option>
+                        <option value="ANSIB">11 x 17</option>
+                        <option value="ARCHB">12 x 18</option>
+                        <option value="ARCHC">18 x 24</option>
+                        <option value="ARCHD">24 x 36</option>
+                        <option value="ARCHE1">30 x 42</option>
+                        <option value="ARCHE">36 x 48</option>
+                        <option value="cust">Custom</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                      <label for="Price5">
+                        <div class="LinePrices clear" id="Price5"></div>
+                      </label>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="Qty6">
+                      <span>
+                        <!-- Visible Label name here -->
+                      </span>
+                      <input type="number" name="Qty6" class="quantity clear" min="0" />
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Job6">
+                      <select name="Job6" class="jobs clear" id="">
+                        <option value="none"></option>
+                        <option value="BW">B/W Print</option>
+                        <option value="CScan">Color Scan</option>
+                        <option value="BScan">B/W Scan</option>
+                        <option value="LineCol">Line Color Print</option>
+                        <option value="MedCol">Medium Color Print</option>
+                        <option value="FullCol">Full Color Print</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Media6">
+                      <select name="Media6" class="paper clear" id="">
+                        <option value="none"></option>
+                        <option value="Bond">Bond</option>
+                        <option value="Mylar">Mylar</option>
+                        <option value="Glossy">Glossy</option>
+                        <option value="Vellum">Vellum</option>
+                        <option value="ERVellum">Erasable Vellum</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Size6">
+                      <select name="Size6" class="sizes clear" id="">
+                        <option value="none"></option>
+                        <option value="ANSIA">8.5 x 11</option>
+                        <option value="ANSIB">11 x 17</option>
+                        <option value="ARCHB">12 x 18</option>
+                        <option value="ARCHC">18 x 24</option>
+                        <option value="ARCHD">24 x 36</option>
+                        <option value="ARCHE1">30 x 42</option>
+                        <option value="ARCHE">36 x 48</option>
+                        <option value="cust">Custom</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                      <label for="Price6">
+                        <div class="LinePrices clear" id="Price6"></div>
+                      </label>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="setupCheckbox">
+                      <span>
+                        <input type="checkbox" onchange="doesSetup()" name="setupCheckbox" value="setupFee" id="setupCheckbox" class="" /> Setup  
+                      </span>
+                    </label>
+                  </td>
+                  <td colspan="2">
+                    <label for="setupReason">
+                      <span>
+                        <input type="text" name="setupReason" placeholder="Reason" id="" class="" />  
+                      </span>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="setupCost">
+                      <span>
+                        <input type="num" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="" />  
+                      </span>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="setupPrice">
+                      <div class="" id="setupPrice"></div>
+                    </label>
+                  </td>
+                </tr>
+              </table>
+            <div class="" id="Notes">
+              <textarea class="clear" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
+            </div>
+            <div class="" id="JobName">
+              <textarea class="clear" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName" cols="67" rows="1"></textarea>
+            </div>
+            <div class="fcontainer">
+              <table class="childbox">
+                <tr>
+                  <td>Sub Total:</td>
+                  <td class="totals clear" id="subTotal"></td>
+                </tr>
+                <tr>
+                  <td>Tax:</td>
+                  <td class="totals clear" id="orderTax"></td>
+                </tr>
+                <tr>
+                  <td>Order Total:</td>
+                  <td class="totals clear" id="orderTotal"></td>
+                </tr>
+              </table>
+            </div>
+            <input type="reset" onclick="clearDivs()" value="Clear Form" />
+            <button type="button" onclick="handleClick()">Calculate</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  <!--
+      <form action="" method="">
+        <label for="fname">
+          <span class="firstName">First Name <span class="required">*</span></span>
+          <input type="text" name="fname">
+        </label>
+      </form>
+  -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+/* Invoice CSS file */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
+
+body {
+  max-width: 70%;
+  margin: auto;
+}
+
+.fcontainer {
+  display: flex;
+}
+
+.childbox {
+  margin: auto;
+}
+
+.required {
+  color: red;
+}
+
+.processingLine div{
+  display: inline-block;
+}
+
+.sectionBorder {
+  border: 2px solid rgba(238, 1, 1, 0.6);
+}
+
+td {
+  border: 1px dotted green;
+}
