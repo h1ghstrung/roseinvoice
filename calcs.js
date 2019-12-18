@@ -467,17 +467,6 @@ const clearDivs = () => {
 }
 
 /*
-Phase 1
-To do list
-1. Add pricing for spec books
-4. Add prices for mounting
-5. Add prices for cuts
-6. Display two decimal places for prices
-7. Add tax exempt option
-8. Add prices for alternative media (other than 20lb bond)
-9. Add order discount option (flat rate or percentage)
-10. Fix setup button so that it can be unchecked for the automatic charges (like color prints)
-
 Phase 2
 To do list
 1. Create toggle button to switch to supplies
@@ -487,10 +476,4 @@ To do list
 5. Add Pricing for 2" core (all products)
 6. Fold pricing info into same order
 7. Create pricing area for service calls
-
-Phase 3
-To do list
-1. Create print friendly version
-2. Add button for print friendly view
-3. Generate 3 pages for print (White copy, Yellow Copy, Customer Copy)
 */
