@@ -292,7 +292,7 @@ const orderTotal = (subTotal) => {
   let orderCalcs = [];
   let tax = calcTax(subTotal)
   let total = tax + subTotal
-  orderCalcs = [subTotal, tax, total.toFixed(2)];
+  orderCalcs = [subTotal.toFixed(2), tax.toFixed(2), total.toFixed(2)];
   /*
   console.log("Sub Total: " + subTotal)
   console.log("Tax: " + tax)
@@ -361,6 +361,12 @@ const doesSetup = () => {
   }
 }
 
+// Check for auto charge for setup cost
+/*
+This needs work. This is currently applied with the calculate button is selected.
+However, it needs to change when an item is selected that would incur the charge.
+Also, it needs to allow the user to un-select (override) the charge if needed.
+*/
 const autoSetup = (tf) => {
   let setupCheck = document.getElementById("setupCheckbox");
   let setupCost = document.getElementById("setupCost");
@@ -444,7 +450,7 @@ const handleClick = () => {
       allPrices.push(lineCost);
       // Return the values to the line price
       linePost = "Price" + ((i+1).toString());
-      document.getElementById(linePost).textContent = lineCost;
+      document.getElementById(linePost).textContent = lineCost.toFixed(2);
     }
   }
   if (setupCheck.checked == true) { // Check to see if Setup is selected, if so add to allPrices
