@@ -1,5 +1,7 @@
 /* funcs.js file for invoice.html */
 
+let allPrices = [];
+
 // function for adding two numbers. Easy!
 const add = (a, b) => a + b
 
@@ -289,8 +291,12 @@ const calcTax = (subTotal) => {
 
 // Calculate the Order total with tax included
 const orderTotal = (subTotal) => {
-  let orderCalcs = [];
+  let isTax = document.getElementById("taxExempt");
   let tax = calcTax(subTotal)
+  if (taxExempt.checked == true) {
+    tax = 0;
+  };
+  let orderCalcs = [];
   let total = tax + subTotal
   orderCalcs = [subTotal.toFixed(2), tax.toFixed(2), total.toFixed(2)];
   /*
@@ -354,8 +360,11 @@ const doesSetup = () => {
   let setupPrice = document.getElementById("setupPrice");
     
   if (setupCheck.checked == true) {
-    setupCost.textContent = "7.50";
-    setupCost.value = "7.50";
+    if (setupCost.value == "") {
+      setupCost.textContent = "7.50";
+      setupCost.value = "7.50";
+    } 
+    setupPrice.textContent = setupCost.value
   } else {
     setupPrice.textContent = "";
   }
@@ -426,6 +435,14 @@ const medLookup = (size, jobType) => {
   return priceCode;
 }
 
+// Takes a percentage and applies the percentage to a subtotal for the order
+const doDiscount = (discountPercent) => {
+  let tempPrice = subTotal(allPrices);
+  let fraction = discountPercent/100
+  let discountPrice = (tempPrice*fraction);
+  return discountPrice.toFixed(2); 
+}
+
 // Handle form submission
 const handleClick = () => {
   let quant = document.getElementsByClassName("quantity");
@@ -435,7 +452,8 @@ const handleClick = () => {
   let lineItemPrices = document.getElementsByClassName("LinePrices");
   let setupCheck = document.getElementById("setupCheckbox");
   let setupCost = document.getElementById("setupCost");
-  let allPrices = [];
+  let discountApply = document.getElementById("dicountApply");
+  let discountAmount = document.getElementById("discountAmount");
 
   // Iterate through the lines
   for(i = 0; i < quant.length; i++) {
@@ -453,10 +471,19 @@ const handleClick = () => {
       document.getElementById(linePost).textContent = lineCost.toFixed(2);
     }
   }
+  // Check conditional order items
   if (setupCheck.checked == true) { // Check to see if Setup is selected, if so add to allPrices
     document.getElementById("setupPrice").textContent = setupCost.value;
     allPrices.push(parseFloat(setupCost.value));
   }
+
+  if (discountApply.checked == true) {
+    let discountPrice = doDiscount(discountAmount.value);
+    document.getElementById("dicountPrice").textContent = "-" + discountPrice;
+    allPrices.push(Number("-" + discountPrice));
+    // need to subtract the discount price from the total before tax, should happen in the subTotal function
+  };
+
   // Add all line prices to get the total
   // console.log(allPrices);
   let subs = subTotal(allPrices);

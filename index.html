@@ -121,7 +121,7 @@
         <div class="fcontainer" id="orderItems">
           <div class="childbox">
             <!-- Order Items -->
-              <table>
+              <table name="items">
                 <tr>
                   <th>Qty</th>
                   <th>Job Type</th>
@@ -135,7 +135,7 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty1" class="quantity clear"/ >
+                      <input type="number" name="Qty1" class="quantity clear" />
                     </label>
                   </td>
                   <td>
@@ -457,6 +457,8 @@
                       </label>
                     </td>
                 </tr>
+              </table>
+              <table name="conditions">
                 <tr>
                   <td>
                     <label for="setupCheckbox">
@@ -481,22 +483,11 @@
                   </td>
                   <td>
                     <label for="setupPrice">
-                      <div class="" id="setupPrice"></div>
+                      <div class="" name="setupPrice" id="setupPrice"></div>
                     </label>
                   </td>
                 </tr>
-                <tr> <!-- Need JS Code -->
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="2">
-                    <label for="taxExempt">
-                      <input type="checkbox" name="taxExempt" value="true" id="taxExempt" /> Tax Exempt
-                    </label>
-                  </td>
-                </tr>
-                <tr> <!-- Need JS Code -->
-                  <td></td>
+                <tr>
                   <td colspan="2">
                     <label for="dicountApply">
                       <input type="checkbox" name="dicountApply" value="true" id="dicountApply" /> Apply Discount
@@ -507,6 +498,21 @@
                       <input type="num" name="discountAmount" value="" step="0.01" min="0" id="discountAmount" />
                     </label>
                   </td>
+                  <td>
+                    <label for="dicountPrice">
+                      <div class="" name="dicountPrice" id="dicountPrice"></div>
+                    </label>
+                  </td>
+                </tr>
+                <tr> <!-- Need JS Code -->
+                  <td colspan="2">
+                    <label for="taxExempt">
+                      <input type="checkbox" name="taxExempt" value="true" id="taxExempt" /> Tax Exempt
+                    </label>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
               </table>
             <div class="" id="Notes">
