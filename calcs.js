@@ -299,12 +299,7 @@ const orderTotal = (subTotal) => {
   let orderCalcs = [];
   let total = tax + subTotal
   orderCalcs = [subTotal.toFixed(2), tax.toFixed(2), total.toFixed(2)];
-  /*
-  console.log("Sub Total: " + subTotal)
-  console.log("Tax: " + tax)
-  console.log("Total: " + total)
-  */
-  return orderCalcs // ((total*100) | 0) / 100 // Return the amount with only 2 decimal places
+  return orderCalcs
 }
 
 // Calculate the Sub Total of the order by adding the line totals together.
@@ -373,8 +368,7 @@ const doesSetup = () => {
 // Check for auto charge for setup cost
 /*
 This needs work. This is currently applied with the calculate button is selected.
-However, it needs to change when an item is selected that would incur the charge.
-Also, it needs to allow the user to un-select (override) the charge if needed.
+However, it needs to allow the user to un-select (override) the charge if needed.
 */
 const autoSetup = (tf) => {
   let setupCheck = document.getElementById("setupCheckbox");
@@ -383,9 +377,13 @@ const autoSetup = (tf) => {
 
   if (tf = true) {
     setupCheck.checked = true;
-    setupCost.textContent = "7.50";
-    setupCost.value = "7.50";
-    setupPrice.textContent = "7.50";
+    if (setupCost.value == "") {
+      setupCost.textContent = "7.50";
+      setupCost.value = "7.50";
+      setupPrice.textContent = "7.50";
+    } else {
+      setupPrice.textContent = setupCost.value;
+    }
   }
 }
 
