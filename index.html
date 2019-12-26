@@ -15,7 +15,7 @@
 
 <body>
   <div class="pageContainer">
-    <div class="fcontainer">
+    <div class="fcontainer ma3">
       <div class="childbox" id="branding">
         <h1>Rose Reprographics</h1>
         <p>Order Ticket</p>
@@ -29,22 +29,22 @@
             <input type="checkbox" name="emailcust" value="EmailCust" /><label for="emailcust">E-mail to customer</label><br />
             <input type="checkbox" name="callcust" value="CallCust" /><label for="callcust">Call when ready</label>
           </div>
-          <div class="childbox">
+          <div class="childbox mh3">
             <label for="custname">Customer name: </label><input type="text" name="custname" /><br />
             <label for="custphone">Customer phone: </label><input type="text" name="custphone" />
           </div>
         </div>
         </div>
-        <div class="fcontainer" id="billingInfo">
-          <div class="childbox sectionBorder">
+        <div class="fcontainer ma3" id="billingInfo">
+          <div class="childbox mainborder">
             <!-- Billing/Shipping Info -->
             <label for="companyBillTo">
-              <span class="">Company</span>
-              <input type="text" name="companyBillTo" placeholder="Company Name" />
+              <span class="" required="required">Bill To</span>
+              <input type="text" class="fullspan" name="companyBillTo" placeholder="Company Name" />
             </label><br>
             <label for="addressBillTo">
               <span class="">Address</span>
-              <input type="text" name="addressBillTo" placeholder="Street Address" />
+              <input type="text" class="fullspan" name="addressBillTo" placeholder="Street Address" />
             </label><br>
             <label for="cityBillTo">
               <span class="">City</span>
@@ -59,15 +59,15 @@
               <input type="text" name="zipBillTo" size="5" placeholder="Zip" />
             </label>                    
           </div>
-          <div class="childbox sectionBorder">
+          <div class="childbox">
             <!-- Order Info Bar -->
             <label for="companyShipTo">
-              <span class="">Company</span>
-              <input type="text" name="companyShipTo" placeholder="Company Name" />
+              <span class="">Ship To</span>
+              <input type="text" class="fullspan" name="companyShipTo" placeholder="Company Name" />
             </label><br>
             <label for="addressShipTo">
               <span class="">Address</span>
-              <input type="text" name="addressShipTo" placeholder="Street Address" />
+              <input type="text" class="fullspan" name="addressShipTo" placeholder="Street Address" />
             </label><br>
             <label for="cityShipTo">
               <span class="">City</span>
@@ -83,42 +83,48 @@
             </label>                    
           </div>
         </div>
-        <div class="fcontainer" id="orderProcessing">
+        <div class="fcontainer ma3" id="orderProcessing">
           <!-- Order Processing information -->
           <div class="childbox processingLine">
-            <div class="sectionBorder">
+            <div class="">
               <label for="poNumber">
                 <span class=""> P.O. Number </span><br />
                 <input type="text" name="poNumber" />
               </label>
             </div>
-            <div class="sectionBorder">
+            <div class="">
               <label for="orderTaker">
                 <span class=""> Receiver</span><br />
                 <input type="text" name="orderTaker" size="8" />
               </label>
             </div>
-            <div class="sectionBorder">
+            <div class="">
               <label for="orderProcessor">
                 <span class=""> Production</span><br />
                 <input type="text" name="orderProcessor" size="8" />
               </label>
             </div>
-            <div class="sectionBorder">
+            <div class="">
               <label for="dateOrdered pa2">
                 <span class=""> Requested</span><br />
                 <input type="date" name="dateOrdered" />
               </label>
             </div>
-            <div class="sectionBorder">
+            <div class="">
               <label for="dateFinished pa2">
                 <span class=""> Finished</span><br />
                 <input type="date" name="dateFinished" />
               </label>
             </div>
+            <br />
+            <div class="fullspan" id="JobName">
+              <span required="required">
+                <textarea class="clear" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
+              </span>
+            </div>
           </div>
         </div>
-        <div class="fcontainer" id="orderItems">
+        <div class="fcontainer ma3 mainborder" id="orderItems">
           <div class="childbox">
             <!-- Order Items -->
               <table name="items">
@@ -458,7 +464,7 @@
                     </td>
                 </tr>
               </table>
-              <table name="conditions">
+              <table class="mh3" name="conditions">
                 <tr>
                   <td>
                     <label for="setupCheckbox">
@@ -515,14 +521,11 @@
                   <td></td>
                 </tr>
               </table>
-            <div class="" id="Notes">
-              <textarea class="clear" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
+            <div class="fullspan" id="Notes">
+              <textarea class="clear mh3" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
             </div>
-            <div class="" id="JobName">
-              <textarea class="clear" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName" cols="67" rows="1"></textarea>
-            </div>
-            <div class="fcontainer">
-              <table class="childbox">
+            <div class="fcontainer fright">
+              <table class="mh3">
                 <tr>
                   <td>Sub Total:</td>
                   <td class="totals clear" id="subTotal"></td>
@@ -537,11 +540,20 @@
                 </tr>
               </table>
             </div>
-            <input type="reset" onclick="clearDivs()" value="Clear Form" />
-            <button type="button" onclick="handleClick()">Calculate</button>
+            <div class="fcontainer">
+              <div class="childbox">
+                <input type="reset" onclick="clearDivs()" value="Clear Form" />
+                <button type="button" onclick="handleClick()">Calculate</button>
+              </div>
+            </div>
           </div>
         </div>
       </form>
   </div>
+  <footer class="">
+    <p class="mh3">For internal use only</p><br />
+    <small class="mh3">Copyright &copy; 2019, Rose Reprographics. All rights reserved.</small>
+    <p class="spacer"></p>
+  </footer>
 </body>
 </html>

@@ -22,28 +22,65 @@ body {
 
 .fcontainer {
   display: flex;
+  flex-wrap: nowrap;
+  flex-flow: row;
 }
 
 .childbox {
   margin: auto;
 }
 
-.required {
-  color: red;
+.fcenter {
+  display: flex;
+  justify-content: center;
+}
+
+.fright {
+  display: flex;
+  justify-content: flex-end;
+}
+
+span[required=required]:after,
+form textarea[required=required]:after
+{
+    color: red;
+    content: " *";
 }
 
 .processingLine div{
   display: inline-block;
 }
 
-.sectionBorder {
-  border: 2px solid rgba(238, 1, 1, 0.6);
+.mainborder {
+  padding: 5px;
+  border: 3px solid rgba(203, 14, 14, 0.6);
 }
 
-table {
-  width: 100%;
+.mainborder label, input {
+  margin: 2px 0px;
 }
 
-td {
-  border: 1px dotted green;
+.fullspan {
+  min-width: 100%;
+}
+
+.ma3 {
+  margin: 1rem;
+}
+
+.mh3 {
+  margin: 0rem 2rem;
+}
+
+.mv3 {
+  margin: 1rem 0rem;
+}
+
+footer p {
+  font-weight: bold;
+  color: darkred;
+}
+
+.spacer {
+  margin: 5rem;
 }
