@@ -34,9 +34,9 @@
             <label for="custphone">Customer phone: </label><input type="text" name="custphone" />
           </div>
         </div>
-        </div>
-        <div class="fcontainer ma3" id="billingInfo">
-          <div class="childbox mainborder">
+    </div>
+        <div class="fcontainer" id="billingInfo">
+          <div class="childbox mainborder ma3">
             <!-- Billing/Shipping Info -->
             <label for="companyBillTo">
               <span class="" required="required">Bill To</span>
@@ -59,7 +59,7 @@
               <input type="text" name="zipBillTo" size="5" placeholder="Zip" />
             </label>                    
           </div>
-          <div class="childbox">
+          <div class="childbox ma3">
             <!-- Order Info Bar -->
             <label for="companyShipTo">
               <span class="">Ship To</span>
@@ -124,15 +124,15 @@
             </div>
           </div>
         </div>
-        <div class="fcontainer ma3 mainborder" id="orderItems">
+        <div class="ma3 mainborder" id="orderItems">
           <div class="childbox">
             <!-- Order Items -->
-              <table name="items">
+            <table name="items">
                 <tr>
                   <th>Qty</th>
                   <th>Job Type</th>
                   <th>Media</th>
-                  <th>Size</th>
+                  <th class="sizecol">Size</th>
                   <th>Price</th>
                 </tr>
                 <tr>
@@ -156,6 +156,7 @@
                         <option value="FullCol">Full Color Print</option>
                         <option value="Cut">Manual Cut</option>
                         <option value="SBook">Spec Book</option>
+                        <option value="Mount">Mount on Foam Board</option>
                       </select>
                     </label>
                   </td>
@@ -170,7 +171,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="sizecol">
                     <label for="Size1">
                       <select name="Size1" class="sizes clear" id="">
                         <option value="ANSIA">8.5 x 11</option>
@@ -184,7 +185,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="tar">
                     <label for="Price1">
                       <div class="LinePrices clear" id="Price1"></div>
                     </label>
@@ -211,6 +212,7 @@
                           <option value="FullCol">Full Color Print</option>
                           <option value="Cut">Manual Cut</option>
                           <option value="SBook">Spec Book</option>
+                          <option value="Mount">Mount on Foam Board</option>
                           </select>
                       </label>
                     </td>
@@ -226,7 +228,7 @@
                         </select>
                       </label>
                     </td>
-                    <td>
+                    <td class="sizecol">
                       <label for="Size2">
                         <select name="Size2" class="sizes clear" id="">
                           <option value="none"></option>
@@ -241,7 +243,7 @@
                         </select>
                       </label>
                     </td>
-                    <td>
+                    <td class="tar">
                       <label for="Price2">
                         <div class="LinePrices clear" id="Price2"></div>
                       </label>
@@ -268,6 +270,7 @@
                         <option value="FullCol">Full Color Print</option>
                         <option value="Cut">Manual Cut</option>
                         <option value="SBook">Spec Book</option>
+                        <option value="Mount">Mount on Foam Board</option>
                       </select>
                     </label>
                   </td>
@@ -283,7 +286,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="sizecol">
                     <label for="Size3">
                       <select name="Size3" class="sizes clear" id="">
                         <option value="none"></option>
@@ -298,7 +301,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="tar">
                     <label for="Price3">
                       <div class="LinePrices clear" id="Price3"></div>
                     </label>
@@ -325,6 +328,7 @@
                         <option value="FullCol">Full Color Print</option>
                         <option value="Cut">Manual Cut</option>
                         <option value="SBook">Spec Book</option>
+                        <option value="Mount">Mount on Foam Board</option>
                       </select>
                     </label>
                   </td>
@@ -340,7 +344,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="sizecol">
                     <label for="Size4">
                       <select name="Size4" class="sizes clear" id="">
                         <option value="none"></option>
@@ -355,7 +359,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="tar">
                       <label for="Price4">
                         <div class="LinePrices clear" id="Price4"></div>
                       </label>
@@ -382,6 +386,7 @@
                         <option value="FullCol">Full Color Print</option>
                         <option value="Cut">Manual Cut</option>
                         <option value="SBook">Spec Book</option>
+                        <option value="Mount">Mount on Foam Board</option>
                       </select>
                     </label>
                   </td>
@@ -397,7 +402,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="sizecol">
                     <label for="Size5">
                       <select name="Size5" class="sizes clear" id="">
                         <option value="none"></option>
@@ -412,7 +417,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="tar">
                       <label for="Price5">
                         <div class="LinePrices clear" id="Price5"></div>
                       </label>
@@ -439,6 +444,7 @@
                         <option value="FullCol">Full Color Print</option>
                         <option value="Cut">Manual Cut</option>
                         <option value="SBook">Spec Book</option>
+                        <option value="Mount">Mount on Foam Board</option>
                       </select>
                     </label>
                   </td>
@@ -454,7 +460,7 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="sizecol">
                     <label for="Size6">
                       <select name="Size6" class="sizes clear" id="">
                         <option value="none"></option>
@@ -469,14 +475,12 @@
                       </select>
                     </label>
                   </td>
-                  <td>
+                  <td class="tar">
                       <label for="Price6">
                         <div class="LinePrices clear" id="Price6"></div>
                       </label>
                     </td>
                 </tr>
-              </table>
-              <table class="mh3" name="conditions">
                 <tr>
                   <td>
                     <label for="setupCheckbox">
@@ -487,36 +491,36 @@
                   </td>
                   <td colspan="2">
                     <label for="setupReason">
-                      <span>
+                      <span>Reason
                         <input type="text" name="setupReason" placeholder="Reason" id="" class="" />  
                       </span>
                     </label>
                   </td>
-                  <td>
+                  <td class="sizecol">
                     <label for="setupCost">
                       <span>
-                        <input type="num" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="" />  
+                        <input type="num" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="sizes" />  
                       </span>
                     </label>
                   </td>
-                  <td>
+                  <td class="tar">
                     <label for="setupPrice">
                       <div class="" name="setupPrice" id="setupPrice"></div>
                     </label>
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="2">
+                  <td colspan="1">
                     <label for="dicountApply">
                       <input type="checkbox" name="dicountApply" value="true" id="dicountApply" /> Apply Discount
                     </label>
                   </td>
                   <td colspan="2">
-                    <label for="discountAmount"> Amount
+                    <label for="discountAmount"> Percentage
                       <input type="num" name="discountAmount" value="" step="0.01" min="0" id="discountAmount" />
                     </label>
                   </td>
-                  <td>
+                  <td class="tar">
                     <label for="dicountPrice">
                       <div class="" name="dicountPrice" id="dicountPrice"></div>
                     </label>
@@ -532,31 +536,34 @@
                   <td></td>
                   <td></td>
                 </tr>
-              </table>
-            <div class="fullspan" id="Notes">
-              <textarea class="clear mh3" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
-            </div>
-            <div class="fcontainer fright">
-              <table class="mh3">
                 <tr>
-                  <td>Sub Total:</td>
-                  <td class="totals clear" id="subTotal"></td>
+                  <td colspan="4">
+                    <div class="fullspan" id="Notes">
+                      <textarea class="clear mh3" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
-                  <td>Tax:</td>
-                  <td class="totals clear" id="orderTax"></td>
+                  <td colspan="3"></td>
+                  <td class="tar">Sub Total:</td>
+                  <td class="totals clear tar" id="subTotal"></td>
                 </tr>
                 <tr>
-                  <td>Order Total:</td>
-                  <td class="totals clear" id="orderTotal"></td>
+                  <td colspan="3"></td>
+                  <td class="tar">Tax:</td>
+                  <td class="totals clear tar" id="orderTax"></td>
                 </tr>
-              </table>
-            </div>
-            <div class="fcontainer">
-              <div class="childbox">
+                <tr>
+                  <td colspan="3"></td>
+                  <td class="tar">Order Total:</td>
+                  <td class="totals clear tar" id="orderTotal"></td>
+                </tr>
+            </table>
+          </div><br />
+          <div class="fcontainer">
+            <div class="childbox">
                 <input type="reset" onclick="clearDivs()" value="Clear Form" />
                 <button type="button" onclick="handleClick()">Calculate</button>
-              </div>
             </div>
           </div>
         </div>

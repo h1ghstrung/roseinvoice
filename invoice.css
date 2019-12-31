@@ -16,8 +16,12 @@
 @media only screen and (min-width: 1200px) {}
 
 body {
-  max-width: 70%;
+  max-width: 60%;
   margin: auto;
+}
+
+.sizes {
+  width: 100px;
 }
 
 .fcontainer {
@@ -33,6 +37,15 @@ body {
 .fcenter {
   display: flex;
   justify-content: center;
+}
+
+.tar {
+  text-align: right;
+}
+
+.totals {
+  font-weight: bold;
+  color: red;
 }
 
 .fright {

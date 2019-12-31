@@ -293,6 +293,53 @@ let prices =
       "price1": 3.50,
       "price11": 3.50
     }
+  },
+  "mount": {
+    "mount01":{
+      "size": "8.5 x 11",
+      "price1": 0.81,
+      "price11": 0.81
+    },
+    "mount02":{
+      "size": "11 x 17",
+      "price1": 1.63,
+      "price11": 1.63
+    },
+    "mount03":{
+      "size": "12 x 18",
+      "price1": 1.88,
+      "price11": 1.88
+    },
+    "mount04":{
+      "size": "15 x 21",
+      "price1": 2.73,
+      "price11": 2.73
+    },
+    "mount05":{
+      "size": "18 x 24",
+      "price1": 6.00,
+      "price11": 6.00
+    },
+    "mount06":{
+      "size": "24 x 36",
+      "price1": 12.00,
+      "price11": 12.00
+    },
+    "mount07":{
+      "size": "30 x 42",
+      "price1": 17.50,
+      "price11": 17.50
+    },
+    "mount08":{
+      "size": "36 x 48",
+      "price1": 24.00,
+      "price11": 24.00
+    },
+    "mount09":{
+      "size": "Custom",
+      "price1": 1.25,
+      "price11": 1.25
+    }
   }
 }
 
@@ -425,6 +472,8 @@ const medLookup = (size, jobType) => {
   } else if (jobType == "SBook") {
     priceCode = "sbook";
     setupJob = false;
+  } else if (jobType == "Mount") {
+    priceCode = "mount";
   }
 
   if (jobType == "Cut" || jobType == "SBook") {
