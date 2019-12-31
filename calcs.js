@@ -279,6 +279,20 @@ let prices =
       "price1": 1.80,
       "price11": 1.80
     }
+  },
+  "cut": {
+    "cut01":{
+      "size": "8.5 x 11",
+      "price1": 2.00,
+      "price11": 2.00
+    }
+  },
+  "sbook": {
+    "sbook01":{
+      "size": "8.5 x 11",
+      "price1": 3.50,
+      "price11": 3.50
+    }
   }
 }
 
@@ -405,9 +419,17 @@ const medLookup = (size, jobType) => {
     priceCode = "bscan";
   } else if (jobType == "CScan") {
     priceCode = "cscan";
+  } else if(jobType == "Cut") {
+    priceCode = "cut";
+    setupJob = false;
+  } else if (jobType == "SBook") {
+    priceCode = "sbook";
+    setupJob = false;
   }
 
-  if (size == "ANSIA") {
+  if (jobType == "Cut" || jobType == "SBook") {
+    priceCode += "01";
+  } else if (size == "ANSIA") {
     priceCode += "01";
   } else if (size == "ANSIB") {
     priceCode += "02";
