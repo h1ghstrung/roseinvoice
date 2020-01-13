@@ -1,4 +1,4 @@
-{
+[{
   "bw":{
     "bw01":{
       "size": "8.5 x 11",
@@ -186,5 +186,150 @@
       "price1": 8.25,
       "price11": 8.25
     }
+  },
+  "cscan":{
+    "cscan01":{
+      "size": "8.5 x 11",
+      "price1": 0.39,
+      "price11": 0.39
+    },
+    "cscan02":{
+      "size": "11 x 17",
+      "price1": 2.50,
+      "price11": 2.50
+    },
+    "cscan03":{
+      "size": "12 x 18",
+      "price1": 3.00,
+      "price11": 3.00
+    },
+    "cscan04":{
+      "size": "15 x 21",
+      "price1": 4.50,
+      "price11": 4.50
+    },
+    "cscan05":{
+      "size": "18 x 24",
+      "price1": 5.00,
+      "price11": 5.00
+    },
+    "cscan06":{
+      "size": "24 x 36",
+      "price1": 5.75,
+      "price11": 5.75
+    },
+    "cscan07":{
+      "size": "30 x 42",
+      "price1": 6.90,
+      "price11": 6.90
+    },
+    "cscan08":{
+      "size": "36 x 48",
+      "price1": 8.90,
+      "price11": 8.90
+    }
+  },
+  "bscan":{
+    "bscan01":{
+      "size": "8.5 x 11",
+      "price1": 0.12,
+      "price11": 0.12
+    },
+    "bscan02":{
+      "size": "11 x 17",
+      "price1": 0.29,
+      "price11": 0.29
+    },
+    "bscan03":{
+      "size": "12 x 18",
+      "price1": 0.65,
+      "price11": 0.65
+    },
+    "bscan04":{
+      "size": "15 x 21",
+      "price1": 0.95,
+      "price11": 0.95
+    },
+    "bscan05":{
+      "size": "18 x 24",
+      "price1": 1.05,
+      "price11": 1.05
+    },
+    "bscan06":{
+      "size": "24 x 36",
+      "price1": 1.15,
+      "price11": 1.15
+    },
+    "bscan07":{
+      "size": "30 x 42",
+      "price1": 1.35,
+      "price11": 1.35
+    },
+    "bscan08":{
+      "size": "36 x 48",
+      "price1": 1.80,
+      "price11": 1.80
+    }
+  },
+  "cut": {
+    "cut01":{
+      "size": "8.5 x 11",
+      "price1": 2.00,
+      "price11": 2.00
+    }
+  },
+  "sbook": {
+    "sbook01":{
+      "size": "8.5 x 11",
+      "price1": 3.50,
+      "price11": 3.50
+    }
+  },
+  "mount": {
+    "mount01":{
+      "size": "8.5 x 11",
+      "price1": 0.81,
+      "price11": 0.81
+    },
+    "mount02":{
+      "size": "11 x 17",
+      "price1": 1.63,
+      "price11": 1.63
+    },
+    "mount03":{
+      "size": "12 x 18",
+      "price1": 1.88,
+      "price11": 1.88
+    },
+    "mount04":{
+      "size": "15 x 21",
+      "price1": 2.73,
+      "price11": 2.73
+    },
+    "mount05":{
+      "size": "18 x 24",
+      "price1": 6.00,
+      "price11": 6.00
+    },
+    "mount06":{
+      "size": "24 x 36",
+      "price1": 12.00,
+      "price11": 12.00
+    },
+    "mount07":{
+      "size": "30 x 42",
+      "price1": 17.50,
+      "price11": 17.50
+    },
+    "mount08":{
+      "size": "36 x 48",
+      "price1": 24.00,
+      "price11": 24.00
+    },
+    "mount09":{
+      "size": "Custom",
+      "price1": 1.25,
+      "price11": 1.25
+    }
   }
-}
+}]

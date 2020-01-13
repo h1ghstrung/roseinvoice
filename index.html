@@ -9,8 +9,9 @@
   <title>Internal Order Ticket</title>
   <link rel="stylesheet" href="invoice.css" media="screen" />
   <link rel="stylesheet" href="printInvoice.css" media="print" />
+  <script type="text/javascript" src="priceList.json"></script>
   <script async src="calcs.js"></script>
-  <title></title>
+  <title>Rose Reprographics Internal Order Ticket</title>
 </head>
 
 <body>
@@ -562,8 +563,9 @@
           </div><br />
           <div class="fcontainer">
             <div class="childbox">
-                <input type="reset" onclick="clearDivs()" value="Clear Form" />
-                <button type="button" onclick="handleClick()">Calculate</button>
+                <button type="button" onclick="clearDivs()" class="webonly">Clear Form</button>
+                <button type="button" onclick="handleClick()" class="webonly">Calculate</button>
+                <button type="button" onclick="" class="webonly hidden" id="printButton">Print Ticket</button>
             </div>
           </div>
         </div>

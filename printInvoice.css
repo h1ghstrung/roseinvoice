@@ -1,1 +1,6 @@
 /* Print Style Sheet */
+
+.webonly {
+  display: none;
+}
+

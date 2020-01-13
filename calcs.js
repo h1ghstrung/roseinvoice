@@ -6,7 +6,8 @@ let allPrices = [];
 const add = (a, b) => a + b
 
 // import prices from "prices.json";
-let prices = 
+let prices = // JSON.parse(priceList)
+
 {
   "bw":{
     "bw01":{
@@ -343,6 +344,7 @@ let prices =
   }
 }
 
+
 // Calculate tax
 const calcTax = (subTotal) => {
   taxRate = .0675
@@ -518,27 +520,27 @@ const handleClick = () => {
   let jobType = document.getElementsByClassName("jobs");
   let paper = document.getElementsByClassName("paper");
   let sizes = document.getElementsByClassName("sizes");
-  let lineItemPrices = document.getElementsByClassName("LinePrices");
   let setupCheck = document.getElementById("setupCheckbox");
   let setupCost = document.getElementById("setupCost");
   let discountApply = document.getElementById("dicountApply");
   let discountAmount = document.getElementById("discountAmount");
-
+  let checkHasTotal = document.getElementById("orderTotal").textContent;
+  
   // Iterate through the lines
   for(i = 0; i < quant.length; i++) {
     if (quant[i].value == "" || quant[i].value < 1) { // If line contains bad quantity log "0"
       // console.log(0);
     } else { // Otherwise process the line item
-      // Lookup the media type and get the values
-      priceCode = medLookup(sizes[i].value, jobType[i].value);
-      // Send all values to be calculated
-      cat = priceCode.slice(0, -2);
-      lineCost = lineTotal(quant[i].value, prices[cat][priceCode].price1, prices[cat][priceCode].price11)
-      allPrices.push(lineCost);
-      // Return the values to the line price
-      linePost = "Price" + ((i+1).toString());
-      document.getElementById(linePost).textContent = lineCost.toFixed(2);
-    }
+        // Lookup the media type and get the values
+        priceCode = medLookup(sizes[i].value, jobType[i].value);
+        // Send all values to be calculated
+        cat = priceCode.slice(0, -2);
+        lineCost = lineTotal(quant[i].value, prices[cat][priceCode].price1, prices[cat][priceCode].price11)
+        allPrices.push(lineCost);
+        // Return the values to the line price
+        linePost = "Price" + ((i+1).toString());
+        document.getElementById(linePost).textContent = lineCost.toFixed(2);
+      }
   }
   // Check conditional order items
   if (setupCheck.checked == true) { // Check to see if Setup is selected, if so add to allPrices
@@ -552,16 +554,21 @@ const handleClick = () => {
     allPrices.push(Number("-" + discountPrice));
     // need to subtract the discount price from the total before tax, should happen in the subTotal function
   };
-
-  // Add all line prices to get the total
-  // console.log(allPrices);
-  let subs = subTotal(allPrices);
-  let orderCalcs = orderTotal(subs);
-  // console.log(orderCalcs);
-  // Display the total
-  document.getElementById("subTotal").textContent = orderCalcs[0];
-  document.getElementById("orderTax").textContent = orderCalcs[1];
-  document.getElementById("orderTotal").textContent = orderCalcs[2];
+  console.log(checkHasTotal);
+  if (checkHasTotal > 0 ) {
+    // console.log("Has value");
+  } else {
+    // Add all line prices to get the total
+    // console.log(allPrices);
+    let subs = subTotal(allPrices);
+    let orderCalcs = orderTotal(subs);
+    // console.log(orderCalcs);
+    // Display the total
+    document.getElementById("subTotal").textContent = orderCalcs[0];
+    document.getElementById("orderTax").textContent = orderCalcs[1];
+    document.getElementById("orderTotal").textContent = orderCalcs[2];
+    document.getElementById("printButton").classList.remove("hidden");
+  }
 }
 
 const clearDivs = () => {
