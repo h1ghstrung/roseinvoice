@@ -20,6 +20,25 @@ body {
   margin: auto;
 }
 
+table {
+  margin: auto;
+}
+
+button {
+  margin: 1rem;
+  border: none;
+  padding: 0.7rem;
+  background-color: darkred;
+  color: white;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+button:hover {
+  background-color: darkred;
+  opacity: .9;
+}
+
 .hidden {
   display: none;
 }
@@ -97,6 +116,10 @@ form textarea[required=required]:after
   margin: 1rem 0rem;
 }
 
+.minw {
+  min-width: 400px;
+}
+
 footer p {
   font-weight: bold;
   color: darkred;
@@ -104,4 +127,18 @@ footer p {
 
 .spacer {
   margin: 5rem;
+}
+
+input[type=text], input[type=number], input[type=date], input[type=checkbox], select, textarea {
+  -webkit-transition: all 0.20s ease-in-out;
+  -moz-transition: all 0.20s ease-in-out;
+  -ms-transition: all 0.20s ease-in-out;
+  -o-transition: all 0.20s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, input[type=checkbox]:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(240, 122, 122, 1);
+  border: 1px solid rgba(240, 122, 122, 1);
 }
