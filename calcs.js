@@ -7,7 +7,6 @@ const add = (a, b) => a + b
 
 // import prices from "prices.json";
 let prices = // JSON.parse(priceList)
-
 {
   "bw":{
     "bw01":{
