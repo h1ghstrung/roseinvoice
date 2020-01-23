@@ -7,6 +7,12 @@ const add = (a, b) => a + b
 
 // import prices from "prices.json";
 let prices = // JSON.parse(priceList)
+// bond first 10, bond after 10, mylar, plain vellum, erasable vellum, glossy, satin
+/*
+bw, cline, cmid, cfull - multi part prices
+cscan, bscan, mount - single prices based on size
+cut, sbook - single price regardless of size 
+*/
 {
   "bw":{
     "bw01":{
@@ -345,7 +351,7 @@ let prices = // JSON.parse(priceList)
 
 
 // Calculate tax
-const calcTax = (subTotal) => {
+const calcTax = (subTotal) => {     // Moved
   taxRate = .0675
   orderTax = Math.ceil((subTotal * taxRate) * Math.pow(10, 2)) / Math.pow(10, 2);
   return orderTax
@@ -380,12 +386,11 @@ The third argument is the quantity of the ordered item.
 If the price does not change after the first 10 prints enter the same
 price in the 1st and 2nd arguments
 */
-const lineTotal = (qty, price1, price11=price1) => {
+const lineTotal = (qty, job="bw", paper="bond", price1, price11=price1) => {  //WORK ON THIS!!!
   let linePrice = 0
   if (qty <= 10) {
     linePrice = price1 * qty
   }
-
   else if (qty > 10) {
     linePrice = (price1 * 10) + (price11 *(qty-10))
   }
@@ -450,7 +455,8 @@ const autoSetup = (tf) => {
 }
 
 // Lookup media size and return measurement values
-const medLookup = (size, jobType) => {
+const medLookup = (size, jobType, paper) => {
+  let mediaIndex = "";
   let priceCode = "";
   let setupJob = true;
   let setupPrice = false;
@@ -497,6 +503,20 @@ const medLookup = (size, jobType) => {
   } else if (size == "ARCHE") {
     priceCode += "08";
     setupPrice = true;
+  }
+  // bond first 10, bond after 10, mylar, plain vellum, erasable vellum, glossy, satin
+  if (paper === "Bond") {
+    mediaIndex = "0";
+  } else if (paper === "Mylar") {
+    mediaIndex = "2";
+  } else if (paper === "Glossy") {
+    mediaIndex = "5";
+  } else if (paper === "Vellum") {
+    mediaIndex = "3";
+  } else if (paper === "ERVellum") {
+    mediaIndex = "4";
+  } else if (paper === "Satin") {
+    mediaIndex = "6";
   }
 
   if (setupJob && setupPrice) {
