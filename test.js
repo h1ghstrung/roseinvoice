@@ -1,6 +1,6 @@
 /* test.js file for testing new code for invoice.html */
 
-let prices = // JSON.parse(priceList)
+let priceList = // JSON.parse(priceList)
 // bond first 10, bond after 10, mylar, plain vellum, erasable vellum, glossy, satin
 /*
 bw, cline, cmid, cfull - multi part prices
@@ -283,6 +283,79 @@ cut, sbook - single price regardless of size
 // Globals
 var getId = document.getElementById.bind(document);
 var getClass = document.getElementsByClassName.bind(document);
+var allPrices = [];
+
+// Control for determining job code
+const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
+  /* receives order information and returns a job code and prices index for pricing reference */
+  let mediaIndex = "";
+  let priceCode = "";
+  let setupJob = true;
+  let setupPrice = false;
+  if (jobType == "BW") {
+    priceCode = "bw";
+    setupJob = false;
+  } else if (jobType == "LineCol") {
+    priceCode = "cline";
+  } else if (jobType == "MedCol") {
+    priceCode = "cmid";
+  } else if (jobType == "FullCol") {
+    priceCode = "cfull";
+  } else if (jobType == "BScan"){
+    priceCode = "bscan";
+  } else if (jobType == "CScan") {
+    priceCode = "cscan";
+  } else if(jobType == "Cut") {
+    priceCode = "cut";
+    setupJob = false;
+  } else if (jobType == "SBook") {
+    priceCode = "sbook";
+    setupJob = false;
+  } else if (jobType == "Mount") {
+    priceCode = "mount";
+  }
+
+  if (jobType == "Cut" || jobType == "SBook") {
+    priceCode += "01";
+  } else if (size == "ANSIA") {
+    priceCode += "01";
+  } else if (size == "ANSIB") {
+    priceCode += "02";
+  } else if (size == "ARCHB") {
+    priceCode += "03";
+  } else if (size == "ARCHC") {
+    priceCode += "05";
+    setupPrice = true;
+  } else if (size == "ARCHD") {
+    priceCode += "06";
+    setupPrice = true;
+  } else if (size == "ARCHE1") {
+    priceCode += "07";
+    setupPrice = true;
+  } else if (size == "ARCHE") {
+    priceCode += "08";
+    setupPrice = true;
+  }
+  // bond first 10, bond after 10, mylar, plain vellum, erasable vellum, glossy, satin
+  if (mediaType === "Bond") {
+    mediaIndex = 0;
+  } else if (mediaType === "Mylar") {
+    mediaIndex = 2;
+  } else if (mediaType === "Glossy") {
+    mediaIndex = 5;
+  } else if (mediaType === "Vellum") {
+    mediaIndex = 3;
+  } else if (mediaType === "ERVellum") {
+    mediaIndex = 4;
+  } else if (mediaType === "Satin") {
+    mediaIndex = 6;
+  }
+
+  if (setupJob && setupPrice) {
+    checkSetupFee(true);
+  }
+  return [priceCode, mediaIndex];
+}
 
 //Validate Data for required fields
 const checkRequiredFields = () => {
@@ -317,25 +390,66 @@ const checkQuant = () => {
 }
 
 //Calculate Line Items
-const calcLinePrice = () => {}
+const calcLinePrice = (qty, priceCode, priceCat, priceIndex) => {
+  if (priceCat != "bw") {
+    let lineCost = null;
+    lineCost = priceList[priceCat][priceCode].prices[priceIndex]*qty;
+    allPrices.push(lineCost);
+    return lineCost
+  } else if (priceCat == "bw") {
+      let linePrice = 0
+      if (qty <= 10) {
+        linePrice = priceList[priceCat][priceCode].prices[priceIndex] * qty;
+      }
+      else if (qty > 10) {
+        linePrice = (priceList[priceCat][priceCode].prices[priceIndex] * 10) + ((priceList[priceCat][priceCode].prices[priceIndex+1]) *(qty-10));
+      }
+      allPrices.push(linePrice);
+      return linePrice
+    }
+    return
+}
 
 //Check for Setup
-const checkSetupFee = () => {}
-
-//Calculate Setup Fee
-const calcSetupFee = () => {}
+const checkSetupFee = (isFee) => {
+  let setupCheck = getId("setupCheckbox");
+  let setupCost = getId("setupCost");
+  if (isFee && setupCheck.checked == false) {
+    alert("This order should have a setup charge.");
+    setupCost.classList.add("fillme");
+  }
+}
 
 //Check for Discount
-const checkForDiscount = () => {}
+const checkForDiscount = () => {
+  let discountChecked = getId("dicountApply");
+  return discountChecked.checked
+}
 
 //Calculate discount
-const calcDiscount = () => {}
+const calcDiscount = () => {
+  let discountPercent = parseFloat(getId("discountAmount").value);
+  let discountPrice = calcSubTotal(allPrices) * (discountPercent/100);
+  getId("dicountPrice").textContent = discountPrice.toFixed(2);
+  getId("dicountPrice").value = discountPrice;
+  return discountPrice
+}
 
 //Check if tax exempt
-const checkExempt = () => {}
+const checkExempt = () => {
+  let taxExempt = getId("taxExempt");
+  return taxExempt.checked
+}
 
 //Calculate Subtotal
-const calcSubTotal = () => {}
+const calcSubTotal = (linePrices) => {
+  let subTotal = linePrices.reduce(add);
+  let setupChecked = getId("setupCheckbox");
+  if (setupChecked.checked) {
+    subTotal += parseFloat(getId("setupCost").value)
+  }
+  return subTotal
+}
 
 //Calculate tax if not exempt
 const calcTax = (subTotal) => {
@@ -356,43 +470,88 @@ const doesSetup = () => {
       setupCost.value = "7.50";
     } 
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
+    setupPrice.value = parseFloat(setupCost.value);
   } else {
     setupPrice.textContent = "";
+    setupPrice.value = 0;
   }
+  setupCost.classList.remove("fillme");
 }
 
 //Calculate Total
-const calcTotal = () => {}
+const calcTotal = (sub, tax) => {
+  return sub+tax
+}
 
 // Handle incoming click for when the user selects the "Calculate" button
 const handleClick = () => {
-  //Validate Data for required fields
-  // checkRequiredFields()
+  let checkHasTotal = getId("orderTotal").textContent;
+  if (checkHasTotal > 0) {
+    console.log("has total");
+    return
+   } else {
+    //Validate Data for required fields
+    checkRequiredFields()
 
-  //Calculate Line Items - May be Helper Function
-  let lineQuantities = checkQuant();
-  if (lineQuantities.some(el => el > 0)) {
-    //call a function to process the lines with quants.
-    for (i=0, i<lineQuantities.length, i++) {
-      if (lineQuantities[i] <= 0) {
-        console.log(0);
-      } else {
-        // get values of different columns and send to function for pricing.
+    let lineQuantities = checkQuant();
+    let jobType = getClass("jobs");
+    let mediaType = getClass("paper");
+    let size = getClass("sizes");
+    let subTots = 0;
+    //Calculate Line Items
+    if (lineQuantities.some(el => el > 0)) {
+      //call a function to process the lines with quants.
+      for ( i=0; i<lineQuantities.length; i++ ) {
+        if (lineQuantities[i] <= 0) {
+          null
+        } else {
+          // get values of different columns and send to function for pricing.
+          let lineCost = null;
+          let linePost = 0;
+          let priceValues = control(jobType[i].value, mediaType[i].value, size[i].value);
+          let priceCode = priceValues[0];
+          let priceCat = priceCode.slice(0, -2);
+          let priceIndex = priceValues[1];
+          lineCost = calcLinePrice(lineQuantities[i], priceCode, priceCat, priceIndex);
+          linePost = "Price" + ((i+1).toString()); // target for value is "Price" + i+1
+          getId(linePost).classList.remove("fillme");
+          if (lineQuantities[i] > 0 && lineCost == "0") {
+            alert("That job type, size, and media type combination is not allowed.");
+            getId(linePost).classList.add("fillme");
+          }
+          getId(linePost).textContent = lineCost.toFixed(2);
+        }
       }
+    } else {
+      return
     }
-  } else {
-    console.log("No quantities")
+    //Calculate Sub Total
+    subTots = calcSubTotal(allPrices);
+    if (checkForDiscount()) {
+      let discountPrice = calcDiscount();
+      subTots -= discountPrice;
+    }
+    getId("subTotal").textContent = subTots.toFixed(2);
+    
+    // Check for Tax Exempt and apply tax to non-exempt
+    if (checkExempt()) {
+      let showTax = getId("orderTax");
+      showTax.value = 0;
+      showTax.textContent = "0.00";
+    } else {
+      let orderTax = calcTax(subTots);
+      let showTax = getId("orderTax");
+      showTax.value = orderTax;
+      showTax.textContent = orderTax.toFixed(2);
+    } 
+    
+    // Add order Total
+    let orderTotal = calcTotal(subTots, getId("orderTax").value);
+    getId("orderTotal").textContent = orderTotal.toFixed(2);
+    getId("orderTotal").value = orderTotal;
+    // Show Print button
+    getId("printButton").classList.remove("hidden");
   }
-
-
-  //Check for Setup
-  //Check for Discount
-  //Check if tax exempt
-  //Calculate Subtotal
-  //Calculate tax if not exempt
-  //Calculate Total
-  //Display Print Button
-  getId("printButton").classList.remove("hidden");
 }
 
 const clearDivs = () => {
@@ -403,7 +562,6 @@ const printClick = () => {
   //create code to send to print preview with print-friendly CSS
   console.log("Print Me!");
 }
-
 
 // function for adding two numbers. Easy!
 const add = (a, b) => a + b

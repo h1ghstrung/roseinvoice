@@ -386,7 +386,7 @@ The third argument is the quantity of the ordered item.
 If the price does not change after the first 10 prints enter the same
 price in the 1st and 2nd arguments
 */
-const lineTotal = (qty, job="bw", paper="bond", price1, price11=price1) => {  //WORK ON THIS!!!
+const lineTotal = (qty, job="bw", paper="bond", price1, price11=price1) => {  //WORK ON THIS!!!   
   let linePrice = 0
   if (qty <= 10) {
     linePrice = price1 * qty
