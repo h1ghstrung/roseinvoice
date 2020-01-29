@@ -7,10 +7,12 @@
   <meta name="keywords" content="invoice, ticket, order, rose, reprographics, internal" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Internal Order Ticket</title>
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="invoice.css" media="screen" />
   <link rel="stylesheet" href="printInvoice.css" media="print" />
   <script type="text/javascript" src="priceList.json"></script>
-  <script async src="calcs.js"></script>
+  <!-- <script async src="calcs.js"></script> -->
+  <script async src="test.js"></script>
   <title>Rose Reprographics Internal Order Ticket</title>
 </head>
 
@@ -24,15 +26,15 @@
       <form class="childbox" name="orderForm" action="" method="">
         <div class="fcontainer" id="customerInfo">
           <div class="childbox ma3" id="customerPreference">
-            <input type="checkbox" name="pickup" value="Pickup" /><label for="pickup">Pick up by customer</label><br />
-            <input type="checkbox" name="deliver" value="Deliver" /><label for="deliver">Deliver to customer</label><br />
-            <input type="checkbox" name="ship" value="Ship" /><label for="ship">Ship to customer</label><br />
-            <input type="checkbox" name="emailcust" value="EmailCust" /><label for="emailcust">E-mail to customer</label><br />
-            <input type="checkbox" name="callcust" value="CallCust" /><label for="callcust">Call when ready</label>
+            <input type="checkbox" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
+            <input type="checkbox" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
+            <input type="checkbox" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
+            <input type="checkbox" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
+            <input type="checkbox" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
           </div>
           <div class="childbox ma3">
-            <label for="custname">Customer name: </label><input type="text" name="custname" /><br />
-            <label for="custphone">Customer phone: </label><input type="text" name="custphone" />
+            <label for="custname">Customer name: </label><input type="text" name="custname" id="custName" /><br />
+            <label for="custphone">Customer phone: </label><input type="text" name="custphone" id="custPhone" />
           </div>
         </div>
     </div>
@@ -41,46 +43,46 @@
             <!-- Billing/Shipping Info -->
             <label for="companyBillTo">
               <span class="" required="required">Bill To</span>
-              <input type="text" class="fullspan" name="companyBillTo" placeholder="Company Name" />
+              <input type="text" class="fullspan required" name="companyBillTo" placeholder="Company Name" id="companyBillTo" />
             </label><br>
             <label for="addressBillTo">
               <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressBillTo" placeholder="Street Address" />
+              <input type="text" class="fullspan" name="addressBillTo" placeholder="Street Address" id="addressBillTo" />
             </label><br>
             <label for="cityBillTo">
               <span class="">City</span>
-              <input type="text" name="cityBillTo" placeholder="City" />
+              <input type="text" name="cityBillTo" placeholder="City" id="cityBillTo" />
             </label>
             <label for="stateBillTo">
               <span class="">State</span>
-              <input type="text" name="stateBillTo" size="4" placeholder="State" />
+              <input type="text" name="stateBillTo" size="4" placeholder="State" id="stateBillTo" />
             </label>
             <label for="zipBillTo">
               <span class="">Zip</span>
-              <input type="text" name="zipBillTo" size="5" placeholder="Zip" />
+              <input type="text" name="zipBillTo" size="5" placeholder="Zip" id="zipBillTo" />
             </label>                    
           </div>
           <div class="childbox ma3 minw">
             <!-- Order Info Bar -->
             <label for="companyShipTo">
               <span class="">Ship To</span>
-              <input type="text" class="fullspan" name="companyShipTo" placeholder="Company Name" />
+              <input type="text" class="fullspan" name="companyShipTo" placeholder="Company Name" id="companyShipTo" />
             </label><br>
             <label for="addressShipTo">
               <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressShipTo" placeholder="Street Address" />
+              <input type="text" class="fullspan" name="addressShipTo" placeholder="Street Address" id="addressShipTo" />
             </label><br>
             <label for="cityShipTo">
               <span class="">City</span>
-              <input type="text" name="cityShipTo" placeholder="City" />
+              <input type="text" name="cityShipTo" placeholder="City" id="cityShipTo" />
             </label>
             <label for="stateShipTo">
               <span class="">State</span>
-              <input type="text" name="stateShipTo" size="4" placeholder="State" />
+              <input type="text" name="stateShipTo" size="4" placeholder="State" id="stateShipTo" />
             </label>
             <label for="zipShipTo">
               <span class="">Zip</span>
-              <input type="text" name="zipShipTo" size="5" placeholder="Zip" />
+              <input type="text" name="zipShipTo" size="5" placeholder="Zip" id="zipShipTo" />
             </label>                    
           </div>
         </div>
@@ -90,37 +92,37 @@
             <div class="">
               <label for="poNumber">
                 <span class=""> P.O. Number </span><br />
-                <input type="text" name="poNumber" />
+                <input type="text" name="poNumber" id="poNumber" />
               </label>
             </div>
             <div class="">
               <label for="orderTaker">
                 <span class=""> Receiver</span><br />
-                <input type="text" name="orderTaker" size="8" />
+                <input type="text" class="required" name="orderTaker" size="8" id="orderTaker" />
               </label>
             </div>
             <div class="">
               <label for="orderProcessor">
                 <span class=""> Production</span><br />
-                <input type="text" name="orderProcessor" size="8" />
+                <input type="text" class="required" name="orderProcessor" size="8" id="orderProcessor" />
               </label>
             </div>
             <div class="">
               <label for="dateOrdered pa2">
                 <span class=""> Requested</span><br />
-                <input type="date" name="dateOrdered" />
+                <input type="date" name="dateOrdered" id="dateOrdered" />
               </label>
             </div>
             <div class="">
               <label for="dateFinished pa2">
                 <span class=""> Finished</span><br />
-                <input type="date" name="dateFinished" />
+                <input type="date" name="dateFinished" id="dateFinished" />
               </label>
             </div>
             <br />
             <div class="fullspan" id="JobName">
               <span required="required">
-                <textarea class="clear" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
+                <textarea class="clear required" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
               </span>
             </div>
           </div>
@@ -142,12 +144,12 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty1" class="quantity clear" />
+                      <input type="number" name="Qty1" class="quantity clear" min="0" id="qty1" />
                     </label>
                   </td>
                   <td>
                     <label for="Job1">
-                      <select name="Job1" class="jobs clear" id="">
+                      <select name="Job1" class="jobs clear" id="job1">
                         <option value="none"></option>
                         <option value="BW" selected>B/W Print</option>
                         <option value="CScan">Color Scan</option>
@@ -163,10 +165,11 @@
                   </td>
                   <td>
                     <label for="Media1">
-                      <select name="Media1" class="paper clear" id="">
+                      <select name="Media1" class="paper clear" id="media1">
                         <option value="Bond" selected>Bond</option>
                         <option value="Mylar">Mylar</option>
                         <option value="Glossy">Glossy</option>
+                        <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
                         <option value="ERVellum">Erasable Vellum</option>
                       </select>
@@ -174,7 +177,7 @@
                   </td>
                   <td class="sizecol">
                     <label for="Size1">
-                      <select name="Size1" class="sizes clear" id="">
+                      <select name="Size1" class="sizes clear" id="size1">
                         <option value="ANSIA">8.5 x 11</option>
                         <option value="ANSIB">11 x 17</option>
                         <option value="ARCHB">12 x 18</option>
@@ -198,12 +201,12 @@
                         <span>
                           <!-- Visible Label name here -->
                         </span>
-                        <input type="number" name="Qty2" class="quantity clear" />
+                        <input type="number" name="Qty2" class="quantity clear" min="0" id="qty2" />
                       </label>
                     </td>
                     <td>
                       <label for="Job2">
-                        <select name="Job2" class="jobs clear" id="">
+                        <select name="Job2" class="jobs clear" id="job2">
                           <option value="none"></option>
                           <option value="BW">B/W Print</option>
                           <option value="CScan">Color Scan</option>
@@ -219,11 +222,12 @@
                     </td>
                     <td>
                       <label for="Media2">
-                        <select name="Media2" class="paper clear" id="">
+                        <select name="Media2" class="paper clear" id="paper2">
                           <option value="none"></option>
                           <option value="Bond">Bond</option>
                           <option value="Mylar">Mylar</option>
                           <option value="Glossy">Glossy</option>
+                          <option value="Satin">Satin</option>
                           <option value="Vellum">Vellum</option>
                           <option value="ERVellum">Erasable Vellum</option>
                         </select>
@@ -231,7 +235,7 @@
                     </td>
                     <td class="sizecol">
                       <label for="Size2">
-                        <select name="Size2" class="sizes clear" id="">
+                        <select name="Size2" class="sizes clear" id="size2">
                           <option value="none"></option>
                           <option value="ANSIA">8.5 x 11</option>
                           <option value="ANSIB">11 x 17</option>
@@ -256,12 +260,12 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty3" class="quantity clear" />
+                      <input type="number" name="Qty3" class="quantity clear" min="0" id="qty3" />
                     </label>
                   </td>
                   <td>
                     <label for="Job3">
-                      <select name="Job3" class="jobs clear" id="">
+                      <select name="Job3" class="jobs clear" id="job3">
                         <option value="none"></option>
                         <option value="BW">B/W Print</option>
                         <option value="CScan">Color Scan</option>
@@ -277,11 +281,12 @@
                   </td>
                   <td>
                     <label for="Media3">
-                      <select name="Media3" class="paper clear" id="">
+                      <select name="Media3" class="paper clear" id="paper3">
                         <option value="none"></option>
                         <option value="Bond">Bond</option>
                         <option value="Mylar">Mylar</option>
                         <option value="Glossy">Glossy</option>
+                        <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
                         <option value="ERVellum">Erasable Vellum</option>
                       </select>
@@ -289,7 +294,7 @@
                   </td>
                   <td class="sizecol">
                     <label for="Size3">
-                      <select name="Size3" class="sizes clear" id="">
+                      <select name="Size3" class="sizes clear" id="size3">
                         <option value="none"></option>
                         <option value="ANSIA">8.5 x 11</option>
                         <option value="ANSIB">11 x 17</option>
@@ -314,12 +319,12 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty4" class="quantity clear" />
+                      <input type="number" name="Qty4" class="quantity clear" min="0" id="qty4" />
                     </label>
                   </td>
                   <td>
                     <label for="Job4">
-                      <select name="Job4" class="jobs clear" id="">
+                      <select name="Job4" class="jobs clear" id="job4">
                         <option value="none"></option>
                         <option value="BW">B/W Print</option>
                         <option value="CScan">Color Scan</option>
@@ -335,11 +340,12 @@
                   </td>
                   <td>
                     <label for="Media4">
-                      <select name="Media4" class="paper clear" id="">
+                      <select name="Media4" class="paper clear" id="paper4">
                         <option value="none"></option>
                         <option value="Bond">Bond</option>
                         <option value="Mylar">Mylar</option>
                         <option value="Glossy">Glossy</option>
+                        <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
                         <option value="ERVellum">Erasable Vellum</option>
                       </select>
@@ -347,7 +353,7 @@
                   </td>
                   <td class="sizecol">
                     <label for="Size4">
-                      <select name="Size4" class="sizes clear" id="">
+                      <select name="Size4" class="sizes clear" id="size4">
                         <option value="none"></option>
                         <option value="ANSIA">8.5 x 11</option>
                         <option value="ANSIB">11 x 17</option>
@@ -372,12 +378,12 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty5" class="quantity clear" />
+                      <input type="number" name="Qty5" class="quantity clear" min="0" id="qty5" />
                     </label>
                   </td>
                   <td>
                     <label for="Job5">
-                      <select name="Job5" class="jobs clear" id="">
+                      <select name="Job5" class="jobs clear" id="job5">
                         <option value="none"></option>
                         <option value="BW">B/W Print</option>
                         <option value="CScan">Color Scan</option>
@@ -393,11 +399,12 @@
                   </td>
                   <td>
                     <label for="Media5">
-                      <select name="Media5" class="paper clear" id="">
+                      <select name="Media5" class="paper clear" id="paper5">
                         <option value="none"></option>
                         <option value="Bond">Bond</option>
                         <option value="Mylar">Mylar</option>
                         <option value="Glossy">Glossy</option>
+                        <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
                         <option value="ERVellum">Erasable Vellum</option>
                       </select>
@@ -405,7 +412,7 @@
                   </td>
                   <td class="sizecol">
                     <label for="Size5">
-                      <select name="Size5" class="sizes clear" id="">
+                      <select name="Size5" class="sizes clear" id="size5">
                         <option value="none"></option>
                         <option value="ANSIA">8.5 x 11</option>
                         <option value="ANSIB">11 x 17</option>
@@ -430,12 +437,12 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty6" class="quantity clear" min="0" />
+                      <input type="number" name="Qty6" class="quantity clear" min="0" id="qty6" />
                     </label>
                   </td>
                   <td>
                     <label for="Job6">
-                      <select name="Job6" class="jobs clear" id="">
+                      <select name="Job6" class="jobs clear" id="job6">
                         <option value="none"></option>
                         <option value="BW">B/W Print</option>
                         <option value="CScan">Color Scan</option>
@@ -451,11 +458,12 @@
                   </td>
                   <td>
                     <label for="Media6">
-                      <select name="Media6" class="paper clear" id="">
+                      <select name="Media6" class="paper clear" id="paper6">
                         <option value="none"></option>
                         <option value="Bond">Bond</option>
                         <option value="Mylar">Mylar</option>
                         <option value="Glossy">Glossy</option>
+                        <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
                         <option value="ERVellum">Erasable Vellum</option>
                       </select>
@@ -463,7 +471,7 @@
                   </td>
                   <td class="sizecol">
                     <label for="Size6">
-                      <select name="Size6" class="sizes clear" id="">
+                      <select name="Size6" class="sizes clear" id="size6">
                         <option value="none"></option>
                         <option value="ANSIA">8.5 x 11</option>
                         <option value="ANSIB">11 x 17</option>
@@ -493,7 +501,7 @@
                   <td colspan="2">
                     <label for="setupReason">
                       <span>Reason
-                        <input type="text" name="setupReason" placeholder="Reason" id="" class="" />  
+                        <input type="text" name="setupReason" placeholder="Reason" id="setupReason" class="" />  
                       </span>
                     </label>
                   </td>
@@ -506,7 +514,7 @@
                   </td>
                   <td class="tar">
                     <label for="setupPrice">
-                      <div class="" name="setupPrice" id="setupPrice"></div>
+                      <div class="LinePrices" name="setupPrice" id="setupPrice"></div>
                     </label>
                   </td>
                 </tr>
@@ -540,7 +548,7 @@
                 </tr>
                 <tr>
                   <td colspan="4">
-                    <div class="fullspan ma3" id="Notes">
+                    <div class="fullspan ma3">
                       <textarea class="clear mh3" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
                     </div>
                   </td>
@@ -566,13 +574,35 @@
             <div class="childbox">
                 <button type="button" onclick="clearDivs()" class="webonly">Clear Form</button>
                 <button type="button" onclick="handleClick()" class="webonly">Calculate</button>
-                <button type="button" onclick="" class="webonly hidden" id="printButton">Print Ticket</button>
+                <button type="button" onclick="printClick()" class="webonly hidden" id="printButton">Print Ticket</button>
             </div>
           </div>
         </div>
       </form>
   </div>
-  <footer class="">
+  <section class="printonly"> <!-- use class printonly when layout is finished. -->
+    <div class="sigline">Signature</div>
+  </section>
+  <section class="printonly ma3"> <!-- add fcontainer to class for the items to show in line -->
+    <div class="childbox">
+      <label for="RRAccount">
+        <input type="checkbox" name="RRAccount" value="true" id="rrAccount" /> Rose Account
+      </label>
+    </div>
+    <div class="childbox">
+      <label for="PayCash">
+        <input type="checkbox" name="PayCash" value="true" id="payCash" /> Paid Cash
+      </label>
+    </div>
+    <div class="childbox nowrap">
+      <label for="PayCheck">
+        <input type="checkbox" class="iblk" name="PayCheck" value="true" id="payCheck" /> Paid check
+        <div class="lbor iblk"> Number</div>
+        <div class="ma3 sigline iblk"></div>
+      </label>
+    </div>
+  </section>
+  <footer class="webonly ma3">
     <p class="mh3">For internal use only</p><br />
     <small class="mh3">Copyright &copy; 2019, Rose Reprographics. All rights reserved.</small>
     <p class="spacer"></p>

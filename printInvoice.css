@@ -4,3 +4,8 @@
   display: none;
 }
 
+.sigline{
+  margin: 5px;
+  padding: 5px 10px;
+  border-bottom: 2px solid lightcoral;
+}
