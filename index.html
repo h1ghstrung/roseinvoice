@@ -7,6 +7,7 @@
   <meta name="keywords" content="invoice, ticket, order, rose, reprographics, internal" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Internal Order Ticket</title>
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="invoice.css" media="screen" />
   <link rel="stylesheet" href="printInvoice.css" media="print" />
   <script type="text/javascript" src="priceList.json"></script>
@@ -25,15 +26,15 @@
       <form class="childbox" name="orderForm" action="" method="">
         <div class="fcontainer" id="customerInfo">
           <div class="childbox ma3" id="customerPreference">
-            <input type="checkbox" name="pickup" value="Pickup" /><label for="pickup">Pick up by customer</label><br />
-            <input type="checkbox" name="deliver" value="Deliver" /><label for="deliver">Deliver to customer</label><br />
-            <input type="checkbox" name="ship" value="Ship" /><label for="ship">Ship to customer</label><br />
-            <input type="checkbox" name="emailcust" value="EmailCust" /><label for="emailcust">E-mail to customer</label><br />
-            <input type="checkbox" name="callcust" value="CallCust" /><label for="callcust">Call when ready</label>
+            <input type="checkbox" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
+            <input type="checkbox" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
+            <input type="checkbox" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
+            <input type="checkbox" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
+            <input type="checkbox" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
           </div>
           <div class="childbox ma3">
-            <label for="custname">Customer name: </label><input type="text" name="custname" /><br />
-            <label for="custphone">Customer phone: </label><input type="text" name="custphone" />
+            <label for="custname">Customer name: </label><input type="text" name="custname" id="custName" /><br />
+            <label for="custphone">Customer phone: </label><input type="text" name="custphone" id="custPhone" />
           </div>
         </div>
     </div>
@@ -42,46 +43,46 @@
             <!-- Billing/Shipping Info -->
             <label for="companyBillTo">
               <span class="" required="required">Bill To</span>
-              <input type="text" class="fullspan required" name="companyBillTo" placeholder="Company Name" />
+              <input type="text" class="fullspan required" name="companyBillTo" placeholder="Company Name" id="companyBillTo" />
             </label><br>
             <label for="addressBillTo">
               <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressBillTo" placeholder="Street Address" />
+              <input type="text" class="fullspan" name="addressBillTo" placeholder="Street Address" id="addressBillTo" />
             </label><br>
             <label for="cityBillTo">
               <span class="">City</span>
-              <input type="text" name="cityBillTo" placeholder="City" />
+              <input type="text" name="cityBillTo" placeholder="City" id="cityBillTo" />
             </label>
             <label for="stateBillTo">
               <span class="">State</span>
-              <input type="text" name="stateBillTo" size="4" placeholder="State" />
+              <input type="text" name="stateBillTo" size="4" placeholder="State" id="stateBillTo" />
             </label>
             <label for="zipBillTo">
               <span class="">Zip</span>
-              <input type="text" name="zipBillTo" size="5" placeholder="Zip" />
+              <input type="text" name="zipBillTo" size="5" placeholder="Zip" id="zipBillTo" />
             </label>                    
           </div>
           <div class="childbox ma3 minw">
             <!-- Order Info Bar -->
             <label for="companyShipTo">
               <span class="">Ship To</span>
-              <input type="text" class="fullspan" name="companyShipTo" placeholder="Company Name" />
+              <input type="text" class="fullspan" name="companyShipTo" placeholder="Company Name" id="companyShipTo" />
             </label><br>
             <label for="addressShipTo">
               <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressShipTo" placeholder="Street Address" />
+              <input type="text" class="fullspan" name="addressShipTo" placeholder="Street Address" id="addressShipTo" />
             </label><br>
             <label for="cityShipTo">
               <span class="">City</span>
-              <input type="text" name="cityShipTo" placeholder="City" />
+              <input type="text" name="cityShipTo" placeholder="City" id="cityShipTo" />
             </label>
             <label for="stateShipTo">
               <span class="">State</span>
-              <input type="text" name="stateShipTo" size="4" placeholder="State" />
+              <input type="text" name="stateShipTo" size="4" placeholder="State" id="stateShipTo" />
             </label>
             <label for="zipShipTo">
               <span class="">Zip</span>
-              <input type="text" name="zipShipTo" size="5" placeholder="Zip" />
+              <input type="text" name="zipShipTo" size="5" placeholder="Zip" id="zipShipTo" />
             </label>                    
           </div>
         </div>
@@ -91,31 +92,31 @@
             <div class="">
               <label for="poNumber">
                 <span class=""> P.O. Number </span><br />
-                <input type="text" name="poNumber" />
+                <input type="text" name="poNumber" id="poNumber" />
               </label>
             </div>
             <div class="">
               <label for="orderTaker">
                 <span class=""> Receiver</span><br />
-                <input type="text" class="required" name="orderTaker" size="8" />
+                <input type="text" class="required" name="orderTaker" size="8" id="orderTaker" />
               </label>
             </div>
             <div class="">
               <label for="orderProcessor">
                 <span class=""> Production</span><br />
-                <input type="text" class="required" name="orderProcessor" size="8" />
+                <input type="text" class="required" name="orderProcessor" size="8" id="orderProcessor" />
               </label>
             </div>
             <div class="">
               <label for="dateOrdered pa2">
                 <span class=""> Requested</span><br />
-                <input type="date" name="dateOrdered" />
+                <input type="date" name="dateOrdered" id="dateOrdered" />
               </label>
             </div>
             <div class="">
               <label for="dateFinished pa2">
                 <span class=""> Finished</span><br />
-                <input type="date" name="dateFinished" />
+                <input type="date" name="dateFinished" id="dateFinished" />
               </label>
             </div>
             <br />
@@ -143,7 +144,7 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty1" class="quantity clear" />
+                      <input type="number" name="Qty1" class="quantity clear" min="0" id="qty1" />
                     </label>
                   </td>
                   <td>
@@ -200,7 +201,7 @@
                         <span>
                           <!-- Visible Label name here -->
                         </span>
-                        <input type="number" name="Qty2" class="quantity clear" />
+                        <input type="number" name="Qty2" class="quantity clear" min="0" id="qty2" />
                       </label>
                     </td>
                     <td>
@@ -259,7 +260,7 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty3" class="quantity clear" />
+                      <input type="number" name="Qty3" class="quantity clear" min="0" id="qty3" />
                     </label>
                   </td>
                   <td>
@@ -318,7 +319,7 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty4" class="quantity clear" />
+                      <input type="number" name="Qty4" class="quantity clear" min="0" id="qty4" />
                     </label>
                   </td>
                   <td>
@@ -377,7 +378,7 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty5" class="quantity clear" />
+                      <input type="number" name="Qty5" class="quantity clear" min="0" id="qty5" />
                     </label>
                   </td>
                   <td>
@@ -436,7 +437,7 @@
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty6" class="quantity clear" min="0" />
+                      <input type="number" name="Qty6" class="quantity clear" min="0" id="qty6" />
                     </label>
                   </td>
                   <td>
@@ -547,7 +548,7 @@
                 </tr>
                 <tr>
                   <td colspan="4">
-                    <div class="fullspan ma3" id="Notes">
+                    <div class="fullspan ma3">
                       <textarea class="clear mh3" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
                     </div>
                   </td>
@@ -579,7 +580,29 @@
         </div>
       </form>
   </div>
-  <footer class="">
+  <section class="printonly"> <!-- use class printonly when layout is finished. -->
+    <div class="sigline">Signature</div>
+  </section>
+  <section class="printonly ma3"> <!-- add fcontainer to class for the items to show in line -->
+    <div class="childbox">
+      <label for="RRAccount">
+        <input type="checkbox" name="RRAccount" value="true" id="rrAccount" /> Rose Account
+      </label>
+    </div>
+    <div class="childbox">
+      <label for="PayCash">
+        <input type="checkbox" name="PayCash" value="true" id="payCash" /> Paid Cash
+      </label>
+    </div>
+    <div class="childbox nowrap">
+      <label for="PayCheck">
+        <input type="checkbox" class="iblk" name="PayCheck" value="true" id="payCheck" /> Paid check
+        <div class="lbor iblk"> Number</div>
+        <div class="ma3 sigline iblk"></div>
+      </label>
+    </div>
+  </section>
+  <footer class="webonly ma3">
     <p class="mh3">For internal use only</p><br />
     <small class="mh3">Copyright &copy; 2019, Rose Reprographics. All rights reserved.</small>
     <p class="spacer"></p>

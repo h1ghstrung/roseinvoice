@@ -487,9 +487,12 @@ const calcTotal = (sub, tax) => {
 const handleClick = () => {
   let checkHasTotal = getId("orderTotal").textContent;
   if (checkHasTotal > 0) {
-    console.log("has total");
-    return
-   } else {
+    console.log("Clear totals")
+    getId("orderTotal").textContent = "";
+    getId("orderTax").textContent = "";
+    getId("subTotal").textContent = "";
+    allPrices = [];
+   } 
     //Validate Data for required fields
     checkRequiredFields()
 
@@ -552,7 +555,7 @@ const handleClick = () => {
     // Show Print button
     getId("printButton").classList.remove("hidden");
   }
-}
+
 
 const clearDivs = () => {
   location.reload();
