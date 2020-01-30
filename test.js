@@ -43,7 +43,7 @@ cut, sbook - single price regardless of size
     },
     "bw09":{
       "size": "Custom",
-      "prices": [0.29, 0.29, null, null, null, null, null]
+      "prices": [0.29, 0.29, 2.70, 1.65, 1.93, null, null]
     }
   },
   "cline": {
@@ -81,7 +81,7 @@ cut, sbook - single price regardless of size
     },
     "cline09":{
       "size": "Custom",
-      "prices": [1.65, 1.65, null, null, null, null, null]
+      "prices": [1.65, 1.65, null, null, null, 2.38, 2.38]
     }
   },
   "cmid": {
@@ -119,7 +119,7 @@ cut, sbook - single price regardless of size
     },
     "cmid09":{
       "size": "Custom",
-      "prices": [4.50, null, null, null, null, null, null]
+      "prices": [4.50, 4.50, null, null, null, 6.00, 6.00]
     }
   },
   "cfull": {
@@ -157,7 +157,7 @@ cut, sbook - single price regardless of size
     },
     "cfull09":{
       "size": "Custom",
-      "prices": [8.25, null, null, null, null, null, null]
+      "prices": [8.25, 8.25, null, null, null, 10.00, 10.00]
     }
   },
   "cscan":{
@@ -335,6 +335,8 @@ const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
   } else if (size == "ARCHE") {
     priceCode += "08";
     setupPrice = true;
+  } else if (size == "CUST") {
+    priceCode += "09";
   }
   // bond first 10, bond after 10, mylar, plain vellum, erasable vellum, glossy, satin
   if (mediaType === "Bond") {
@@ -483,79 +485,119 @@ const calcTotal = (sub, tax) => {
   return sub+tax
 }
 
+// Calculate square footage from inches
+const inToSqFt = (widthInch, lengthInch) => {
+  widthFeet = Math.round((widthInch / 12) * 1000)/1000
+  lengthFeet = Math.round((lengthInch / 12) * 1000)/1000
+  return {widthFeet, lengthFeet}
+}
+
+// Calculate per page cost of custom sizes.
+const otherSize = (width, length, priceCode) => {
+  // Takes width and length in inches
+  // Returns the price per page at that size
+  let priceCat = priceCode.slice(0, -2);
+  let priceOther = .29;
+  pagePrice = Math.round((width * length * priceOther) * 100) / 100
+  // console.log(args.widthFeet, args.lengthFeet);
+  return pagePrice
+}
+
+const customJob = () => {
+  let wx = getId("widthx").value;
+  let wy = getId("widthy").value;
+  let custQty = getId("qty7").value;
+  let custJob = getId("job7").value;
+  let custMed = getId("paper7").value;
+  let dims = inToSqFt(wx, wy);
+  let priceCode = control(custJob, custMed, "CUST")
+  let priceCat = priceCode[0].slice(0, -2);
+  let priceIndex = priceCode[1];
+  // console.log(priceCat, priceCode[0], priceIndex);
+  // console.log(dims, typeof dims.widthFeet, typeof dims.lengthFeet)
+  let custCost = priceList[priceCat][priceCode[0]].prices[priceIndex] * dims.widthFeet * dims.lengthFeet * parseInt(custQty)
+  allPrices.push(custCost);
+  return custCost
+}
+
 // Handle incoming click for when the user selects the "Calculate" button
 const handleClick = () => {
   let checkHasTotal = getId("orderTotal").textContent;
   if (checkHasTotal > 0) {
-    console.log("Clear totals")
     getId("orderTotal").textContent = "";
     getId("orderTax").textContent = "";
     getId("subTotal").textContent = "";
     allPrices = [];
    } 
-    //Validate Data for required fields
-    checkRequiredFields()
+  //Validate Data for required fields
+  checkRequiredFields()
 
-    let lineQuantities = checkQuant();
-    let jobType = getClass("jobs");
-    let mediaType = getClass("paper");
-    let size = getClass("sizes");
-    let subTots = 0;
-    //Calculate Line Items
-    if (lineQuantities.some(el => el > 0)) {
-      //call a function to process the lines with quants.
-      for ( i=0; i<lineQuantities.length; i++ ) {
-        if (lineQuantities[i] <= 0) {
-          null
-        } else {
-          // get values of different columns and send to function for pricing.
-          let lineCost = null;
-          let linePost = 0;
-          let priceValues = control(jobType[i].value, mediaType[i].value, size[i].value);
-          let priceCode = priceValues[0];
-          let priceCat = priceCode.slice(0, -2);
-          let priceIndex = priceValues[1];
-          lineCost = calcLinePrice(lineQuantities[i], priceCode, priceCat, priceIndex);
-          linePost = "Price" + ((i+1).toString()); // target for value is "Price" + i+1
-          getId(linePost).classList.remove("fillme");
-          if (lineQuantities[i] > 0 && lineCost == "0") {
-            alert("That job type, size, and media type combination is not allowed.");
-            getId(linePost).classList.add("fillme");
-          }
-          getId(linePost).textContent = lineCost.toFixed(2);
-        }
-      }
-    } else {
-      return
-    }
-    //Calculate Sub Total
-    subTots = calcSubTotal(allPrices);
-    if (checkForDiscount()) {
-      let discountPrice = calcDiscount();
-      subTots -= discountPrice;
-    }
-    getId("subTotal").textContent = subTots.toFixed(2);
-    
-    // Check for Tax Exempt and apply tax to non-exempt
-    if (checkExempt()) {
-      let showTax = getId("orderTax");
-      showTax.value = 0;
-      showTax.textContent = "0.00";
-    } else {
-      let orderTax = calcTax(subTots);
-      let showTax = getId("orderTax");
-      showTax.value = orderTax;
-      showTax.textContent = orderTax.toFixed(2);
-    } 
-    
-    // Add order Total
-    let orderTotal = calcTotal(subTots, getId("orderTax").value);
-    getId("orderTotal").textContent = orderTotal.toFixed(2);
-    getId("orderTotal").value = orderTotal;
-    // Show Print button
-    getId("printButton").classList.remove("hidden");
+  let lineQuantities = checkQuant();
+  let jobType = getClass("jobs");
+  let mediaType = getClass("paper");
+  let size = getClass("sizes");
+  let custSize = getId("custCheck");
+  let subTots = 0;
+
+  //Calculate Line Items
+  if (custSize.checked) {
+    let custPrice = getId("Price7");
+    let custValue = customJob();
+    custPrice.value = custValue;
+    custPrice.textContent = custValue.toFixed(2);    
   }
-
+  
+  if (lineQuantities.some(el => el > 0)) {
+    //call a function to process the lines with quants.
+    for ( i=0; i<lineQuantities.length; i++ ) {
+      if (lineQuantities[i] <= 0) {
+        null
+      } else {
+        // get values of different columns and send to function for pricing.
+        let lineCost = null;
+        let linePost = 0;
+        let priceValues = control(jobType[i].value, mediaType[i].value, size[i].value);
+        let priceCode = priceValues[0];
+        let priceCat = priceCode.slice(0, -2);
+        let priceIndex = priceValues[1];
+        lineCost = calcLinePrice(lineQuantities[i], priceCode, priceCat, priceIndex);
+        linePost = "Price" + ((i+1).toString()); // target for value is "Price" + i+1
+        getId(linePost).classList.remove("fillme");
+        if (lineQuantities[i] > 0 && lineCost == "0") {
+          alert("That job type, size, and media type combination is not allowed.");
+          getId(linePost).classList.add("fillme");
+        }
+        getId(linePost).textContent = lineCost.toFixed(2);
+      }
+    }
+  } 
+  //Calculate Sub Total
+  subTots = calcSubTotal(allPrices);
+  if (checkForDiscount()) {
+    let discountPrice = calcDiscount();
+    subTots -= discountPrice;
+  }
+  getId("subTotal").textContent = subTots.toFixed(2);
+  
+  // Check for Tax Exempt and apply tax to non-exempt
+  if (checkExempt()) {
+    let showTax = getId("orderTax");
+    showTax.value = 0;
+    showTax.textContent = "0.00";
+  } else {
+    let orderTax = calcTax(subTots);
+    let showTax = getId("orderTax");
+    showTax.value = orderTax;
+    showTax.textContent = orderTax.toFixed(2);
+  } 
+  
+  // Add order Total
+  let orderTotal = calcTotal(subTots, getId("orderTax").value);
+  getId("orderTotal").textContent = orderTotal.toFixed(2);
+  getId("orderTotal").value = orderTotal;
+  // Show Print button
+  getId("printButton").classList.remove("hidden");
+}
 
 const clearDivs = () => {
   location.reload();
