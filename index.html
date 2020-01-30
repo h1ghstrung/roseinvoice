@@ -171,7 +171,6 @@
                         <option value="Glossy">Glossy</option>
                         <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
-                        <option value="ERVellum">Erasable Vellum</option>
                       </select>
                     </label>
                   </td>
@@ -185,7 +184,6 @@
                         <option value="ARCHD" selected>24 x 36</option>
                         <option value="ARCHE1">30 x 42</option>
                         <option value="ARCHE">36 x 48</option>
-                        <option value="cust">Custom</option>
                       </select>
                     </label>
                   </td>
@@ -229,7 +227,6 @@
                           <option value="Glossy">Glossy</option>
                           <option value="Satin">Satin</option>
                           <option value="Vellum">Vellum</option>
-                          <option value="ERVellum">Erasable Vellum</option>
                         </select>
                       </label>
                     </td>
@@ -244,7 +241,6 @@
                           <option value="ARCHD">24 x 36</option>
                           <option value="ARCHE1">30 x 42</option>
                           <option value="ARCHE">36 x 48</option>
-                          <option value="cust">Custom</option>
                         </select>
                       </label>
                     </td>
@@ -288,7 +284,6 @@
                         <option value="Glossy">Glossy</option>
                         <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
-                        <option value="ERVellum">Erasable Vellum</option>
                       </select>
                     </label>
                   </td>
@@ -303,7 +298,6 @@
                         <option value="ARCHD">24 x 36</option>
                         <option value="ARCHE1">30 x 42</option>
                         <option value="ARCHE">36 x 48</option>
-                        <option value="cust">Custom</option>
                       </select>
                     </label>
                   </td>
@@ -347,7 +341,6 @@
                         <option value="Glossy">Glossy</option>
                         <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
-                        <option value="ERVellum">Erasable Vellum</option>
                       </select>
                     </label>
                   </td>
@@ -362,7 +355,6 @@
                         <option value="ARCHD">24 x 36</option>
                         <option value="ARCHE1">30 x 42</option>
                         <option value="ARCHE">36 x 48</option>
-                        <option value="cust">Custom</option>
                       </select>
                     </label>
                   </td>
@@ -406,7 +398,6 @@
                         <option value="Glossy">Glossy</option>
                         <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
-                        <option value="ERVellum">Erasable Vellum</option>
                       </select>
                     </label>
                   </td>
@@ -421,7 +412,6 @@
                         <option value="ARCHD">24 x 36</option>
                         <option value="ARCHE1">30 x 42</option>
                         <option value="ARCHE">36 x 48</option>
-                        <option value="cust">Custom</option>
                       </select>
                     </label>
                   </td>
@@ -465,7 +455,6 @@
                         <option value="Glossy">Glossy</option>
                         <option value="Satin">Satin</option>
                         <option value="Vellum">Vellum</option>
-                        <option value="ERVellum">Erasable Vellum</option>
                       </select>
                     </label>
                   </td>
@@ -480,13 +469,61 @@
                         <option value="ARCHD">24 x 36</option>
                         <option value="ARCHE1">30 x 42</option>
                         <option value="ARCHE">36 x 48</option>
-                        <option value="cust">Custom</option>
                       </select>
                     </label>
                   </td>
                   <td class="tar">
                       <label for="Price6">
                         <div class="LinePrices clear" id="Price6"></div>
+                      </label>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="custCheck">
+                      <span>
+                        <!-- Visible Label name here -->
+                        Custom Size
+                      </span>
+                      <input type="checkbox" name="custCheck" class="clear" id="custCheck" />
+                      <input type="number" name="Qty7" class="clear" style="max-width: 65px;" min="0" id="qty7" />
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Job7">
+                      <select name="Job7" class="jobs clear" id="job7">
+                        <option value="none"></option>
+                        <option value="BW">B/W Print</option>
+                        <option value="LineCol">Line Color Print</option>
+                        <option value="MedCol">Medium Color Print</option>
+                        <option value="FullCol">Full Color Print</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td>
+                    <label for="Media7">
+                      <select name="Media7" class="paper clear" id="paper7">
+                        <option value="none"></option>
+                        <option value="Bond">Bond</option>
+                        <option value="Mylar">Mylar</option>
+                        <option value="Glossy">Glossy</option>
+                        <option value="Satin">Satin</option>
+                        <option value="Vellum">Vellum</option>
+                      </select>
+                    </label>
+                  </td>
+                  <td class="sizecol">
+                    <label for="widthx">
+                      <input type="number" class="clear custsize" name="widthx" min="0" id="widthx" />
+                    </label>
+                      by
+                    <label for="widthy">
+                      <input type="number" class="clear custsize" name="widthy" min="0" id="widthy" />
+                    </label>
+                  </td>
+                  <td class="tar">
+                      <label for="Price7">
+                        <div class="LinePrices clear" id="Price7"></div>
                       </label>
                     </td>
                 </tr>
