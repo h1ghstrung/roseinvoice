@@ -19,22 +19,22 @@
 <body>
   <div class="pageContainer">
     <div class="fcontainer">
-      <div class="childbox ma3" id="branding">
+      <div class="childbox ma3 printThis" id="branding">
         <h1>Rose Reprographics</h1>
         <p>Order Ticket</p>
       </div>
       <form class="childbox" name="orderForm" action="" method="">
         <div class="fcontainer" id="customerInfo">
           <div class="childbox ma3" id="customerPreference">
-            <input type="checkbox" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
-            <input type="checkbox" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
-            <input type="checkbox" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
-            <input type="checkbox" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
-            <input type="checkbox" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
+            <input type="checkbox" onclick="checkPrint(custPickup)" class="" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
+            <input type="checkbox" onclick="checkPrint(deliverToCust)" class="" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(shipToCust)" class="" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(emailCust)" class="" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(callCust)" class="" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
           </div>
           <div class="childbox ma3">
-            <label for="custname">Customer name: </label><input type="text" name="custname" id="custName" /><br />
-            <label for="custphone">Customer phone: </label><input type="text" name="custphone" id="custPhone" />
+            <label for="custname" class="printThis">Customer name: </label><input class="printThis" type="text" name="custname" id="custName" /><br />
+            <label for="custphone" class="printThis">Customer phone: </label><input class="printThis" type="text" name="custphone" id="custPhone" />
           </div>
         </div>
     </div>
@@ -42,47 +42,47 @@
           <div class="childbox mainborder ma3 minw">
             <!-- Billing/Shipping Info -->
             <label for="companyBillTo">
-              <span class="" required="required">Bill To</span>
-              <input type="text" class="fullspan required" name="companyBillTo" placeholder="Company Name" id="companyBillTo" />
+              <span class="printThis" required="required">Bill To</span>
+              <input type="text" class="fullspan required printThis" name="companyBillTo" placeholder="Company Name" id="companyBillTo" />
             </label><br>
             <label for="addressBillTo">
-              <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressBillTo" placeholder="Street Address" id="addressBillTo" />
+              <span class="printThis">Address</span>
+              <input type="text" class="fullspan printThis" name="addressBillTo" placeholder="Street Address" id="addressBillTo" />
             </label><br>
             <label for="cityBillTo">
-              <span class="">City</span>
-              <input type="text" name="cityBillTo" placeholder="City" id="cityBillTo" />
+              <span class="printThis">City</span>
+              <input type="text" class="printThis" name="cityBillTo" placeholder="City" id="cityBillTo" />
             </label>
             <label for="stateBillTo">
-              <span class="">State</span>
-              <input type="text" name="stateBillTo" size="4" placeholder="State" id="stateBillTo" />
+              <span class="printThis">State</span>
+              <input type="text" class="printThis" name="stateBillTo" size="4" placeholder="State" id="stateBillTo" />
             </label>
             <label for="zipBillTo">
-              <span class="">Zip</span>
-              <input type="text" name="zipBillTo" size="5" placeholder="Zip" id="zipBillTo" />
+              <span class="printThis">Zip</span>
+              <input type="text" class="printThis" name="zipBillTo" size="5" placeholder="Zip" id="zipBillTo" />
             </label>                    
           </div>
           <div class="childbox ma3 minw">
             <!-- Order Info Bar -->
             <label for="companyShipTo">
-              <span class="">Ship To</span>
-              <input type="text" class="fullspan" name="companyShipTo" placeholder="Company Name" id="companyShipTo" />
+              <span class="printThis">Ship To</span>
+              <input type="text" class="fullspan printThis" name="companyShipTo" placeholder="Company Name" id="companyShipTo" />
             </label><br>
             <label for="addressShipTo">
-              <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressShipTo" placeholder="Street Address" id="addressShipTo" />
+              <span class="printThis">Address</span>
+              <input type="text" class="fullspan printThis" name="addressShipTo" placeholder="Street Address" id="addressShipTo" />
             </label><br>
             <label for="cityShipTo">
-              <span class="">City</span>
-              <input type="text" name="cityShipTo" placeholder="City" id="cityShipTo" />
+              <span class="printThis">City</span>
+              <input type="text" class="printThis" name="cityShipTo" placeholder="City" id="cityShipTo" />
             </label>
             <label for="stateShipTo">
-              <span class="">State</span>
-              <input type="text" name="stateShipTo" size="4" placeholder="State" id="stateShipTo" />
+              <span class="printThis">State</span>
+              <input type="text" class="printThis" name="stateShipTo" size="4" placeholder="State" id="stateShipTo" />
             </label>
             <label for="zipShipTo">
-              <span class="">Zip</span>
-              <input type="text" name="zipShipTo" size="5" placeholder="Zip" id="zipShipTo" />
+              <span class="printThis">Zip</span>
+              <input type="text" class="printThis" name="zipShipTo" size="5" placeholder="Zip" id="zipShipTo" />
             </label>                    
           </div>
         </div>
@@ -91,38 +91,38 @@
           <div class="childbox processingLine">
             <div class="">
               <label for="poNumber">
-                <span class=""> P.O. Number </span><br />
-                <input type="text" name="poNumber" id="poNumber" />
+                <span class="printThis"> P.O. Number </span><br />
+                <input type="text" class="printThis" name="poNumber" id="poNumber" />
               </label>
             </div>
             <div class="">
               <label for="orderTaker">
-                <span class=""> Receiver</span><br />
-                <input type="text" class="required" name="orderTaker" size="8" id="orderTaker" />
+                <span class="printThis"> Receiver</span><br />
+                <input type="text" class="required printThis" name="orderTaker" size="8" id="orderTaker" />
               </label>
             </div>
             <div class="">
               <label for="orderProcessor">
-                <span class=""> Production</span><br />
-                <input type="text" class="required" name="orderProcessor" size="8" id="orderProcessor" />
+                <span class="printThis"> Production</span><br />
+                <input type="text" class="required printThis" name="orderProcessor" size="8" id="orderProcessor" />
               </label>
             </div>
             <div class="">
               <label for="dateOrdered pa2">
-                <span class=""> Requested</span><br />
-                <input type="date" name="dateOrdered" id="dateOrdered" />
+                <span class="printThis"> Requested</span><br />
+                <input type="date" class="printThis" name="dateOrdered" id="dateOrdered" />
               </label>
             </div>
             <div class="">
               <label for="dateFinished pa2">
-                <span class=""> Finished</span><br />
-                <input type="date" name="dateFinished" id="dateFinished" />
+                <span class="printThis"> Finished</span><br />
+                <input type="date" class="printThis" name="dateFinished" id="dateFinished" />
               </label>
             </div>
             <br />
             <div class="fullspan" id="JobName">
               <span required="required">
-                <textarea class="clear required" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
+                <textarea class="clear required printThis" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
               </span>
             </div>
           </div>
@@ -132,11 +132,10 @@
             <!-- Order Items -->
             <table name="items">
                 <tr>
-                  <th>Qty</th>
-                  <th>Job Type</th>
-                  <th>Media</th>
-                  <th class="sizecol">Size</th>
-                  <th>Price</th>
+                  <th class="printThis">Job Type</th>
+                  <th class="printThis">Media</th>
+                  <th class="sizecol printThis">Size</th>
+                  <th class="printThis">Price</th>
                 </tr>
                 <tr>
                   <td>
@@ -586,24 +585,24 @@
                 <tr>
                   <td colspan="4">
                     <div class="fullspan ma3">
-                      <textarea class="clear mh3" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
+                      <textarea class="clear mh3 printThis" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td colspan="3"></td>
-                  <td class="tar">Sub Total:</td>
-                  <td class="totals clear tar" id="subTotal"></td>
+                  <td class="tar printThis">Sub Total:</td>
+                  <td class="totals clear tar printThis" id="subTotal"></td>
                 </tr>
                 <tr>
                   <td colspan="3"></td>
-                  <td class="tar">Tax:</td>
-                  <td class="totals clear tar" id="orderTax"></td>
+                  <td class="tar printThis">Tax:</td>
+                  <td class="totals clear tar printThis" id="orderTax"></td>
                 </tr>
                 <tr>
                   <td colspan="3"></td>
-                  <td class="tar">Order Total:</td>
-                  <td class="totals clear tar" id="orderTotal"></td>
+                  <td class="tar printThis">Order Total:</td>
+                  <td class="totals clear tar printThis" id="orderTotal"></td>
                 </tr>
             </table>
           </div><br />

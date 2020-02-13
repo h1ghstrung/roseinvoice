@@ -285,6 +285,18 @@ var getId = document.getElementById.bind(document);
 var getClass = document.getElementsByClassName.bind(document);
 var allPrices = [];
 
+// Check to see if en element has the class "printThis". If so remove it, if not add it.
+const checkPrint = (elemId) => {
+  console.log(elemId);
+  if (elemId.classList.contains("printThis")) {
+    elemId.classList.remove("printThis");
+    console.log(elemId.classList.value);
+  } else {
+    elemId.classList.add("printThis");
+    console.log(elemId.classList.value);
+  }
+}
+
 // Control for determining job code
 const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
   /* receives order information and returns a job code and prices index for pricing reference */
@@ -470,10 +482,16 @@ const doesSetup = () => {
     if (setupCost.value == "") {
       setupCost.textContent = "7.50";
       setupCost.value = "7.50";
-    } 
+    }
+    checkPrint(setupCost);
+    checkPrint(setupPrice);
+    checkPrint(getId(setupReason));
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
     setupPrice.value = parseFloat(setupCost.value);
   } else {
+    checkPrint(setupCost);
+    checkPrint(setupPrice);
+    checkPrint(getId(setupReason));
     setupPrice.textContent = "";
     setupPrice.value = 0;
   }
@@ -513,6 +531,11 @@ const customJob = () => {
   let priceCode = control(custJob, custMed, "CUST")
   let priceCat = priceCode[0].slice(0, -2);
   let priceIndex = priceCode[1];
+  checkPrint(wx);
+  checkPrint(wy);
+  checkPrint(custQty);
+  checkPrint(custMed);
+  checkPrint(custJob);
   // console.log(priceCat, priceCode[0], priceIndex);
   // console.log(dims, typeof dims.widthFeet, typeof dims.lengthFeet)
   let custCost = priceList[priceCat][priceCode[0]].prices[priceIndex] * dims.widthFeet * dims.lengthFeet * parseInt(custQty)
@@ -544,7 +567,8 @@ const handleClick = () => {
     let custPrice = getId("Price7");
     let custValue = customJob();
     custPrice.value = custValue;
-    custPrice.textContent = custValue.toFixed(2);    
+    custPrice.textContent = custValue.toFixed(2);
+    checkPrint(custPrice);   
   }
   
   if (lineQuantities.some(el => el > 0)) {
@@ -584,6 +608,7 @@ const handleClick = () => {
     let showTax = getId("orderTax");
     showTax.value = 0;
     showTax.textContent = "0.00";
+    checkPrint(showTax);
   } else {
     let orderTax = calcTax(subTots);
     let showTax = getId("orderTax");
