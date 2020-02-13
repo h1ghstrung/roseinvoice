@@ -132,6 +132,7 @@
             <!-- Order Items -->
             <table name="items">
                 <tr>
+                  <th class="printThis">Qty</th>
                   <th class="printThis">Job Type</th>
                   <th class="printThis">Media</th>
                   <th class="sizecol printThis">Size</th>
@@ -164,7 +165,7 @@
                   </td>
                   <td>
                     <label for="Media1">
-                      <select name="Media1" class="paper clear" id="media1">
+                      <select name="Media1" class="paper clear" id="paper1">
                         <option value="Bond" selected>Bond</option>
                         <option value="Mylar">Mylar</option>
                         <option value="Glossy">Glossy</option>
@@ -610,7 +611,7 @@
             <div class="childbox">
                 <button type="button" onclick="clearDivs()" class="webonly">Clear Form</button>
                 <button type="button" onclick="handleClick()" class="webonly">Calculate</button>
-                <button type="button" onclick="printClick()" class="webonly hidden" id="printButton">Print Ticket</button>
+                <button type="button" onclick="window.print();return false;" class="webonly hidden" id="printButton">Print Ticket</button>
             </div>
           </div>
         </div>

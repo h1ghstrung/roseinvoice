@@ -287,13 +287,10 @@ var allPrices = [];
 
 // Check to see if en element has the class "printThis". If so remove it, if not add it.
 const checkPrint = (elemId) => {
-  console.log(elemId);
   if (elemId.classList.contains("printThis")) {
     elemId.classList.remove("printThis");
-    console.log(elemId.classList.value);
   } else {
     elemId.classList.add("printThis");
-    console.log(elemId.classList.value);
   }
 }
 
@@ -485,13 +482,13 @@ const doesSetup = () => {
     }
     checkPrint(setupCost);
     checkPrint(setupPrice);
-    checkPrint(getId(setupReason));
+    checkPrint(getId("setupReason"));
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
     setupPrice.value = parseFloat(setupCost.value);
   } else {
     checkPrint(setupCost);
     checkPrint(setupPrice);
-    checkPrint(getId(setupReason));
+    checkPrint(getId("setupReason"));
     setupPrice.textContent = "";
     setupPrice.value = 0;
   }
@@ -592,9 +589,21 @@ const handleClick = () => {
           getId(linePost).classList.add("fillme");
         }
         getId(linePost).textContent = lineCost.toFixed(2);
+        let lineItem = (i+1).toString();
+        let [qty, job, paper, lineSize, price] = 
+          [getId("qty"+ lineItem),
+           getId("job"+ lineItem),
+           getId("paper"+ lineItem), 
+           getId("size"+ lineItem),
+           getId("Price"+ lineItem)];
+        let lineArr = [qty, job, paper, lineSize, price];
+        for (item=0; item<lineArr.length; item++) {
+          checkPrint(lineArr[item]);
+        }
       }
     }
   } 
+
   //Calculate Sub Total
   subTots = calcSubTotal(allPrices);
   if (checkForDiscount()) {

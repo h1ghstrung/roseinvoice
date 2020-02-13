@@ -1,4 +1,11 @@
 /* Print Style Sheet */
+body{
+  visibility: hidden;
+}
+
+.printThis {
+  visibility: visible;
+}
 
 .webonly {
   display: none;
