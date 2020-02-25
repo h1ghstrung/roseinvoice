@@ -26,11 +26,11 @@
       <form class="childbox" name="orderForm" action="" method="">
         <div class="fcontainer" id="customerInfo">
           <div class="childbox ma3" id="customerPreference">
-            <input type="checkbox" onclick="checkPrint(custPickup)" class="" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
-            <input type="checkbox" onclick="checkPrint(deliverToCust)" class="" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
-            <input type="checkbox" onclick="checkPrint(shipToCust)" class="" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
-            <input type="checkbox" onclick="checkPrint(emailCust)" class="" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
-            <input type="checkbox" onclick="checkPrint(callCust)" class="" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
+            <input type="checkbox" onclick="checkPrint(custPickup, true)" class="" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
+            <input type="checkbox" onclick="checkPrint(deliverToCust, true)" class="" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(shipToCust, true)" class="" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(emailCust, true)" class="" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(callCust, true)" class="" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
           </div>
           <div class="childbox ma3">
             <label for="custname" class="printThis">Customer name: </label><input class="printThis" type="text" name="custname" id="custName" /><br />
@@ -529,11 +529,9 @@
                 </tr>
                 <tr>
                   <td>
-                    <label for="setupCheckbox">
-                      <span>
-                        <input type="checkbox" onchange="doesSetup()" name="setupCheckbox" value="setupFee" id="setupCheckbox" class="" /> Setup  
-                      </span>
-                    </label>
+                    <span>
+                      <input type="checkbox" onchange="doesSetup()" name="setupCheckbox" value="setupFee" id="setupCheckbox" class="" /><label for="setupCheckbox"> Setup </label>
+                    </span>
                   </td>
                   <td colspan="2">
                     <label for="setupReason">
@@ -575,9 +573,7 @@
                 </tr>
                 <tr>
                   <td colspan="2">
-                    <label for="taxExempt">
-                      <input type="checkbox" name="taxExempt" value="true" id="taxExempt" /> Tax Exempt
-                    </label>
+                    <input type="checkbox" class="" name="taxExempt" value="true" id="taxExempt" /><label for="taxExempt"> Tax Exempt</label>
                   </td>
                   <td></td>
                   <td></td>
@@ -639,10 +635,11 @@
       </label>
     </div>
   </section>
-  <footer class="webonly ma3">
-    <p class="mh3">For internal use only</p><br />
-    <small class="mh3">Copyright &copy; 2019, Rose Reprographics. All rights reserved.</small>
-    <p class="spacer"></p>
+  <footer class="ma3">
+    <p class="mh3 webonly">For internal use only</p><br />
+    <small class="mh3 webonly">Copyright &copy; 2019, Rose Reprographics. All rights reserved.</small>
+    <!-- Company Disclaimer here -->
+    <p class="printonly">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus in consectetur veritatis soluta cupiditate. Ipsam cumque est, delectus et earum commodi consequuntur, perspiciatis deserunt quod reiciendis soluta consectetur hic similique!</p>
   </footer>
 </body>
 </html>

@@ -1,6 +1,67 @@
 /* Print Style Sheet */
+@page { margin: 0; } /* remove file path, page number, page title and date from print page */
+
 body{
   visibility: hidden;
+  max-width: 90%;
+  margin: auto;
+}
+
+table {
+  margin: auto;
+}
+
+.fcontainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: row;
+}
+
+.childbox {
+  margin: auto;
+}
+
+.fcenter {
+  display: flex;
+  justify-content: center;
+}
+
+.tar {
+  text-align: right;
+}
+
+.totals {
+  font-weight: bold;
+  color: red;
+}
+
+.fright {
+  display: flex;
+  justify-content: flex-end;
+}
+
+span[required=required]:after,
+form textarea[required=required]:after
+{
+    color: red;
+    content: " *";
+}
+
+.processingLine div{
+  display: inline-block;
+}
+
+.mainborder {
+  padding: 5px;
+  border: 3px solid rgba(203, 14, 14, 0.6);
+}
+
+.mainborder label, input {
+  margin: 2px 0px;
+}
+
+.fullspan {
+  min-width: 100%;
 }
 
 .printThis {
@@ -15,4 +76,8 @@ body{
   margin: 5px;
   padding: 5px 10px;
   border-bottom: 2px solid lightcoral;
+}
+
+.printonly {
+  visibility: visible;
 }

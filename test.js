@@ -286,12 +286,18 @@ var getClass = document.getElementsByClassName.bind(document);
 var allPrices = [];
 
 // Check to see if en element has the class "printThis". If so remove it, if not add it.
-const checkPrint = (elemId) => {
+const checkPrint = (elemId, sibling = false) => {
   if (elemId.classList.contains("printThis")) {
     elemId.classList.remove("printThis");
   } else {
     elemId.classList.add("printThis");
   }
+  if (sibling && elemId.classList.contains("printThis")) {
+    elemId.nextElementSibling.classList.add('printThis');
+  } else if (!elemId.classList.contains("printThis")) {
+    elemId.nextElementSibling.classList.remove('printThis')
+  }
+  return
 }
 
 // Control for determining job code
@@ -449,6 +455,9 @@ const calcDiscount = () => {
 //Check if tax exempt
 const checkExempt = () => {
   let taxExempt = getId("taxExempt");
+  if (taxExempt.checked) {
+    checkPrint (taxExempt, true);
+  }
   return taxExempt.checked
 }
 
@@ -476,13 +485,14 @@ const doesSetup = () => {
   let setupPrice = getId("setupPrice");
     
   if (setupCheck.checked) {
+    checkPrint(setupCost);
+    checkPrint(setupPrice);
+    checkPrint(getId("setupReason"));
+    checkPrint(setupCheck, true);
     if (setupCost.value == "") {
       setupCost.textContent = "7.50";
       setupCost.value = "7.50";
     }
-    checkPrint(setupCost);
-    checkPrint(setupPrice);
-    checkPrint(getId("setupReason"));
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
     setupPrice.value = parseFloat(setupCost.value);
   } else {
@@ -519,13 +529,13 @@ const otherSize = (width, length, priceCode) => {
 }
 
 const customJob = () => {
-  let wx = getId("widthx").value;
-  let wy = getId("widthy").value;
-  let custQty = getId("qty7").value;
-  let custJob = getId("job7").value;
-  let custMed = getId("paper7").value;
-  let dims = inToSqFt(wx, wy);
-  let priceCode = control(custJob, custMed, "CUST")
+  let wx = getId("widthx");
+  let wy = getId("widthy");
+  let custQty = getId("qty7");
+  let custJob = getId("job7");
+  let custMed = getId("paper7");
+  let dims = inToSqFt(wx.value, wy.value);
+  let priceCode = control(custJob.value, custMed.value, "CUST")
   let priceCat = priceCode[0].slice(0, -2);
   let priceIndex = priceCode[1];
   checkPrint(wx);
@@ -535,7 +545,7 @@ const customJob = () => {
   checkPrint(custJob);
   // console.log(priceCat, priceCode[0], priceIndex);
   // console.log(dims, typeof dims.widthFeet, typeof dims.lengthFeet)
-  let custCost = priceList[priceCat][priceCode[0]].prices[priceIndex] * dims.widthFeet * dims.lengthFeet * parseInt(custQty)
+  let custCost = priceList[priceCat][priceCode[0]].prices[priceIndex] * dims.widthFeet * dims.lengthFeet * parseInt(custQty.value)
   allPrices.push(custCost);
   return custCost
 }
@@ -617,7 +627,7 @@ const handleClick = () => {
     let showTax = getId("orderTax");
     showTax.value = 0;
     showTax.textContent = "0.00";
-    checkPrint(showTax);
+    // checkPrint(showTax);
   } else {
     let orderTax = calcTax(subTots);
     let showTax = getId("orderTax");
