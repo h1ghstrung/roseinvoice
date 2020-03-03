@@ -396,11 +396,23 @@ const checkRequiredFields = () => {
 const checkQuant = () => {
   let quants = [];
   let lineQuants = getClass('quantity');
+  let jobLines = getClass('jobs');
+  let paperLines = getClass('paper');
+  let sizeLines = getClass('sizes');
+  let linePrices = getClass('LinePrices');
   for (item of lineQuants) {
     if (item.value > 0) {
     quants.push(parseInt(item.value, 10));
     } else {
       quants.push(0);
+      // If the quantity for the line is empty hide the whole line from printing
+      let lineArray = Array.from(lineQuants).indexOf(item);
+      lineQuants[lineArray].classList.add("webonly");
+      jobLines[lineArray].classList.add("webonly");
+      paperLines[lineArray].classList.add("webonly");
+      sizeLines[lineArray].classList.add("webonly");
+      linePrices[lineArray].classList.add("webonly");
+      //console.log(jobLines[lineArray].classList);
     }
   }
   return quants
