@@ -47,42 +47,42 @@
             </label><br>
             <label for="addressBillTo">
               <span class="printThis">Address</span>
-              <input type="text" class="fullspan printThis" name="addressBillTo" placeholder="Street Address" id="addressBillTo" />
+              <input type="text" class="fullspan printThis" name="addressBillTo" placeholder="" id="addressBillTo" />
             </label><br>
             <label for="cityBillTo">
               <span class="printThis">City</span>
-              <input type="text" class="printThis" name="cityBillTo" placeholder="City" id="cityBillTo" />
+              <input type="text" class="printThis" name="cityBillTo" placeholder="" id="cityBillTo" />
             </label>
             <label for="stateBillTo">
               <span class="printThis">State</span>
-              <input type="text" class="printThis" name="stateBillTo" size="4" placeholder="State" id="stateBillTo" />
+              <input type="text" class="printThis" name="stateBillTo" size="4" placeholder="" id="stateBillTo" />
             </label>
             <label for="zipBillTo">
               <span class="printThis">Zip</span>
-              <input type="text" class="printThis" name="zipBillTo" size="5" placeholder="Zip" id="zipBillTo" />
+              <input type="text" class="printThis" name="zipBillTo" size="5" placeholder="" id="zipBillTo" />
             </label>                    
           </div>
           <div class="childbox ma3 minw">
             <!-- Order Info Bar -->
             <label for="companyShipTo">
               <span class="printThis">Ship To</span>
-              <input type="text" class="fullspan printThis" name="companyShipTo" placeholder="Company Name" id="companyShipTo" />
+              <input type="text" class="fullspan printThis" name="companyShipTo" placeholder="" id="companyShipTo" />
             </label><br>
             <label for="addressShipTo">
               <span class="printThis">Address</span>
-              <input type="text" class="fullspan printThis" name="addressShipTo" placeholder="Street Address" id="addressShipTo" />
+              <input type="text" class="fullspan printThis" name="addressShipTo" placeholder="" id="addressShipTo" />
             </label><br>
             <label for="cityShipTo">
               <span class="printThis">City</span>
-              <input type="text" class="printThis" name="cityShipTo" placeholder="City" id="cityShipTo" />
+              <input type="text" class="printThis" name="cityShipTo" placeholder="" id="cityShipTo" />
             </label>
             <label for="stateShipTo">
               <span class="printThis">State</span>
-              <input type="text" class="printThis" name="stateShipTo" size="4" placeholder="State" id="stateShipTo" />
+              <input type="text" class="printThis" name="stateShipTo" size="4" placeholder="" id="stateShipTo" />
             </label>
             <label for="zipShipTo">
               <span class="printThis">Zip</span>
-              <input type="text" class="printThis" name="zipShipTo" size="5" placeholder="Zip" id="zipShipTo" />
+              <input type="text" class="printThis" name="zipShipTo" size="5" placeholder="" id="zipShipTo" />
             </label>                    
           </div>
         </div>
@@ -130,7 +130,7 @@
         <div class="ma3 mainborder" id="orderItems">
           <div class="childbox">
             <!-- Order Items -->
-            <table name="items">
+            <table name="items" cellspacing="0" cellpadding="0">
                 <tr>
                   <th class="printThis">Qty</th>
                   <th class="printThis">Job Type</th>
@@ -582,7 +582,7 @@
                 <tr>
                   <td colspan="4">
                     <div class="fullspan ma3">
-                      <textarea class="clear mh3 printThis" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
+                      <textarea class="clear mh3 printThis" maxlength="330" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
                     </div>
                   </td>
                 </tr>
@@ -613,10 +613,10 @@
         </div>
       </form>
   </div>
-  <section class="printonly"> <!-- use class printonly when layout is finished. -->
-    <div class="sigline">Signature</div>
+  <section class="printonly">
+    <div class="sigline"></div>
   </section>
-  <section class="printonly ma3"> <!-- add fcontainer to class for the items to show in line -->
+  <section class="printonly hp2 ma3 fcontainer">
     <div class="childbox">
       <label for="RRAccount">
         <input type="checkbox" name="RRAccount" value="true" id="rrAccount" /> Rose Account
@@ -628,31 +628,39 @@
       </label>
     </div>
     <div class="childbox nowrap">
-      <label for="PayCheck">
-        <input type="checkbox" class="iblk" name="PayCheck" value="true" id="payCheck" /> Paid check
-        <div class="lbor iblk"> Number</div>
-        <div class="ma3 sigline iblk"></div>
+      <label class="" for="PayCheck">
+        <input type="checkbox" class="" name="PayCheck" value="true" id="payCheck" /> Paid with check
+        <div class="fcontainer">
+          <div class="lbor childbox"> Number</div>
+          <div class="ma3 childbox" id="checkNumberLine">: </div>
+        </div>
       </label>
     </div>
+  </section>
+  <section class="printonly hp2">
+    <div class="sigline">Signature</div>
   </section>
   <footer class="ma3">
     <p class="mh3 webonly">For internal use only</p><br />
     <small class="mh3 webonly">Copyright &copy; 2020, Rose Reprographics. All rights reserved.</small>
     <!-- Company Disclaimer here -->
-    <p class="printonly">The above signature denotes receipt and acceptance of all products, and/or services, 
-      authorization to charge the above credit card (if applicable), and acceptance of the Rose Reprographics, Inc. 
-      disclaimer agreement below.
-      <br />
-      Rose Reprographics, Inc., its officers and employees (herein called "the company"), are not responsible for any 
-      errors or omissions within the original jobs themselves whether said jobs are tangible or intangible. This includes, 
-      but is not limited to, future additions, addendums, or changes. "The company" does not take on any liability for 
-      any errors or omissions made in regards to selecting specific plans, specifications or images for reproduction, 
-      whether selected by the client or "the company," and whether the plans, specifications, or images are tangible 
-      or intangible. In addition, the client understands that it is their responsibility to ensure that have all pertinent 
-      information concerning the job(s). Any refunds, credit, and or price reductions are solely at "the company's" 
-      discretion. The maximum refund allowed for any claim will be the cost of the product(s) and/or service(s) 
-      purchased from the company.
-    </p>
+    <div class="disclaimer">
+      <p class="printonly smfont">The above signature denotes receipt and acceptance of all products, and/or services, 
+        authorization to charge the above credit card (if applicable), and acceptance of the Rose Reprographics, Inc. 
+        disclaimer agreement below.
+        <br />
+        <br />
+        Rose Reprographics, Inc., its officers and employees (herein called "the company"), are not responsible for any 
+        errors or omissions within the original jobs themselves whether said jobs are tangible or intangible. This includes, 
+        but is not limited to, future additions, addendums, or changes. "The company" does not take on any liability for 
+        any errors or omissions made in regards to selecting specific plans, specifications or images for reproduction, 
+        whether selected by the client or "the company," and whether the plans, specifications, or images are tangible 
+        or intangible. In addition, the client understands that it is their responsibility to ensure that have all pertinent 
+        information concerning the job(s). Any refunds, credit, and or price reductions are solely at "the company's" 
+        discretion. The maximum refund allowed for any claim will be the cost of the product(s) and/or service(s) 
+        purchased from the company.
+      </p>
+    </div>
   </footer>
 </body>
 </html>

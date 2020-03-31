@@ -443,7 +443,9 @@ const checkSetupFee = (isFee) => {
 //Check for Discount
 const checkForDiscount = () => {
   let discountChecked = getId("dicountApply");
-  checkPrint(getId("discountRow"));
+  if (discountChecked.checked) {
+    checkPrint(getId("discountRow"));
+  }
   return discountChecked.checked
 }
 
@@ -579,6 +581,7 @@ const handleClick = () => {
     let custValue = customJob();
     custPrice.value = custValue;
     custPrice.textContent = custValue.toFixed(2);
+    checkPrint(custSize, true);
     checkPrint(custPrice);   
   }
   

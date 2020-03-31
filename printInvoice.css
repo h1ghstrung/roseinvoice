@@ -19,6 +19,11 @@ h1 + p {
 
 table {
   margin: auto;
+  font-size: .7rem;
+}
+
+tr, td {
+  padding: 0;
 }
 
 .fcontainer {
@@ -80,6 +85,29 @@ form textarea[required=required]:after
 
 .webonly {
   display: none;
+}
+
+#checkNumberLine {
+  min-width: 80px;
+  padding-top: 5px;
+  border-bottom: 1px solid lightcoral;
+}
+
+.hp2 {
+  padding-top: 1em;
+}
+
+.smfont {
+  font-size: xx-small;
+}
+
+.disclaimer {
+  position: fixed;
+  bottom: 0;
+  width: 87%;
+  margin: auto;
+  padding: 10px;
+  text-align: justify;
 }
 
 .sigline{
