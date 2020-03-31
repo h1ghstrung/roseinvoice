@@ -7,6 +7,16 @@ body{
   margin: auto;
 }
 
+h1 {
+  font-family: 'Crimson Text', serif;
+  font-size: 2rem;
+}
+
+h1 + p {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.25rem;
+}
+
 table {
   margin: auto;
 }
