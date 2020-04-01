@@ -285,6 +285,21 @@ var getId = document.getElementById.bind(document);
 var getClass = document.getElementsByClassName.bind(document);
 var allPrices = [];
 
+// Check to see if en element has the class "printThis". If so remove it, if not add it.
+const checkPrint = (elemId, sibling = false) => {
+  if (elemId.classList.contains("printThis")) {
+    elemId.classList.remove("printThis");
+  } else {
+    elemId.classList.add("printThis");
+  }
+  if (sibling && elemId.classList.contains("printThis")) {
+    elemId.nextElementSibling.classList.add('printThis');
+  } else if (!elemId.classList.contains("printThis")) {
+    elemId.nextElementSibling.classList.remove('printThis')
+  }
+  return
+}
+
 // Control for determining job code
 const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
   /* receives order information and returns a job code and prices index for pricing reference */
@@ -386,6 +401,9 @@ const checkQuant = () => {
     quants.push(parseInt(item.value, 10));
     } else {
       quants.push(0);
+      // If the quantity for the line is empty hide the whole line from printing
+      let lineIndex = Array.from(lineQuants).indexOf(item);
+      lineQuants[lineIndex].parentElement.parentElement.parentElement.classList.add("webonly");
     }
   }
   return quants
@@ -425,6 +443,9 @@ const checkSetupFee = (isFee) => {
 //Check for Discount
 const checkForDiscount = () => {
   let discountChecked = getId("dicountApply");
+  if (discountChecked.checked) {
+    checkPrint(getId("discountRow"));
+  }
   return discountChecked.checked
 }
 
@@ -432,7 +453,7 @@ const checkForDiscount = () => {
 const calcDiscount = () => {
   let discountPercent = parseFloat(getId("discountAmount").value);
   let discountPrice = calcSubTotal(allPrices) * (discountPercent/100);
-  getId("dicountPrice").textContent = discountPrice.toFixed(2);
+  getId("dicountPrice").textContent = "-" + discountPrice.toFixed(2);
   getId("dicountPrice").value = discountPrice;
   return discountPrice
 }
@@ -440,6 +461,9 @@ const calcDiscount = () => {
 //Check if tax exempt
 const checkExempt = () => {
   let taxExempt = getId("taxExempt");
+  if (taxExempt.checked) {
+    checkPrint (taxExempt, true);
+  }
   return taxExempt.checked
 }
 
@@ -467,13 +491,20 @@ const doesSetup = () => {
   let setupPrice = getId("setupPrice");
     
   if (setupCheck.checked) {
+    checkPrint(setupCost);
+    checkPrint(setupPrice);
+    checkPrint(getId("setupReason"));
+    checkPrint(setupCheck, true);
     if (setupCost.value == "") {
       setupCost.textContent = "7.50";
       setupCost.value = "7.50";
-    } 
+    }
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
     setupPrice.value = parseFloat(setupCost.value);
   } else {
+    checkPrint(setupCost);
+    checkPrint(setupPrice);
+    checkPrint(getId("setupReason"));
     setupPrice.textContent = "";
     setupPrice.value = 0;
   }
@@ -504,18 +535,23 @@ const otherSize = (width, length, priceCode) => {
 }
 
 const customJob = () => {
-  let wx = getId("widthx").value;
-  let wy = getId("widthy").value;
-  let custQty = getId("qty7").value;
-  let custJob = getId("job7").value;
-  let custMed = getId("paper7").value;
-  let dims = inToSqFt(wx, wy);
-  let priceCode = control(custJob, custMed, "CUST")
+  let wx = getId("widthx");
+  let wy = getId("widthy");
+  let custQty = getId("qty7");
+  let custJob = getId("job7");
+  let custMed = getId("paper7");
+  let dims = inToSqFt(wx.value, wy.value);
+  let priceCode = control(custJob.value, custMed.value, "CUST")
   let priceCat = priceCode[0].slice(0, -2);
   let priceIndex = priceCode[1];
+  checkPrint(wx);
+  checkPrint(wy);
+  checkPrint(custQty);
+  checkPrint(custMed);
+  checkPrint(custJob);
   // console.log(priceCat, priceCode[0], priceIndex);
   // console.log(dims, typeof dims.widthFeet, typeof dims.lengthFeet)
-  let custCost = priceList[priceCat][priceCode[0]].prices[priceIndex] * dims.widthFeet * dims.lengthFeet * parseInt(custQty)
+  let custCost = priceList[priceCat][priceCode[0]].prices[priceIndex] * dims.widthFeet * dims.lengthFeet * parseInt(custQty.value)
   allPrices.push(custCost);
   return custCost
 }
@@ -544,7 +580,8 @@ const handleClick = () => {
     let custPrice = getId("Price7");
     let custValue = customJob();
     custPrice.value = custValue;
-    custPrice.textContent = custValue.toFixed(2);    
+    custPrice.textContent = custValue.toFixed(2);
+    checkPrint(getId("custSizeRow"));   
   }
   
   if (lineQuantities.some(el => el > 0)) {
@@ -568,9 +605,21 @@ const handleClick = () => {
           getId(linePost).classList.add("fillme");
         }
         getId(linePost).textContent = lineCost.toFixed(2);
+        let lineItem = (i+1).toString();
+        let [qty, job, paper, lineSize, price] = 
+          [getId("qty"+ lineItem),
+           getId("job"+ lineItem),
+           getId("paper"+ lineItem), 
+           getId("size"+ lineItem),
+           getId("Price"+ lineItem)];
+        let lineArr = [qty, job, paper, lineSize, price];
+        for (item=0; item<lineArr.length; item++) {
+          checkPrint(lineArr[item]);
+        }
       }
     }
   } 
+
   //Calculate Sub Total
   subTots = calcSubTotal(allPrices);
   if (checkForDiscount()) {
@@ -584,6 +633,7 @@ const handleClick = () => {
     let showTax = getId("orderTax");
     showTax.value = 0;
     showTax.textContent = "0.00";
+    // checkPrint(showTax);
   } else {
     let orderTax = calcTax(subTots);
     let showTax = getId("orderTax");
@@ -601,11 +651,6 @@ const handleClick = () => {
 
 const clearDivs = () => {
   location.reload();
-}
-
-const printClick = () => {
-  //create code to send to print preview with print-friendly CSS
-  console.log("Print Me!");
 }
 
 // function for adding two numbers. Easy!

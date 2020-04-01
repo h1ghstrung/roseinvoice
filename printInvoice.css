@@ -1,11 +1,146 @@
 /* Print Style Sheet */
+@page { margin: 0; } /* remove file path, page number, page title and date from print page */
+
+body{
+  visibility: hidden;
+  max-width: 90%;
+  margin: auto;
+}
+
+h1 {
+  font-family: 'Crimson Text', serif;
+  font-size: 2rem;
+}
+
+h1 + p {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.25rem;
+}
+
+table {
+  margin: auto;
+  font-size: .7rem;
+}
+
+tr, td {
+  padding: 0;
+}
+
+.fcontainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.childbox {
+  margin: auto;
+}
+
+.cityflex {
+  flex-grow: 2;
+}
+
+.stateflex, .zipflex {
+  flex-grow: 1;
+}
+
+.fcenter {
+  display: flex;
+  justify-content: center;
+}
+
+.tar {
+  text-align: right;
+}
+
+.totals {
+  font-weight: bold;
+  color: red;
+}
+
+.fright {
+  display: flex;
+  justify-content: flex-end;
+}
+
+span[required=required]:after,
+form textarea[required=required]:after
+{
+    color: red;
+    content: " *";
+}
+
+.processingLine div{
+  display: inline-block;
+}
+
+.mainborder {
+  padding: 5px;
+  border: 3px solid rgba(203, 14, 14, 0.6);
+}
+
+.mainborder label, input {
+  margin: 2px 0px;
+}
+
+.fullspan {
+  min-width: 100%;
+}
+
+.custsize {
+  max-width: 35px;
+}
+
+.custsize2 {
+  max-width: 45px;
+}
+
+#discountAmount{
+  text-align:right;
+}
+
+input, select, #copyJobName {
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.printThis {
+  visibility: visible;
+}
 
 .webonly {
   display: none;
+}
+
+#checkNumberLine {
+  min-width: 80px;
+  padding-top: 5px;
+  border-bottom: 1px solid lightcoral;
+}
+
+.hp2 {
+  padding-top: 1em;
+}
+
+.smfont {
+  font-size: xx-small;
+}
+
+.disclaimer {
+  position: fixed;
+  bottom: 0;
+  width: 87%;
+  margin: auto;
+  padding: 10px;
+  text-align: justify;
 }
 
 .sigline{
   margin: 5px;
   padding: 5px 10px;
   border-bottom: 2px solid lightcoral;
+}
+
+.printonly {
+  visibility: visible;
 }

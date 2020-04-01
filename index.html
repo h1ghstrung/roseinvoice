@@ -19,22 +19,22 @@
 <body>
   <div class="pageContainer">
     <div class="fcontainer">
-      <div class="childbox ma3" id="branding">
+      <div class="childbox ma3 printThis" id="branding">
         <h1>Rose Reprographics</h1>
         <p>Order Ticket</p>
       </div>
       <form class="childbox" name="orderForm" action="" method="">
         <div class="fcontainer" id="customerInfo">
           <div class="childbox ma3" id="customerPreference">
-            <input type="checkbox" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
-            <input type="checkbox" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
-            <input type="checkbox" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
-            <input type="checkbox" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
-            <input type="checkbox" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
+            <input type="checkbox" onclick="checkPrint(custPickup, true)" class="" name="pickup" value="Pickup" id="custPickup" /><label for="pickup">Pick up by customer</label><br />
+            <input type="checkbox" onclick="checkPrint(deliverToCust, true)" class="" name="deliver" value="Deliver" id="deliverToCust" /><label for="deliver">Deliver to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(shipToCust, true)" class="" name="ship" value="Ship" id="shipToCust" /><label for="ship">Ship to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(emailCust, true)" class="" name="emailcust" value="EmailCust" id="emailCust" /><label for="emailcust">E-mail to customer</label><br />
+            <input type="checkbox" onclick="checkPrint(callCust, true)" class="" name="callcust" value="CallCust" id="callCust" /><label for="callcust">Call when ready</label>
           </div>
           <div class="childbox ma3">
-            <label for="custname">Customer name: </label><input type="text" name="custname" id="custName" /><br />
-            <label for="custphone">Customer phone: </label><input type="text" name="custphone" id="custPhone" />
+            <label for="custname" class="printThis">Customer name: </label><input class="printThis" type="text" name="custname" id="custName" /><br />
+            <label for="custphone" class="printThis">Customer phone: </label><input class="printThis" type="text" name="custphone" id="custPhone" />
           </div>
         </div>
     </div>
@@ -42,48 +42,52 @@
           <div class="childbox mainborder ma3 minw">
             <!-- Billing/Shipping Info -->
             <label for="companyBillTo">
-              <span class="" required="required">Bill To</span>
-              <input type="text" class="fullspan required" name="companyBillTo" placeholder="Company Name" id="companyBillTo" />
+              <span class="printThis" required="required">Bill To</span>
+              <input type="text" class="fullspan required printThis" name="companyBillTo" placeholder="Company Name" id="companyBillTo" />
             </label><br>
             <label for="addressBillTo">
-              <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressBillTo" placeholder="Street Address" id="addressBillTo" />
+              <span class="printThis">Address</span>
+              <input type="text" class="fullspan printThis" name="addressBillTo" placeholder="" id="addressBillTo" />
             </label><br>
-            <label for="cityBillTo">
-              <span class="">City</span>
-              <input type="text" name="cityBillTo" placeholder="City" id="cityBillTo" />
-            </label>
-            <label for="stateBillTo">
-              <span class="">State</span>
-              <input type="text" name="stateBillTo" size="4" placeholder="State" id="stateBillTo" />
-            </label>
-            <label for="zipBillTo">
-              <span class="">Zip</span>
-              <input type="text" name="zipBillTo" size="5" placeholder="Zip" id="zipBillTo" />
-            </label>                    
+            <div class="fcontainer">
+              <label for="cityBillTo" class="cityflex">
+                <span class="printThis">City</span>
+                <input type="text" class="printThis" name="cityBillTo" placeholder="" id="cityBillTo" />
+              </label>
+              <label for="stateBillTo" class="stateflex">
+                <span class="printThis">State</span>
+                <input type="text" class="printThis" name="stateBillTo" size="4" placeholder="" id="stateBillTo" />
+              </label>
+              <label for="zipBillTo" class="zipflex">
+                <span class="printThis">Zip</span>
+                <input type="text" class="printThis" name="zipBillTo" size="5" placeholder="" id="zipBillTo" />
+              </label>
+            </div>
           </div>
           <div class="childbox ma3 minw">
             <!-- Order Info Bar -->
             <label for="companyShipTo">
-              <span class="">Ship To</span>
-              <input type="text" class="fullspan" name="companyShipTo" placeholder="Company Name" id="companyShipTo" />
+              <span class="printThis">Ship To</span>
+              <input type="text" class="fullspan printThis" name="companyShipTo" placeholder="" id="companyShipTo" />
             </label><br>
             <label for="addressShipTo">
-              <span class="">Address</span>
-              <input type="text" class="fullspan" name="addressShipTo" placeholder="Street Address" id="addressShipTo" />
+              <span class="printThis">Address</span>
+              <input type="text" class="fullspan printThis" name="addressShipTo" placeholder="" id="addressShipTo" />
             </label><br>
-            <label for="cityShipTo">
-              <span class="">City</span>
-              <input type="text" name="cityShipTo" placeholder="City" id="cityShipTo" />
-            </label>
-            <label for="stateShipTo">
-              <span class="">State</span>
-              <input type="text" name="stateShipTo" size="4" placeholder="State" id="stateShipTo" />
-            </label>
-            <label for="zipShipTo">
-              <span class="">Zip</span>
-              <input type="text" name="zipShipTo" size="5" placeholder="Zip" id="zipShipTo" />
-            </label>                    
+            <div class="fcontainer">
+              <label for="cityShipTo" class="cityflex">
+                <span class="printThis">City</span>
+                <input type="text" class="printThis" name="cityShipTo" placeholder="" id="cityShipTo" />
+              </label>
+              <label for="stateShipTo" class="stateflex">
+                <span class="printThis">State</span>
+                <input type="text" class="printThis" name="stateShipTo" size="4" placeholder="" id="stateShipTo" />
+              </label>
+              <label for="zipShipTo" class="zipflex">
+                <span class="printThis">Zip</span>
+                <input type="text" class="printThis" name="zipShipTo" size="5" placeholder="" id="zipShipTo" />
+              </label>
+            </div>
           </div>
         </div>
         <div class="fcontainer ma3" id="orderProcessing">
@@ -91,38 +95,38 @@
           <div class="childbox processingLine">
             <div class="">
               <label for="poNumber">
-                <span class=""> P.O. Number </span><br />
-                <input type="text" name="poNumber" id="poNumber" />
+                <span class="printThis"> P.O. Number </span><br />
+                <input type="text" class="printThis" name="poNumber" id="poNumber" />
               </label>
             </div>
             <div class="">
               <label for="orderTaker">
-                <span class=""> Receiver</span><br />
-                <input type="text" class="required" name="orderTaker" size="8" id="orderTaker" />
+                <span class="printThis"> Receiver</span><br />
+                <input type="text" class="required printThis" name="orderTaker" size="8" id="orderTaker" />
               </label>
             </div>
             <div class="">
               <label for="orderProcessor">
-                <span class=""> Production</span><br />
-                <input type="text" class="required" name="orderProcessor" size="8" id="orderProcessor" />
+                <span class="printThis"> Production</span><br />
+                <input type="text" class="required printThis" name="orderProcessor" size="8" id="orderProcessor" />
               </label>
             </div>
             <div class="">
               <label for="dateOrdered pa2">
-                <span class=""> Requested</span><br />
-                <input type="date" name="dateOrdered" id="dateOrdered" />
+                <span class="printThis"> Requested</span><br />
+                <input type="date" class="printThis" name="dateOrdered" id="dateOrdered" />
               </label>
             </div>
             <div class="">
               <label for="dateFinished pa2">
-                <span class=""> Finished</span><br />
-                <input type="date" name="dateFinished" id="dateFinished" />
+                <span class="printThis"> Finished</span><br />
+                <input type="date" class="printThis" name="dateFinished" id="dateFinished" />
               </label>
             </div>
             <br />
             <div class="fullspan" id="JobName">
               <span required="required">
-                <textarea class="clear required" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
+                <textarea class="clear required printThis" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
               </span>
             </div>
           </div>
@@ -130,13 +134,13 @@
         <div class="ma3 mainborder" id="orderItems">
           <div class="childbox">
             <!-- Order Items -->
-            <table name="items">
+            <table name="items" cellspacing="0" cellpadding="0">
                 <tr>
-                  <th>Qty</th>
-                  <th>Job Type</th>
-                  <th>Media</th>
-                  <th class="sizecol">Size</th>
-                  <th>Price</th>
+                  <th class="printThis">Qty</th>
+                  <th class="printThis">Job Type</th>
+                  <th class="printThis">Media</th>
+                  <th class="sizecol printThis">Size</th>
+                  <th class="printThis">Price</th>
                 </tr>
                 <tr>
                   <td>
@@ -165,7 +169,7 @@
                   </td>
                   <td>
                     <label for="Media1">
-                      <select name="Media1" class="paper clear" id="media1">
+                      <select name="Media1" class="paper clear" id="paper1">
                         <option value="Bond" selected>Bond</option>
                         <option value="Mylar">Mylar</option>
                         <option value="Glossy">Glossy</option>
@@ -478,7 +482,7 @@
                       </label>
                     </td>
                 </tr>
-                <tr>
+                <tr id="custSizeRow">
                   <td>
                     <label for="custCheck">
                       <span>
@@ -529,23 +533,21 @@
                 </tr>
                 <tr>
                   <td>
-                    <label for="setupCheckbox">
-                      <span>
-                        <input type="checkbox" onchange="doesSetup()" name="setupCheckbox" value="setupFee" id="setupCheckbox" class="" /> Setup  
-                      </span>
-                    </label>
+                    <span>
+                      <input type="checkbox" onchange="doesSetup()" name="setupCheckbox" value="setupFee" id="setupCheckbox" class="" /><label for="setupCheckbox"> Setup </label>
+                    </span>
                   </td>
                   <td colspan="2">
                     <label for="setupReason">
                       <span>Reason
-                        <input type="text" name="setupReason" placeholder="Reason" id="setupReason" class="" />  
+                        <input type="text" name="setupReason" placeholder="" id="setupReason" class="" />  
                       </span>
                     </label>
                   </td>
-                  <td class="sizecol">
+                  <td class="">
                     <label for="setupCost">
-                      <span>
-                        <input type="number" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="sizes" />  
+                      <span class="">
+                        <input type="number" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="sizes custsize2" />  
                       </span>
                     </label>
                   </td>
@@ -555,7 +557,7 @@
                     </label>
                   </td>
                 </tr>
-                <tr>
+                <tr id="discountRow">
                   <td colspan="1">
                     <label for="dicountApply">
                       <input type="checkbox" name="dicountApply" value="true" id="dicountApply" /> Apply Discount
@@ -563,7 +565,7 @@
                   </td>
                   <td colspan="2">
                     <label for="discountAmount"> Percentage
-                      <input type="number" name="discountAmount" value="" step="0.01" min="0" id="discountAmount" />
+                      <input type="number" name="discountAmount" class="custsize" value="" step="0.01" min="0" id="discountAmount" />&#37;
                     </label>
                   </td>
                   <td></td>
@@ -575,9 +577,7 @@
                 </tr>
                 <tr>
                   <td colspan="2">
-                    <label for="taxExempt">
-                      <input type="checkbox" name="taxExempt" value="true" id="taxExempt" /> Tax Exempt
-                    </label>
+                    <input type="checkbox" class="" name="taxExempt" value="true" id="taxExempt" /><label for="taxExempt"> Tax Exempt</label>
                   </td>
                   <td></td>
                   <td></td>
@@ -586,24 +586,24 @@
                 <tr>
                   <td colspan="4">
                     <div class="fullspan ma3">
-                      <textarea class="clear mh3" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
+                      <textarea class="clear mh3 printThis" maxlength="330" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td colspan="3"></td>
-                  <td class="tar">Sub Total:</td>
-                  <td class="totals clear tar" id="subTotal"></td>
+                  <td class="tar printThis">Sub Total:</td>
+                  <td class="totals clear tar printThis" id="subTotal"></td>
                 </tr>
                 <tr>
                   <td colspan="3"></td>
-                  <td class="tar">Tax:</td>
-                  <td class="totals clear tar" id="orderTax"></td>
+                  <td class="tar printThis">Tax:</td>
+                  <td class="totals clear tar printThis" id="orderTax"></td>
                 </tr>
                 <tr>
                   <td colspan="3"></td>
-                  <td class="tar">Order Total:</td>
-                  <td class="totals clear tar" id="orderTotal"></td>
+                  <td class="tar printThis">Order Total:</td>
+                  <td class="totals clear tar printThis" id="orderTotal"></td>
                 </tr>
             </table>
           </div><br />
@@ -611,16 +611,16 @@
             <div class="childbox">
                 <button type="button" onclick="clearDivs()" class="webonly">Clear Form</button>
                 <button type="button" onclick="handleClick()" class="webonly">Calculate</button>
-                <button type="button" onclick="printClick()" class="webonly hidden" id="printButton">Print Ticket</button>
+                <button type="button" onclick="window.print();return false;" class="webonly hidden" id="printButton">Print Ticket</button>
             </div>
           </div>
         </div>
       </form>
   </div>
-  <section class="printonly"> <!-- use class printonly when layout is finished. -->
-    <div class="sigline">Signature</div>
+  <section class="printonly">
+    <div class="sigline"></div>
   </section>
-  <section class="printonly ma3"> <!-- add fcontainer to class for the items to show in line -->
+  <section class="printonly hp2 ma3 fcontainer">
     <div class="childbox">
       <label for="RRAccount">
         <input type="checkbox" name="RRAccount" value="true" id="rrAccount" /> Rose Account
@@ -632,17 +632,39 @@
       </label>
     </div>
     <div class="childbox nowrap">
-      <label for="PayCheck">
-        <input type="checkbox" class="iblk" name="PayCheck" value="true" id="payCheck" /> Paid check
-        <div class="lbor iblk"> Number</div>
-        <div class="ma3 sigline iblk"></div>
+      <label class="" for="PayCheck">
+        <input type="checkbox" class="" name="PayCheck" value="true" id="payCheck" /> Paid with check
+        <div class="fcontainer">
+          <div class="lbor childbox"> Number</div>
+          <div class="ma3 childbox" id="checkNumberLine">: </div>
+        </div>
       </label>
     </div>
   </section>
-  <footer class="webonly ma3">
-    <p class="mh3">For internal use only</p><br />
-    <small class="mh3">Copyright &copy; 2019, Rose Reprographics. All rights reserved.</small>
-    <p class="spacer"></p>
+  <section class="printonly hp2">
+    <div class="sigline">Signature</div>
+  </section>
+  <footer class="ma3">
+    <p class="mh3 webonly">For internal use only</p><br />
+    <small class="mh3 webonly">Copyright &copy; 2020, Rose Reprographics. All rights reserved.</small>
+    <!-- Company Disclaimer here -->
+    <div class="disclaimer">
+      <p class="printonly smfont">The above signature denotes receipt and acceptance of all products, and/or services, 
+        authorization to charge the above credit card (if applicable), and acceptance of the Rose Reprographics, Inc. 
+        disclaimer agreement below.
+        <br />
+        <br />
+        Rose Reprographics, Inc., its officers and employees (herein called "the company"), are not responsible for any 
+        errors or omissions within the original jobs themselves whether said jobs are tangible or intangible. This includes, 
+        but is not limited to, future additions, addendums, or changes. "The company" does not take on any liability for 
+        any errors or omissions made in regards to selecting specific plans, specifications or images for reproduction, 
+        whether selected by the client or "the company," and whether the plans, specifications, or images are tangible 
+        or intangible. In addition, the client understands that it is their responsibility to ensure that have all pertinent 
+        information concerning the job(s). Any refunds, credit, and or price reductions are solely at "the company's" 
+        discretion. The maximum refund allowed for any claim will be the cost of the product(s) and/or service(s) 
+        purchased from the company.
+      </p>
+    </div>
   </footer>
 </body>
 </html>

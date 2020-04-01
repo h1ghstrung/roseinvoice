@@ -44,7 +44,7 @@ button:hover {
 }
 
 .printonly {
-  display: none;
+  visibility: hidden;
 }
 
 .sizes {
@@ -165,10 +165,6 @@ h1 + p {
   border-bottom: 2px solid lightcoral;
 }
 
-.iblk {
-  display: inline-block;
-}
-
 .lbor {
   padding: 0rem .5rem;
   border-left: 2px solid lightcoral;
@@ -192,4 +188,12 @@ input[type=number] {
 
 .custsize {
   max-width: 35px;
+}
+
+.custsize2 {
+  max-width: 45px;
+}
+
+#discountAmount{
+  text-align:right;
 }
