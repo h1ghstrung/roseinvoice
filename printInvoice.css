@@ -29,11 +29,19 @@ tr, td {
 .fcontainer {
   display: flex;
   flex-wrap: nowrap;
-  flex-flow: row;
+  flex-direction: row;
 }
 
 .childbox {
   margin: auto;
+}
+
+.cityflex {
+  flex-grow: 2;
+}
+
+.stateflex, .zipflex {
+  flex-grow: 1;
 }
 
 .fcenter {
@@ -77,6 +85,23 @@ form textarea[required=required]:after
 
 .fullspan {
   min-width: 100%;
+}
+
+.custsize {
+  max-width: 35px;
+}
+
+.custsize2 {
+  max-width: 45px;
+}
+
+#discountAmount{
+  text-align:right;
+}
+
+input, select, #copyJobName {
+  border: none;
+  border-bottom: 1px solid gray;
 }
 
 .printThis {

@@ -49,18 +49,20 @@
               <span class="printThis">Address</span>
               <input type="text" class="fullspan printThis" name="addressBillTo" placeholder="" id="addressBillTo" />
             </label><br>
-            <label for="cityBillTo">
-              <span class="printThis">City</span>
-              <input type="text" class="printThis" name="cityBillTo" placeholder="" id="cityBillTo" />
-            </label>
-            <label for="stateBillTo">
-              <span class="printThis">State</span>
-              <input type="text" class="printThis" name="stateBillTo" size="4" placeholder="" id="stateBillTo" />
-            </label>
-            <label for="zipBillTo">
-              <span class="printThis">Zip</span>
-              <input type="text" class="printThis" name="zipBillTo" size="5" placeholder="" id="zipBillTo" />
-            </label>                    
+            <div class="fcontainer">
+              <label for="cityBillTo" class="cityflex">
+                <span class="printThis">City</span>
+                <input type="text" class="printThis" name="cityBillTo" placeholder="" id="cityBillTo" />
+              </label>
+              <label for="stateBillTo" class="stateflex">
+                <span class="printThis">State</span>
+                <input type="text" class="printThis" name="stateBillTo" size="4" placeholder="" id="stateBillTo" />
+              </label>
+              <label for="zipBillTo" class="zipflex">
+                <span class="printThis">Zip</span>
+                <input type="text" class="printThis" name="zipBillTo" size="5" placeholder="" id="zipBillTo" />
+              </label>
+            </div>
           </div>
           <div class="childbox ma3 minw">
             <!-- Order Info Bar -->
@@ -72,18 +74,20 @@
               <span class="printThis">Address</span>
               <input type="text" class="fullspan printThis" name="addressShipTo" placeholder="" id="addressShipTo" />
             </label><br>
-            <label for="cityShipTo">
-              <span class="printThis">City</span>
-              <input type="text" class="printThis" name="cityShipTo" placeholder="" id="cityShipTo" />
-            </label>
-            <label for="stateShipTo">
-              <span class="printThis">State</span>
-              <input type="text" class="printThis" name="stateShipTo" size="4" placeholder="" id="stateShipTo" />
-            </label>
-            <label for="zipShipTo">
-              <span class="printThis">Zip</span>
-              <input type="text" class="printThis" name="zipShipTo" size="5" placeholder="" id="zipShipTo" />
-            </label>                    
+            <div class="fcontainer">
+              <label for="cityShipTo" class="cityflex">
+                <span class="printThis">City</span>
+                <input type="text" class="printThis" name="cityShipTo" placeholder="" id="cityShipTo" />
+              </label>
+              <label for="stateShipTo" class="stateflex">
+                <span class="printThis">State</span>
+                <input type="text" class="printThis" name="stateShipTo" size="4" placeholder="" id="stateShipTo" />
+              </label>
+              <label for="zipShipTo" class="zipflex">
+                <span class="printThis">Zip</span>
+                <input type="text" class="printThis" name="zipShipTo" size="5" placeholder="" id="zipShipTo" />
+              </label>
+            </div>
           </div>
         </div>
         <div class="fcontainer ma3" id="orderProcessing">
@@ -478,7 +482,7 @@
                       </label>
                     </td>
                 </tr>
-                <tr>
+                <tr id="custSizeRow">
                   <td>
                     <label for="custCheck">
                       <span>
@@ -536,14 +540,14 @@
                   <td colspan="2">
                     <label for="setupReason">
                       <span>Reason
-                        <input type="text" name="setupReason" placeholder="Reason" id="setupReason" class="" />  
+                        <input type="text" name="setupReason" placeholder="" id="setupReason" class="" />  
                       </span>
                     </label>
                   </td>
-                  <td class="sizecol">
+                  <td class="">
                     <label for="setupCost">
-                      <span>
-                        <input type="number" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="sizes" />  
+                      <span class="">
+                        <input type="number" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="sizes custsize2" />  
                       </span>
                     </label>
                   </td>
@@ -561,7 +565,7 @@
                   </td>
                   <td colspan="2">
                     <label for="discountAmount"> Percentage
-                      <input type="number" name="discountAmount" value="" step="0.01" min="0" id="discountAmount" />
+                      <input type="number" name="discountAmount" class="custsize" value="" step="0.01" min="0" id="discountAmount" />&#37;
                     </label>
                   </td>
                   <td></td>

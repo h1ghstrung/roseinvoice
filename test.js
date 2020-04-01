@@ -453,7 +453,7 @@ const checkForDiscount = () => {
 const calcDiscount = () => {
   let discountPercent = parseFloat(getId("discountAmount").value);
   let discountPrice = calcSubTotal(allPrices) * (discountPercent/100);
-  getId("dicountPrice").textContent = discountPrice.toFixed(2);
+  getId("dicountPrice").textContent = "-" + discountPrice.toFixed(2);
   getId("dicountPrice").value = discountPrice;
   return discountPrice
 }
@@ -581,8 +581,7 @@ const handleClick = () => {
     let custValue = customJob();
     custPrice.value = custValue;
     custPrice.textContent = custValue.toFixed(2);
-    checkPrint(custSize, true);
-    checkPrint(custPrice);   
+    checkPrint(getId("custSizeRow"));   
   }
   
   if (lineQuantities.some(el => el > 0)) {

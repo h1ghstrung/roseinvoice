@@ -189,3 +189,11 @@ input[type=number] {
 .custsize {
   max-width: 35px;
 }
+
+.custsize2 {
+  max-width: 45px;
+}
+
+#discountAmount{
+  text-align:right;
+}
