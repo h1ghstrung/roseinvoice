@@ -143,12 +143,12 @@
                   <th class="printThis">Price</th>
                 </tr>
                 <tr>
-                  <td>
+                  <td class="">
                     <label for="Qty1" min="0">
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty1" class="quantity clear" min="0" id="qty1" />
+                      <input type="number" name="Qty1" class="quantity custsize2 clear" min="0" id="qty1" />
                     </label>
                   </td>
                   <td>
@@ -198,12 +198,12 @@
                   </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="">
                       <label for="Qty2" min="0">
                         <span>
                           <!-- Visible Label name here -->
                         </span>
-                        <input type="number" name="Qty2" class="quantity clear" min="0" id="qty2" />
+                        <input type="number" name="Qty2" class="quantity custsize2 clear" min="0" id="qty2" />
                       </label>
                     </td>
                     <td>
@@ -255,12 +255,12 @@
                     </td>    
                 </tr>
                 <tr>
-                  <td>
+                  <td class="">
                     <label for="Qty3" min="0">
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty3" class="quantity clear" min="0" id="qty3" />
+                      <input type="number" name="Qty3" class="quantity custsize2 clear" min="0" id="qty3" />
                     </label>
                   </td>
                   <td>
@@ -312,12 +312,12 @@
                   </td>  
                 </tr>
                 <tr>
-                  <td>
+                  <td class="">
                     <label for="Qty4" min="0">
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty4" class="quantity clear" min="0" id="qty4" />
+                      <input type="number" name="Qty4" class="quantity custsize2 clear" min="0" id="qty4" />
                     </label>
                   </td>
                   <td>
@@ -369,12 +369,12 @@
                     </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td class="">
                     <label for="Qty5" min="0">
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty5" class="quantity clear" min="0" id="qty5" />
+                      <input type="number" name="Qty5" class="quantity custsize2 clear" min="0" id="qty5" />
                     </label>
                   </td>
                   <td>
@@ -426,12 +426,12 @@
                     </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td class="">
                     <label for="Qty6">
                       <span>
                         <!-- Visible Label name here -->
                       </span>
-                      <input type="number" name="Qty6" class="quantity clear" min="0" id="qty6" />
+                      <input type="number" name="Qty6" class="quantity custsize2 clear" min="0" id="qty6" />
                     </label>
                   </td>
                   <td>
@@ -485,11 +485,11 @@
                 <tr id="custSizeRow">
                   <td>
                     <label for="custCheck">
+                      <input type="checkbox" name="custCheck" class="clear" id="custCheck" />                      
                       <span>
                         <!-- Visible Label name here -->
                         Custom Size
                       </span>
-                      <input type="checkbox" name="custCheck" class="clear" id="custCheck" />
                       <input type="number" name="Qty7" class="clear" style="max-width: 65px;" min="0" id="qty7" />
                     </label>
                   </td>
@@ -617,38 +617,40 @@
         </div>
       </form>
   </div>
-  <section class="printonly">
-    <div class="sigline"></div>
-  </section>
-  <section class="printonly hp2 ma3 fcontainer">
-    <div class="childbox">
-      <label for="RRAccount">
-        <input type="checkbox" name="RRAccount" value="true" id="rrAccount" /> Rose Account
-      </label>
-    </div>
-    <div class="childbox">
-      <label for="PayCash">
-        <input type="checkbox" name="PayCash" value="true" id="payCash" /> Paid Cash
-      </label>
-    </div>
-    <div class="childbox nowrap">
-      <label class="" for="PayCheck">
-        <input type="checkbox" class="" name="PayCheck" value="true" id="payCheck" /> Paid with check
-        <div class="fcontainer">
-          <div class="lbor childbox"> Number</div>
-          <div class="ma3 childbox" id="checkNumberLine">: </div>
-        </div>
-      </label>
-    </div>
-  </section>
-  <section class="printonly hp2">
-    <div class="sigline">Signature</div>
-  </section>
+  <div class="">
+    <section class="printonly">
+      <div class="sigline"></div>
+    </section>
+    <section class="printonly hp2 ma3 fcontainer">
+      <div class="childbox">
+        <label for="RRAccount">
+          <input type="checkbox" name="RRAccount" value="true" id="rrAccount" /> Rose Account
+        </label>
+      </div>
+      <div class="childbox">
+        <label for="PayCash">
+          <input type="checkbox" name="PayCash" value="true" id="payCash" /> Paid Cash
+        </label>
+      </div>
+      <div class="childbox nowrap">
+        <label class="" for="PayCheck">
+          <input type="checkbox" class="" name="PayCheck" value="true" id="payCheck" /> Paid with check
+          <div class="fcontainer">
+            <div class="lbor childbox"> Number</div>
+            <div class="ma3 childbox" id="checkNumberLine">: </div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="printonly hp2">
+      <div class="sigline">Signature</div>
+    </section>
+  </div>
   <footer class="ma3">
     <p class="mh3 webonly">For internal use only</p><br />
     <small class="mh3 webonly">Copyright &copy; 2020, Rose Reprographics. All rights reserved.</small>
     <!-- Company Disclaimer here -->
-    <div class="disclaimer">
+    <div class="disclaimer" id="Disclaimer">
       <p class="printonly smfont">The above signature denotes receipt and acceptance of all products, and/or services, 
         authorization to charge the above credit card (if applicable), and acceptance of the Rose Reprographics, Inc. 
         disclaimer agreement below.

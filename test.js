@@ -401,9 +401,11 @@ const checkQuant = () => {
     quants.push(parseInt(item.value, 10));
     } else {
       quants.push(0);
+      /*
       // If the quantity for the line is empty hide the whole line from printing
       let lineIndex = Array.from(lineQuants).indexOf(item);
       lineQuants[lineIndex].parentElement.parentElement.parentElement.classList.add("webonly");
+      */
     }
   }
   return quants

@@ -23,6 +23,7 @@ table {
 }
 
 tr, td {
+  margin: 1 0;
   padding: 0;
 }
 
@@ -87,6 +88,12 @@ form textarea[required=required]:after
   min-width: 100%;
 }
 
+input.quantity {
+  display: block;
+  margin: 0 auto;
+  text-align: right;
+}
+
 .custsize {
   max-width: 35px;
 }
@@ -97,6 +104,10 @@ form textarea[required=required]:after
 
 #discountAmount{
   text-align:right;
+}
+
+#copyNotes {
+  margin: 5px;
 }
 
 input, select, #copyJobName {
