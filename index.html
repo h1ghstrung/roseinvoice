@@ -13,6 +13,8 @@
   <script type="text/javascript" src="priceList.json"></script>
   <!-- <script async src="calcs.js"></script> -->
   <script async src="test.js"></script>
+  <script async src="gsoprice.js"></script>
+  <script async src="burlprice.js"></script>
   <title>Rose Reprographics Internal Order Ticket</title>
 </head>
 
@@ -609,6 +611,10 @@
           </div><br />
           <div class="fcontainer">
             <div class="childbox">
+                <div>
+                  <input type="radio" class="webonly" name="radioPrices" value="greensboroPrices" id="greensboroPrices" checked /><label for="greensboroPrices"> Greensboro Prices</label>
+                  <input type="radio" class="webonly" name="radioPrices" value="burlingtonPrices" id="burlingtonPrices" /><label for="burlingtonPrices"> Burlington Prices</label>
+                </div>
                 <button type="button" onclick="clearDivs()" class="webonly">Clear Form</button>
                 <button type="button" onclick="handleClick()" class="webonly">Calculate</button>
                 <button type="button" onclick="window.print();return false;" class="webonly hidden" id="printButton">Print Ticket</button>
