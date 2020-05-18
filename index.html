@@ -8,11 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Internal Order Ticket</title>
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="invoice.css" media="screen" />
   <link rel="stylesheet" href="printInvoice.css" media="print" />
   <script type="text/javascript" src="priceList.json"></script>
   <!-- <script async src="calcs.js"></script> -->
-  <script async src="test.js"></script>
+  <script async src="ticket.js"></script>
   <script async src="gsoprice.js"></script>
   <script async src="burlprice.js"></script>
   <title>Rose Reprographics Internal Order Ticket</title>
@@ -24,6 +25,7 @@
       <div class="childbox ma3 printThis" id="branding">
         <h1>Rose Reprographics</h1>
         <p>Order Ticket</p>
+        <div id="storeLocation"></div>
       </div>
       <form class="childbox" name="orderForm" action="" method="">
         <div class="fcontainer" id="customerInfo">

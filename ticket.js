@@ -295,6 +295,21 @@ const setPriceScale = (scale) => {
 
 }
 
+// Print store location on ticket (top left)
+const setStoreLocation = (location) => {
+  let setStore = getId("storeLocation");
+  switch(location) {
+    case "greensboroPrices":
+      setStore.textContent = "Greensboro";
+      break;
+    case "burlingtonPrices":
+      setStore.textContent = "Burlington";
+      break;
+    default:
+      setStore.textContent = "Greensboro";
+  }
+}
+
 // Handle incoming click for when the user selects the "Calculate" button
 const handleClick = () => {
   let checkHasTotal = getId("orderTotal").textContent;
@@ -315,6 +330,8 @@ const handleClick = () => {
   let priceScale = document.querySelector('input[name="radioPrices"]:checked').value;
 
   setPriceScale(priceScale);
+
+  setStoreLocation(priceScale);
 
   //Calculate Line Items
   if (getId("custCheck").checked) {

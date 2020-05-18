@@ -8,12 +8,14 @@ body{
 }
 
 h1 {
-  font-family: 'Crimson Text', serif;
-  font-size: 2rem;
+  margin: 0;
+  font-family: 'Lora', 'Crimson Text', serif;
+  font-size: 1.65rem;
 }
 
 h1 + p {
-  font-family: 'Crimson Text', serif;
+  margin: 5px 0px;
+  font-family: 'Lora', 'Crimson Text', serif;
   font-size: 1.25rem;
 }
 
