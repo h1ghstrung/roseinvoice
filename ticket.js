@@ -220,8 +220,8 @@ const doesSetup = () => {
     checkPrint(getId("setupReason"));
     checkPrint(setupCheck, true);
     if (setupCost.value == "") {
-      setupCost.textContent = "7.50";
-      setupCost.value = "7.50";
+      setupCost.textContent = setupCost.placeholder;
+      setupCost.value = setupCost.placeholder;
     }
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
     setupPrice.value = parseFloat(setupCost.value);
@@ -233,6 +233,15 @@ const doesSetup = () => {
     setupPrice.value = 0;
   }
   setupCost.classList.remove("fillme");
+}
+
+const setupChange = (amount) => {
+  let isChecked = getId("setupCheckbox").checked;
+  if (isChecked) {
+    getId("setupPrice").value = amount;
+    getId("setupPrice").textContent = amount;
+  }
+  console.log(typeof amount, amount);
 }
 
 //Calculate Total
@@ -280,32 +289,25 @@ const customJob = () => {
   return custCost
 }
 
+const clickBurl = () => {
+  let cost = getId("setupCost");
+  cost.placeholder = "3.50";
+}
+
 // Set price scale for store based off which radio button
 const setPriceScale = (scale) => {
+  let setStore = getId("storeLocation");
   switch(scale) {
     case "greensboroPrices":
       priceList = gsoPrices;
-      break;
-    case "burlingtonPrices":
-      priceList = burlPrices;
-      break;
-    default:
-      priceList = gsoPrices;
-  }
-
-}
-
-// Print store location on ticket (top left)
-const setStoreLocation = (location) => {
-  let setStore = getId("storeLocation");
-  switch(location) {
-    case "greensboroPrices":
       setStore.textContent = "Greensboro";
       break;
     case "burlingtonPrices":
+      priceList = burlPrices;
       setStore.textContent = "Burlington";
       break;
     default:
+      priceList = gsoPrices;
       setStore.textContent = "Greensboro";
   }
 }
@@ -330,8 +332,6 @@ const handleClick = () => {
   let priceScale = document.querySelector('input[name="radioPrices"]:checked').value;
 
   setPriceScale(priceScale);
-
-  setStoreLocation(priceScale);
 
   //Calculate Line Items
   if (getId("custCheck").checked) {

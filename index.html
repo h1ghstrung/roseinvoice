@@ -551,7 +551,7 @@
                   <td class="">
                     <label for="setupCost">
                       <span class="">
-                        <input type="number" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="sizes custsize2" />  
+                        <input type="number" name="setupCost" value="" placeholder="7.50" step="0.01" id="setupCost" class="sizes custsize2" onchange="setupChange(this.value)" />  
                       </span>
                     </label>
                   </td>
@@ -615,7 +615,7 @@
             <div class="childbox">
                 <div>
                   <input type="radio" class="webonly" name="radioPrices" value="greensboroPrices" id="greensboroPrices" checked /><label for="greensboroPrices"> Greensboro Prices</label>
-                  <input type="radio" class="webonly" name="radioPrices" value="burlingtonPrices" id="burlingtonPrices" /><label for="burlingtonPrices"> Burlington Prices</label>
+                  <input type="radio" class="webonly" name="radioPrices" value="burlingtonPrices" id="burlingtonPrices" onclick="clickBurl()" /><label for="burlingtonPrices"> Burlington Prices</label>
                 </div>
                 <button type="button" onclick="clearDivs()" class="webonly">Clear Form</button>
                 <button type="button" onclick="handleClick()" class="webonly">Calculate</button>
