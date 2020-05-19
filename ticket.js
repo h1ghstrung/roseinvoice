@@ -7,6 +7,7 @@ var getId = document.getElementById.bind(document);
 var getClass = document.getElementsByClassName.bind(document);
 var allPrices = [];
 
+/*
 // Check to see if en element has the class "printThis". If so remove it, if not add it.
 const checkPrint = (elemId, sibling = false) => {
   if (elemId.classList.contains("printThis")) {
@@ -21,6 +22,26 @@ const checkPrint = (elemId, sibling = false) => {
   }
   return
 }
+*/
+
+// Alternate checkPrint
+const checkPrint = (elemId) => {
+  if (elemId.classList.contains("printThis")) {
+    elemId.classList.remove("printThis");
+  } else {
+    elemId.classList.add("printThis");
+  }
+/*  
+  if (sibling && elemId.classList.contains("printThis")) {
+    elemId.nextElementSibling.classList.remove('printThis');
+  } else if (!elemId.classList.contains("printThis")) {
+    elemId.nextElementSibling.classList.add('printThis')
+  }
+  */
+  return
+}
+
+
 
 // Control for determining job code
 const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
@@ -218,17 +239,18 @@ const doesSetup = () => {
     checkPrint(setupCost);
     checkPrint(setupPrice);
     checkPrint(getId("setupReason"));
-    checkPrint(setupCheck, true);
+    checkPrint(getId("setupBox"));
     if (setupCost.value == "") {
       setupCost.textContent = setupCost.placeholder;
       setupCost.value = setupCost.placeholder;
     }
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
     setupPrice.value = parseFloat(setupCost.value);
-  } else {
+  } else if (!setupCheck.checked){
     checkPrint(setupCost);
     checkPrint(setupPrice);
     checkPrint(getId("setupReason"));
+    checkPrint(getId("setupBox"));
     setupPrice.textContent = "";
     setupPrice.value = 0;
   }
