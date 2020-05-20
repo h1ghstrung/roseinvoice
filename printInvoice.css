@@ -157,3 +157,7 @@ input, select, #copyJobName {
 .printonly {
   visibility: visible;
 }
+
+#customerPreference {
+  margin: 1rem;
+}

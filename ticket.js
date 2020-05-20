@@ -1,5 +1,6 @@
-/* test.js file for testing new code for invoice.html */
-
+/* ticket.js file for processing order tickets. Greensboro and Burlington stores. Can be expanded to 
+other locations as needed 
+*/
 
 // Globals
 let priceList = {};
@@ -7,17 +8,12 @@ var getId = document.getElementById.bind(document);
 var getClass = document.getElementsByClassName.bind(document);
 var allPrices = [];
 
-// Check to see if en element has the class "printThis". If so remove it, if not add it.
-const checkPrint = (elemId, sibling = false) => {
+// toggle adding or removing "printThis" class to elements based on id
+const checkPrint = (elemId) => {
   if (elemId.classList.contains("printThis")) {
     elemId.classList.remove("printThis");
   } else {
     elemId.classList.add("printThis");
-  }
-  if (sibling && elemId.classList.contains("printThis")) {
-    elemId.nextElementSibling.classList.add('printThis');
-  } else if (!elemId.classList.contains("printThis")) {
-    elemId.nextElementSibling.classList.remove('printThis')
   }
   return
 }
@@ -218,21 +214,31 @@ const doesSetup = () => {
     checkPrint(setupCost);
     checkPrint(setupPrice);
     checkPrint(getId("setupReason"));
-    checkPrint(setupCheck, true);
+    checkPrint(getId("setupBox"));
     if (setupCost.value == "") {
-      setupCost.textContent = "7.50";
-      setupCost.value = "7.50";
+      setupCost.textContent = setupCost.placeholder;
+      setupCost.value = setupCost.placeholder;
     }
     setupPrice.textContent = parseFloat(setupCost.value).toFixed(2);
     setupPrice.value = parseFloat(setupCost.value);
-  } else {
+  } else if (!setupCheck.checked){
     checkPrint(setupCost);
     checkPrint(setupPrice);
     checkPrint(getId("setupReason"));
+    checkPrint(getId("setupBox"));
     setupPrice.textContent = "";
     setupPrice.value = 0;
   }
   setupCost.classList.remove("fillme");
+}
+
+const setupChange = (amount) => {
+  let isChecked = getId("setupCheckbox").checked;
+  if (isChecked) {
+    getId("setupPrice").value = amount;
+    getId("setupPrice").textContent = amount;
+  }
+  console.log(typeof amount, amount);
 }
 
 //Calculate Total
@@ -280,60 +286,31 @@ const customJob = () => {
   return custCost
 }
 
+const clickBurl = () => {
+  let cost = getId("setupCost");
+  cost.placeholder = "3.50";
+}
+
 // Set price scale for store based off which radio button
 const setPriceScale = (scale) => {
+  let setStore = getId("storeLocation");
   switch(scale) {
     case "greensboroPrices":
       priceList = gsoPrices;
+      setStore.textContent = "Greensboro";
       break;
     case "burlingtonPrices":
       priceList = burlPrices;
-      break;
-    default:
-      priceList = gsoPrices;
-  }
-
-}
-
-// Print store location on ticket (top left)
-const setStoreLocation = (location) => {
-  let setStore = getId("storeLocation");
-  switch(location) {
-    case "greensboroPrices":
-      setStore.textContent = "Greensboro";
-      break;
-    case "burlingtonPrices":
       setStore.textContent = "Burlington";
       break;
     default:
+      priceList = gsoPrices;
       setStore.textContent = "Greensboro";
   }
 }
 
-// Handle incoming click for when the user selects the "Calculate" button
-const handleClick = () => {
-  let checkHasTotal = getId("orderTotal").textContent;
-  if (checkHasTotal > 0) {
-    getId("orderTotal").textContent = "";
-    getId("orderTax").textContent = "";
-    getId("subTotal").textContent = "";
-    allPrices = [];
-   } 
-  //Validate Data for required fields
-  checkRequiredFields()
-
-  let lineQuantities = checkQuant();
-  let jobType = getClass("jobs");
-  let mediaType = getClass("paper");
-  let size = getClass("sizes");
-  let subTots = 0;
-  let priceScale = document.querySelector('input[name="radioPrices"]:checked').value;
-
-  setPriceScale(priceScale);
-
-  setStoreLocation(priceScale);
-
-  //Calculate Line Items
+// Check for Custom Size Job
+const checkCustSize = () => {
   if (getId("custCheck").checked) {
     let custPrice = getId("Price7");
     let custValue = customJob();
@@ -341,7 +318,15 @@ const handleClick = () => {
     custPrice.textContent = custValue.toFixed(2);
     checkPrint(getId("custSizeRow"));   
   }
-  
+}
+
+// Calculate Line Items
+const calcCustLine = () => {
+  let lineQuantities = checkQuant();
+  let jobType = getClass("jobs");
+  let mediaType = getClass("paper");
+  let size = getClass("sizes");
+
   if (lineQuantities.some(el => el > 0)) {
     //call a function to process the lines with quantities.
     for ( i=0; i<lineQuantities.length; i++ ) {
@@ -372,11 +357,39 @@ const handleClick = () => {
            getId("Price"+ lineItem)];
         let lineArr = [qty, job, paper, lineSize, price];
         for (item=0; item<lineArr.length; item++) {
-          checkPrint(lineArr[item]);
+          if (!lineArr[item].classList.contains("printThis")) {
+            checkPrint(lineArr[item]);
+          }
         }
       }
     }
-  } 
+  }
+}
+
+// Handle incoming click for when the user selects the "Calculate" button
+const handleClick = () => {
+  let checkHasTotal = getId("orderTotal").textContent;
+  if (checkHasTotal > 0) {
+    getId("orderTotal").textContent = "";
+    getId("orderTax").textContent = "";
+    getId("subTotal").textContent = "";
+    allPrices = [];
+   }
+
+  //Validate Data for required fields
+  checkRequiredFields()
+
+  let subTots = 0;
+  let priceScale = document.querySelector('input[name="radioPrices"]:checked').value;
+
+  // Set price scale depending on store location
+  setPriceScale(priceScale);
+
+  // Check for Custom Size Job
+  checkCustSize();
+  
+  // Calculate Line Items
+  calcCustLine();
 
   //Calculate Sub Total
   subTots = calcSubTotal(allPrices);
