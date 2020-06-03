@@ -288,7 +288,7 @@ const customJob = () => {
 
 const clickBurl = () => {
   let cost = getId("setupCost");
-  cost.placeholder = "3.50";
+  cost.placeholder = "3.75";
 }
 
 // Set price scale for store based off which radio button
