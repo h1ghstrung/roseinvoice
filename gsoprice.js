@@ -212,23 +212,23 @@ let gsoPrices =
     },
     "bscan04":{
       "size": "15 x 21",
-      "prices": [0.95]
+      "prices": [1.00]
     },
     "bscan05":{
       "size": "18 x 24",
-      "prices": [1.05]
+      "prices": [1.10]
     },
     "bscan06":{
       "size": "24 x 36",
-      "prices": [1.15]
+      "prices": [1.25]
     },
     "bscan07":{
       "size": "30 x 42",
-      "prices": [1.35]
+      "prices": [1.75]
     },
     "bscan08":{
       "size": "36 x 48",
-      "prices": [1.80]
+      "prices": [2.75]
     }
   },
   "cut": {

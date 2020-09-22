@@ -208,7 +208,7 @@ let burlPrices =
     },
     "bscan03":{
       "size": "12 x 18",
-      "prices": [1.00]
+      "prices": [0.65]
     },
     "bscan04":{
       "size": "15 x 21",
@@ -240,7 +240,7 @@ let burlPrices =
   "sbook": {
     "sbook01":{
       "size": "8.5 x 11",
-      "prices": [3.50]
+      "prices": [3.95]
     }
   },
   "mount": {
