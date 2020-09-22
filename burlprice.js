@@ -216,7 +216,7 @@ let burlPrices =
     },
     "bscan05":{
       "size": "18 x 24",
-      "prices": [1.00]
+      "prices": [1.10]
     },
     "bscan06":{
       "size": "24 x 36",
