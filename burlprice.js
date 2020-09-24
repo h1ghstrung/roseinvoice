@@ -46,7 +46,7 @@ let burlPrices =
     },
     "bw09":{
       "size": "Custom",
-      "prices": [0.29, 0.29, null, null, null, null, null]
+      "prices": [0.35, 0.29, null, null, null, null, null]
     }
   },
   "cline": {
