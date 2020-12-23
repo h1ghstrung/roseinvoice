@@ -181,8 +181,9 @@ const calcDiscount = () => {
 //Check if tax exempt
 const checkExempt = () => {
   let taxExempt = getId("taxExempt");
+  let taxRow = getId("taxExemptRow");
   if (taxExempt.checked) {
-    checkPrint (taxExempt, true);
+    checkPrint (taxRow, true);
   }
   return taxExempt.checked
 }
