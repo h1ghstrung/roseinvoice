@@ -137,7 +137,8 @@
             <br />
             <div class="fullspan" id="JobName">
               <span required="required">
-                <textarea class="clear required printThis" name="JobName" form="orderForm" style="resize: none;" placeholder="Job Name" id="copyJobName"  cols="67" rows="1"></textarea>
+                <label class="printThis" for="copyJobName">Job Name</label><br />
+                <textarea class="clear required printThis" name="JobName" form="orderForm" style="resize: none;" placeholder="Ex: Smith Residence" id="copyJobName"  cols="67" rows="1"></textarea>
               </span>
             </div>
           </div>
@@ -542,7 +543,7 @@
                       </label>
                     </td>
                 </tr>
-                <tr>
+                <tr id="setupRow">
                   <td>
                     <span id="setupBox">
                       <input type="checkbox" onchange="doesSetup()" name="setupCheckbox" value="setupFee" id="setupCheckbox" class="" /><label for="setupCheckbox"> Setup </label>
@@ -594,9 +595,10 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr>
+                <tr id="notesTextArea">
                   <td colspan="4">
                     <div class="fullspan ma3">
+                      <label class="printThis" for="copyNotes">Notes</label><br />
                       <textarea class="clear mh3 printThis" maxlength="330" name="Notes" form="orderForm" style="resize: none;" placeholder="Notes" id="copyNotes" cols="67" rows="5"></textarea>
                     </div>
                   </td>

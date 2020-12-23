@@ -383,6 +383,9 @@ const handleClick = () => {
   let subTots = 0;
   let priceScale = document.querySelector('input[name="radioPrices"]:checked').value;
 
+  // Clear Placeholder text from textarea fields
+  
+
   // Set price scale depending on store location
   setPriceScale(priceScale);
 
