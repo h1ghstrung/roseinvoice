@@ -384,7 +384,12 @@ const handleClick = () => {
   let priceScale = document.querySelector('input[name="radioPrices"]:checked').value;
 
   // Clear Placeholder text from textarea fields
-  
+  let textAreas = document.getElementsByTagName('textarea')
+  Array.from(textAreas).forEach(element => {
+    if (element.value == '') {
+      element.removeAttribute('placeholder');
+    }    
+  });
 
   // Set price scale depending on store location
   setPriceScale(priceScale);
