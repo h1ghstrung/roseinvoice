@@ -14,7 +14,7 @@ let gsoPrices =
   "bw":{
     "bw01":{
       "size": "8.5 x 11",
-      "prices": [0.12, 0.12, null, null, null, null, null]
+      "prices": [0.15, 0.15, null, null, null, null, null]
     },
     "bw02":{
       "size": "11 x 17",
@@ -26,23 +26,23 @@ let gsoPrices =
     },
     "bw04":{
       "size": "15 x 21",
-      "prices": [1.70, 0.98, null, null, null, null, null]
+      "prices": [1.70, 1.05, null, null, null, null, null]
     },
     "bw05":{
       "size": "18 x 24",
-      "prices": [1.70, 1.15, 8.10, 4.95, 5.80, null, null]
+      "prices": [1.70, 1.20, 8.10, 4.95, 5.80, null, null]
     },
     "bw06":{
       "size": "24 x 36",
-      "prices": [1.70, 1.45, 14.80, 7.45, 8.75, null, null]
+      "prices": [1.70, 1.55, 14.80, 7.45, 8.75, null, null]
     },
     "bw07":{
       "size": "30 x 42",
-      "prices": [2.30, 1.75, 22.20, 8.55, 9.95, null, null]
+      "prices": [2.30, 1.90, 22.20, 8.55, 9.95, null, null]
     },
     "bw08":{
       "size": "36 x 48",
-      "prices": [3.65, 2.85, 30.84, 15.48, 18.12, null, null]
+      "prices": [3.65, 3.10, 30.84, 15.48, 18.12, null, null]
     },
     "bw09":{
       "size": "Custom",
@@ -52,7 +52,7 @@ let gsoPrices =
   "cline": {
     "cline01":{
       "size": "8.5 x 11",
-      "prices": [0.69, 0.69, null, null, null, 1.50, 1.50]
+      "prices": [0.72, 0.72, null, null, null, 1.50, 1.50]
     },
     "cline02":{
       "size": "11 x 17",
@@ -212,23 +212,23 @@ let gsoPrices =
     },
     "bscan04":{
       "size": "15 x 21",
-      "prices": [1.00]
+      "prices": [1.10]
     },
     "bscan05":{
       "size": "18 x 24",
-      "prices": [1.10]
+      "prices": [1.25]
     },
     "bscan06":{
       "size": "24 x 36",
-      "prices": [1.25]
+      "prices": [1.45]
     },
     "bscan07":{
       "size": "30 x 42",
-      "prices": [1.75]
+      "prices": [1.95]
     },
     "bscan08":{
       "size": "36 x 48",
-      "prices": [2.75]
+      "prices": [2.95]
     }
   },
   "cut": {
