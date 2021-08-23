@@ -14,7 +14,7 @@ let burlPrices =
   "bw":{
     "bw01":{
       "size": "8.5 x 11",
-      "prices": [0.12, 0.12, null, null, null, null, null]
+      "prices": [0.18, 0.18, null, null, null, null, null]
     },
     "bw02":{
       "size": "11 x 17",
@@ -26,33 +26,33 @@ let burlPrices =
     },
     "bw04":{
       "size": "15 x 21",
-      "prices": [1.00, 1.00, null, null, null, null, null]
+      "prices": [1.15, 1.15, null, null, null, null, null]
     },
     "bw05":{
       "size": "18 x 24",
-      "prices": [1.25, 1.25, 8.10, null, null, null, null]
+      "prices": [1.35, 1.35, 8.10, null, null, null, null]
     },
     "bw06":{
       "size": "24 x 36",
-      "prices": [1.45, 1.45, 14.80, null, null, null, null]
+      "prices": [1.60, 1.60, 14.80, null, null, null, null]
     },
     "bw07":{
       "size": "30 x 42",
-      "prices": [2.10, 2.10, 22.20, null, null, null, null]
+      "prices": [2.25, 2.25, 22.20, null, null, null, null]
     },
     "bw08":{
       "size": "36 x 48",
-      "prices": [3.95, 3.95, null, null, null, null, null]
+      "prices": [4.15, 4.15, null, null, null, null, null]
     },
     "bw09":{
       "size": "Custom",
-      "prices": [0.35, 0.29, null, null, null, null, null]
+      "prices": [0.35, 0.35, null, null, null, null, null]
     }
   },
   "cline": {
     "cline01":{
       "size": "8.5 x 11",
-      "prices": [0.69, 0.69, null, null, null, null, null]
+      "prices": [0.72, 0.72, null, null, null, null, null]
     },
     "cline02":{
       "size": "11 x 17",
@@ -212,23 +212,23 @@ let burlPrices =
     },
     "bscan04":{
       "size": "15 x 21",
-      "prices": [1.00]
+      "prices": [1.10]
     },
     "bscan05":{
       "size": "18 x 24",
-      "prices": [1.10]
+      "prices": [1.25]
     },
     "bscan06":{
       "size": "24 x 36",
-      "prices": [1.25]
+      "prices": [1.45]
     },
     "bscan07":{
       "size": "30 x 42",
-      "prices": [1.75]
+      "prices": [1.95]
     },
     "bscan08":{
       "size": "36 x 48",
-      "prices": [2.75]
+      "prices": [2.95]
     }
   },
   "cut": {
