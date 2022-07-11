@@ -18,31 +18,31 @@ let gsoPrices =
     },
     "bw02":{
       "size": "11 x 17",
-      "prices": [0.42, 0.42, null, null, null, null, null]
+      "prices": [0.45, 0.45, null, null, null, null, null]
     },
     "bw03":{
       "size": "12 x 18",
-      "prices": [0.95, 0.95, null, null, null, null, null]
+      "prices": [0.98, 0.98, null, null, null, null, null]
     },
     "bw04":{
       "size": "15 x 21",
-      "prices": [1.70, 1.05, null, null, null, null, null]
+      "prices": [1.70, 1.10, null, null, null, null, null]
     },
     "bw05":{
       "size": "18 x 24",
-      "prices": [1.70, 1.20, 8.10, 4.95, 5.80, null, null]
+      "prices": [1.80, 1.25, 8.10, 4.95, 5.80, null, null]
     },
     "bw06":{
       "size": "24 x 36",
-      "prices": [1.70, 1.55, 14.80, 7.45, 8.75, null, null]
+      "prices": [1.90, 1.65, 14.80, 7.45, 8.75, null, null]
     },
     "bw07":{
       "size": "30 x 42",
-      "prices": [2.30, 1.90, 22.20, 8.55, 9.95, null, null]
+      "prices": [2.60, 2.10, 22.20, 8.55, 9.95, null, null]
     },
     "bw08":{
       "size": "36 x 48",
-      "prices": [3.65, 3.10, 30.84, 15.48, 18.12, null, null]
+      "prices": [4.25, 3.55, 30.84, 15.48, 18.12, null, null]
     },
     "bw09":{
       "size": "Custom",
@@ -240,7 +240,7 @@ let gsoPrices =
   "sbook": {
     "sbook01":{
       "size": "8.5 x 11",
-      "prices": [3.50]
+      "prices": [3.75]
     }
   },
   "mount": {

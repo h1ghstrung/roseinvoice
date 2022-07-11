@@ -56,6 +56,8 @@ const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
     priceCode += "02";
   } else if (size == "ARCHB") {
     priceCode += "03";
+  } else if (size == "ISOB3") {
+    priceCode += "04";
   } else if (size == "ARCHC") {
     priceCode += "05";
     setupPrice = true;
