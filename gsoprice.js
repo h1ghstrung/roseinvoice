@@ -46,7 +46,7 @@ let gsoPrices =
     },
     "bw09":{
       "size": "Custom",
-      "prices": [0.35, 0.29, 2.70, 1.65, 1.93, null, null]
+      "prices": [0.45, 0.45, 2.70, 1.65, 1.93, null, null]
     }
   },
   "cline": {
