@@ -34,6 +34,9 @@ const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
     priceCode = "cmid";
   } else if (jobType == "FullCol") {
     priceCode = "cfull";
+  } else if (jobType == "BWonC") {
+    priceCode = "bwonc";
+    setupJob = false;
   } else if (jobType == "BScan"){
     priceCode = "bscan";
   } else if (jobType == "CScan") {

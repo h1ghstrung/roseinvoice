@@ -49,6 +49,44 @@ let gsoPrices =
       "prices": [0.45, 0.45, 2.70, 1.65, 1.93, null, null]
     }
   },
+  "bwonc":{
+    "bwonc01":{
+      "size": "8.5 x 11",
+      "prices": [0.49, 0.49, null, null, null, null, null]
+    },
+    "bwonc02":{
+      "size": "11 x 17",
+      "prices": [1.04, 1.04, null, null, null, null, null]
+    },
+    "bwonc03":{
+      "size": "12 x 18",
+      "prices": [1.43, 1.43, null, null, null, null, null]
+    },
+    "bwonc04":{
+      "size": "15 x 21",
+      "prices": [2.22, 2.22, null, null, null, null, null]
+    },
+    "bwonc05":{
+      "size": "18 x 24",
+      "prices": [2.78, 2.78, null, null, null, null, null]
+    },
+    "bwonc06":{
+      "size": "24 x 36",
+      "prices": [4.70, 4.70, null, null, null, null, null]
+    },
+    "bwonc07":{
+      "size": "30 x 42",
+      "prices": [6.77, 6.77, null, null, null, null, null]
+    },
+    "bwonc08":{
+      "size": "36 x 48",
+      "prices": [9.63, 9.63, null, null, null, null, null]
+    },
+    "bwonc09":{
+      "size": "Custom",
+      "prices": [1.25, 1.25, null, null, null, null, null]
+    }
+  },
   "cline": {
     "cline01":{
       "size": "8.5 x 11",
