@@ -14,7 +14,7 @@ let gsoPrices =
   "bw":{
     "bw01":{
       "size": "8.5 x 11",
-      "prices": [0.15, 0.15, null, null, null, null, null]
+      "prices": [0.15, 0.15, null, null, null, 1.50, 1.50]
     },
     "bw02":{
       "size": "11 x 17",
