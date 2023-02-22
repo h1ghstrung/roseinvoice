@@ -278,7 +278,7 @@ let gsoPrices =
   "sbook": {
     "sbook01":{
       "size": "8.5 x 11",
-      "prices": [3.75]
+      "prices": [3.90]
     }
   },
   "mount": {
