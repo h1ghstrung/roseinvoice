@@ -136,12 +136,6 @@ const checkQuant = () => {
 
 //Calculate Line Items
 const calcLinePrice = (qty, priceCode, priceCat, priceIndex) => {
-  if (priceCat != "bw") {
-    let lineCost = null;
-    lineCost = priceList[priceCat][priceCode].prices[priceIndex]*qty;
-    allPrices.push(lineCost);
-    return lineCost
-  } else if (priceCat == "bw") {
       let linePrice = 0
       if (qty <= 10) {
         linePrice = priceList[priceCat][priceCode].prices[priceIndex] * qty;
@@ -151,8 +145,6 @@ const calcLinePrice = (qty, priceCode, priceCat, priceIndex) => {
       }
       allPrices.push(linePrice);
       return linePrice
-    }
-    return
 }
 
 //Check for Setup
