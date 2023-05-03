@@ -76,19 +76,19 @@ const control = (jobType="BW", mediaType="Bond", size="ARCHD") => {
   } else if (size == "CUST") {
     priceCode += "09";
   }
-  // bond first 10, bond after 10, mylar, plain vellum, erasable vellum, glossy, satin
+  // bond first 10, bond after 10, bond after 50, mylar, plain vellum, erasable vellum, glossy, satin
   if (mediaType === "Bond") {
     mediaIndex = 0;
   } else if (mediaType === "Mylar") {
-    mediaIndex = 2;
-  } else if (mediaType === "Glossy") {
-    mediaIndex = 5;
-  } else if (mediaType === "Vellum") {
     mediaIndex = 3;
-  } else if (mediaType === "ERVellum") {
-    mediaIndex = 4;
-  } else if (mediaType === "Satin") {
+  } else if (mediaType === "Glossy") {
     mediaIndex = 6;
+  } else if (mediaType === "Vellum") {
+    mediaIndex = 4;
+  } else if (mediaType === "ERVellum") {
+    mediaIndex = 5;
+  } else if (mediaType === "Satin") {
+    mediaIndex = 7;
   }
 
   if (setupJob && setupPrice) {
@@ -140,8 +140,11 @@ const calcLinePrice = (qty, priceCode, priceCat, priceIndex) => {
       if (qty <= 10) {
         linePrice = priceList[priceCat][priceCode].prices[priceIndex] * qty;
       }
-      else if (qty > 10) {
+      else if (qty > 10 && qty <= 50) {
         linePrice = (priceList[priceCat][priceCode].prices[priceIndex] * 10) + ((priceList[priceCat][priceCode].prices[priceIndex+1]) *(qty-10));
+      }
+      else if (qty > 50) {
+        linePrice = (priceList[priceCat][priceCode].prices[priceIndex] * 10) + ((priceList[priceCat][priceCode].prices[priceIndex+1]) *(40)) + ((priceList[priceCat][priceCode].prices[priceIndex+2]) *(qty-50));
       }
       allPrices.push(linePrice);
       return linePrice
