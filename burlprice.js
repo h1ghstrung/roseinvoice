@@ -204,69 +204,69 @@ let burlPrices =
   "cscan":{
     "cscan01":{
       "size": "8.5 x 11",
-      "prices": [0.69]
+      "prices": [0.69, 0.69, 0.69]
     },
     "cscan02":{
       "size": "11 x 17",
-      "prices": [2.50]
+      "prices": [2.50, 2.50, 2.50]
     },
     "cscan03":{
       "size": "12 x 18",
-      "prices": [3.00]
+      "prices": [3.00, 3.00, 3.00]
     },
     "cscan04":{
       "size": "15 x 21",
-      "prices": [4.50]
+      "prices": [4.50, 4.50, 4.50]
     },
     "cscan05":{
       "size": "18 x 24",
-      "prices": [5.00]
+      "prices": [5.00, 5.00, 5.00]
     },
     "cscan06":{
       "size": "24 x 36",
-      "prices": [5.75]
+      "prices": [5.75, 5.75, 5.75]
     },
     "cscan07":{
       "size": "30 x 42",
-      "prices": [6.90]
+      "prices": [6.90, 6.90, 6.90]
     },
     "cscan08":{
       "size": "36 x 48",
-      "prices": [8.90]
+      "prices": [8.90, 8.90, 8.90]
     }
   },
   "bscan":{
     "bscan01":{
       "size": "8.5 x 11",
-      "prices": [0.18]
+      "prices": [0.18, 0.18, 0.18]
     },
     "bscan02":{
       "size": "11 x 17",
-      "prices": [0.35]
+      "prices": [0.35, 0.35, 0.35]
     },
     "bscan03":{
       "size": "12 x 18",
-      "prices": [1.00]
+      "prices": [1.00, 1.00, 1.00]
     },
     "bscan04":{
       "size": "15 x 21",
-      "prices": [1.10]
+      "prices": [1.10, 1.10, 1.10]
     },
     "bscan05":{
       "size": "18 x 24",
-      "prices": [1.25]
+      "prices": [1.25, 1.25, 1.25]
     },
     "bscan06":{
       "size": "24 x 36",
-      "prices": [1.45]
+      "prices": [1.45, 1.45, 1.45]
     },
     "bscan07":{
       "size": "30 x 42",
-      "prices": [1.95]
+      "prices": [1.95, 1.95, 1.95]
     },
     "bscan08":{
       "size": "36 x 48",
-      "prices": [2.95]
+      "prices": [2.95, 2.95, 2.95]
     }
   },
   "cut": {

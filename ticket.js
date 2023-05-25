@@ -146,6 +146,7 @@ const calcLinePrice = (qty, priceCode, priceCat, priceIndex) => {
       else if (qty > 50) {
         linePrice = (priceList[priceCat][priceCode].prices[priceIndex] * 10) + ((priceList[priceCat][priceCode].prices[priceIndex+1]) *(40)) + ((priceList[priceCat][priceCode].prices[priceIndex+2]) *(qty-50));
       }
+      console.log("Value: ", linePrice, "    Type: ", typeof(linePrice));
       allPrices.push(linePrice);
       return linePrice
 }
