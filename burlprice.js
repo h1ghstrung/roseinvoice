@@ -30,15 +30,15 @@ let burlPrices =
     },
     "bw05":{
       "size": "18 x 24",
-      "prices": [1.70, 1.70, 1.70, 8.10, null, null, null, null]
+      "prices": [1.70, 1.70, 1.70, 9.75, null, null, null, null]
     },
     "bw06":{
       "size": "24 x 36",
-      "prices": [1.95, 1.95, 1.95, 14.80, null, null, null, null]
+      "prices": [1.95, 1.95, 1.95, 17.90, null, null, null, null]
     },
     "bw07":{
       "size": "30 x 42",
-      "prices": [2.65, 2.65, 2.65, 22.20, null, null, null, null]
+      "prices": [2.65, 2.65, 2.65, 26.65, null, null, null, null]
     },
     "bw08":{
       "size": "36 x 48",
