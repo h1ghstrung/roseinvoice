@@ -18,7 +18,7 @@ let gsoPrices =
     },
     "bw02":{
       "size": "11 x 17",
-      "prices": [0.45, 0.45, 0.45, null, null, null, null, null]
+      "prices": [0.45, 0.45, 0.45, null, null, 3.50, 3.50, null]
     },
     "bw03":{
       "size": "12 x 18",
@@ -122,13 +122,13 @@ let gsoPrices =
     },
     "cline09":{
       "size": "Custom",
-      "prices": [1.65, 1.65, 1.65, null, null, null, 2.38, 2.38]
+      "prices": [1.65, 1.65, 1.65, null, null, null, 3.00, 3.00]
     }
   },
   "cmid": {
     "cmid01":{
       "size": "8.5 x 11",
-      "prices": [0.69, 0.69, 0.69, null, null, null, 1.50, 1.50]
+      "prices": [0.72, 0.72, 0.72, null, null, null, 1.50, 1.50]
     },
     "cmid02":{
       "size": "11 x 17",
@@ -136,7 +136,7 @@ let gsoPrices =
     },
     "cmid03":{
       "size": "12 x 18",
-      "prices": [1.79, 1.79, 1.79, null, null, null, null, null]
+      "prices": [2.10, 2.10, 2.10, null, null, null, null, null]
     },
     "cmid04":{
       "size": "15 x 21",
@@ -166,7 +166,7 @@ let gsoPrices =
   "cfull": {
     "cfull01":{
       "size": "8.5 x 11",
-      "prices": [0.69, 0.69, 0.69, null, null, null, 1.50, 1.50]
+      "prices": [0.72, 0.72, 0.72, null, null, null, 1.50, 1.50]
     },
     "cfull02":{
       "size": "11 x 17",
@@ -174,7 +174,7 @@ let gsoPrices =
     },
     "cfull03":{
       "size": "12 x 18",
-      "prices": [1.79, 1.79, 1.79, null, null, null, null, null]
+      "prices": [2.10, 2.10, 2.10, null, null, null, null, null]
     },
     "cfull04":{
       "size": "15 x 21",
@@ -238,35 +238,35 @@ let gsoPrices =
   "bscan":{
     "bscan01":{
       "size": "8.5 x 11",
-      "prices": [0.12, 0.12, 0.12]
+      "prices": [0.15, 0.15, 0.15]
     },
     "bscan02":{
       "size": "11 x 17",
-      "prices": [0.29, 0.29, 0.29]
+      "prices": [0.30, 0.30, 0.30]
     },
     "bscan03":{
       "size": "12 x 18",
-      "prices": [0.65, 0.65, 0.65]
+      "prices": [0.68, 0.68, 0.68]
     },
     "bscan04":{
       "size": "15 x 21",
-      "prices": [1.10, 1.10, 1.10]
+      "prices": [1.15, 1.15, 1.15]
     },
     "bscan05":{
       "size": "18 x 24",
-      "prices": [1.25, 1.25, 1.25]
+      "prices": [1.30, 1.30, 1.30]
     },
     "bscan06":{
       "size": "24 x 36",
-      "prices": [1.45, 1.45, 1.45]
+      "prices": [1.52, 1.52, 1.52]
     },
     "bscan07":{
       "size": "30 x 42",
-      "prices": [1.95, 1.95, 1.95]
+      "prices": [2.05, 2.05, 2.05]
     },
     "bscan08":{
       "size": "36 x 48",
-      "prices": [2.95, 2.95, 2.95]
+      "prices": [3.10, 3.10, 3.10]
     }
   },
   "cut": {
