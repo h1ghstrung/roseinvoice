@@ -18,7 +18,7 @@ let burlPrices =
     },
     "bw02":{
       "size": "11 x 17",
-      "prices": [0.35, 0.35, 0.35, null, null, null, null, null]
+      "prices": [0.40, 0.40, 0.40, null, null, null, null, null]
     },
     "bw03":{
       "size": "12 x 18",
@@ -26,23 +26,23 @@ let burlPrices =
     },
     "bw04":{
       "size": "15 x 21",
-      "prices": [1.15, 1.15, 1.15, null, null, null, null, null]
+      "prices": [1.40, 1.40, 1.40, null, null, null, null, null]
     },
     "bw05":{
       "size": "18 x 24",
-      "prices": [1.70, 1.70, 1.70, 9.75, null, null, null, null]
+      "prices": [1.90, 1.90, 1.90, 9.75, null, null, null, null]
     },
     "bw06":{
       "size": "24 x 36",
-      "prices": [1.95, 1.95, 1.95, 17.90, null, null, null, null]
+      "prices": [2.15, 2.15, 2.15, 17.90, null, null, null, null]
     },
     "bw07":{
       "size": "30 x 42",
-      "prices": [2.65, 2.65, 2.65, 26.65, null, null, null, null]
+      "prices": [2.95, 2.95, 2.95, 26.65, null, null, null, null]
     },
     "bw08":{
       "size": "36 x 48",
-      "prices": [4.60, 4.60, 4.60, null, null, null, null, null]
+      "prices": [4.75, 4.75, 4.75, null, null, null, null, null]
     },
     "bw09":{
       "size": "Custom",
